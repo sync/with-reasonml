@@ -28,9 +28,9 @@ var $$default = Index;
 
 export {
   make ,
+  getInitialProps ,
   $$default ,
   $$default as default,
-  getInitialProps ,
   inject ,
   
 }

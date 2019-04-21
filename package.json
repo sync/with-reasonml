@@ -7,7 +7,8 @@
     "dev:reason": "bsb -make-world -w",
     "dev:next": "next dev",
     "build": "bsb -clean-world -make-world && next build",
-    "start": "next start"
+    "start": "next start",
+    "now-build": "yarn build"
   },
   "license": "ISC",
   "dependencies": {
