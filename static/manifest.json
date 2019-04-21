@@ -1,0 +1,21 @@
+{
+  "name": "WithReasonML",
+  "short_name": "with-reasonml",
+  "background_color": "#FFFFFF",
+  "theme_color": "#FFFFFF",
+  "description": "reasonml pwa next.js",
+  "display": "standalone",
+  "start_url": "/",
+  "icons": [
+    {
+      "src": "/static/android-chrome-192x192.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "/static/android-chrome-512x512.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ]
+}

@@ -1,5 +1,20 @@
 {
   "version": 2,
   "name": "nextjs",
-  "builds": [{ "src": "package.json", "use": "@now/next" }]
+  "builds": [
+    { "src": "/static/*", "use": "@now/static" },
+    { "src": "next.config.js", "use": "@now/next" }
+  ],
+  "routes": [
+    { "src": "/static/(.*)", "dest": "/static/$1" },
+    {
+      "src": "/service-worker.js$",
+      "dest": "/_next/static/service-worker.js",
+      "headers": {
+        "cache-control": "public, max-age=43200, immutable",
+        "Service-Worker-Allowed": "/"
+      }
+    },
+    { "src": "/(.*)", "dest": "/$1" }
+  ]
 }

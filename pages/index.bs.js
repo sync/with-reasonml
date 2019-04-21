@@ -8,7 +8,7 @@ import * as Pervasives from "bs-platform/lib/es6/pervasives.js";
 
 function Index(Props) {
   var onServer = Props.onServer;
-  return React.createElement("div", undefined, React.createElement(Header.make, { }), React.createElement("p", undefined, "HOME PAGE is here!"), React.createElement("p", undefined, "onServer: " + Pervasives.string_of_bool(onServer)), React.createElement(Counter.make, { }));
+  return React.createElement("div", undefined, React.createElement(Header.make, { }), React.createElement("p", undefined, "HOME PAGE is here!!!"), React.createElement("p", undefined, "onServer: " + Pervasives.string_of_bool(onServer)), React.createElement(Counter.make, { }));
 }
 
 function getInitialProps(context) {
