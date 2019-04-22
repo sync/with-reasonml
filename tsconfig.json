@@ -1,0 +1,26 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "target": "es6",
+    "module": "es6",
+    "jsx": "preserve",
+    "moduleResolution": "node",
+    "allowSyntheticDefaultImports": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "removeComments": false,
+    "preserveConstEnums": true,
+    "sourceMap": true,
+    "skipLibCheck": true,
+    "typeRoots": ["./node_modules/@types"],
+    "lib": ["dom", "es2015", "es2016", "es2017.object"],
+    "strictNullChecks": true,
+    "rootDir": "./",
+    "baseUrl": "./"
+  },
+  "exclude": ["node_modules"],
+  "awesomeTypescriptLoaderOptions": {
+    "useBabel": true,
+    "babelCore": "@babel/core"
+  }
+}

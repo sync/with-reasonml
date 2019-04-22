@@ -9,3 +9,4 @@ lib
 *.gen.js
 renovate.json
 .graphql_ppx_cache
+storybook-static

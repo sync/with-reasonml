@@ -43,10 +43,15 @@ Deploy it to the cloud with [now](https://zeit.co/now) ([download](https://zeit.
 now
 ```
 
-### Recommendation:
+## Storybook
 
-Run BuckleScript build system `bsb -w` and `next -w` separately. For the sake
-of simple convention, `yarn dev` run both `bsb` and `next` concurrently.
+This is where we list all our components (comes with hot reloading)
+
+```sh
+$ yarn storybook
+```
+
+After doing this, you'll have a showcase page running at [http://localhost:6006](http://localhost:6006)
 
 ## The idea behind the example
 

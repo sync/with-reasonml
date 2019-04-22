@@ -9,5 +9,6 @@ lib
 *.gen.js
 renovate.json
 .graphql_ppx_cache
+storybook-static
 next.config.js
 postcss.config.js
