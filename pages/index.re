@@ -2,7 +2,7 @@
 let make = (~onServer) => {
   <div>
     <Header />
-    <p> {ReasonReact.string("HOME PAGE is here!!!")} </p>
+    <p> {ReasonReact.string("HOME PAGE is here!")} </p>
     <p> {ReasonReact.string("onServer: " ++ string_of_bool(onServer))} </p>
     <Counter />
   </div>;

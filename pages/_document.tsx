@@ -1,5 +1,19 @@
-import Document, { Head, Main, NextScript } from "next/document";
-import React from "react";
+import Document, { Head, Main, NextScript } from 'next/document';
+import React from 'react';
+
+const serviceWorkerRegistration = `
+  document.addEventListener('DOMContentLoaded', event => {
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/service-worker.js', { scope: "/" }).then(registration => {
+          console.log('SW registered: ', registration)
+        }).catch(registrationError => {
+          console.log('SW registration failed: ', registrationError)
+        })
+      })
+    }
+  })
+`;
 
 export default class MyDocument extends Document {
   static getInitialProps({ renderPage }) {
@@ -13,9 +27,9 @@ export default class MyDocument extends Document {
               display: flex;
               flex-direction: column;
             }
-          `
+          `,
         }}
-      />
+      />,
     ];
 
     return { ...page, styles: React.Children.toArray(styles) };
@@ -79,17 +93,3 @@ export default class MyDocument extends Document {
     );
   }
 }
-
-const serviceWorkerRegistration = `
-  document.addEventListener('DOMContentLoaded', event => {
-    if ('serviceWorker' in navigator) {
-      window.addEventListener('load', () => {
-        navigator.serviceWorker.register('/service-worker.js', { scope: "/" }).then(registration => {
-          console.log('SW registered: ', registration)
-        }).catch(registrationError => {
-          console.log('SW registration failed: ', registrationError)
-        })
-      })
-    }
-  })
-`;

@@ -2,21 +2,20 @@
 
 import * as React from "react";
 import * as Link from "next/link";
+import * as HeaderCss from "./Header.css";
 
-var styles = {
-  marginRight: "10px"
-};
+var css = HeaderCss;
 
 function Header(Props) {
   return React.createElement("div", undefined, React.createElement(Link.default, {
                   href: "/",
                   children: React.createElement("a", {
-                        style: styles
+                        className: css.withMargin
                       }, "Home")
                 }), React.createElement(Link.default, {
                   href: "/about",
                   children: React.createElement("a", {
-                        style: styles
+                        className: css.withMargin
                       }, "About")
                 }));
 }
@@ -26,10 +25,10 @@ var make = Header;
 var $$default = Header;
 
 export {
-  styles ,
+  css ,
   make ,
   $$default ,
   $$default as default,
   
 }
-/* react Not a pure module */
+/* css Not a pure module */

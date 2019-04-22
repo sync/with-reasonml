@@ -1,0 +1,11 @@
+dist
+.next
+coverage
+node_modules
+**/node_modules/**
+lib
+.cache
+*.bs.js
+*.gen.js
+renovate.json
+.graphql_ppx_cache

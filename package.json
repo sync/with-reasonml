@@ -1,14 +1,23 @@
 {
   "name": "with-reasonml",
   "version": "1.0.0",
+  "engines": {
+    "node": "8.x.x"
+  },
   "scripts": {
     "clean": "bsb -clean-world",
     "dev": "run-p -c dev:*",
     "dev:reason": "bsb -make-world -w",
     "dev:next": "next dev",
-    "build": "bsb -clean-world -make-world && next build",
+    "build": "yarn clean && yarn build:reason && yarn build:next",
+    "build:reason": "bsb -make-world",
+    "build:next": "next build",
     "start": "DISABLE_SERVERLESS=true NODE_ENV=production next start",
-    "now-build": "yarn build"
+    "now-build": "yarn build",
+    "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,css,md,html,graphql}\"",
+    "lint": "run-p -c lint:*",
+    "lint:css": "stylelint '**/*.css'",
+    "lint:ts": "eslint '**/*.js{,x}' '**/*.ts{,x}'"
   },
   "license": "ISC",
   "dependencies": {
@@ -26,7 +35,41 @@
     "@babel/core": "7.4.3",
     "@types/next": "8.0.3",
     "@types/react": "16.8.14",
+    "@typescript-eslint/eslint-plugin": "1.7.0",
+    "@typescript-eslint/parser": "1.7.0",
+    "@zeit/next-css": "1.0.1",
+    "autoprefixer": "9.5.1",
     "bs-platform": "5.0.3",
-    "npm-run-all": "4.1.5"
+    "eslint": "5.16.0",
+    "eslint-config-prettier": "4.1.0",
+    "eslint-plugin-jest": "22.4.1",
+    "eslint-plugin-react": "7.12.4",
+    "husky": "1.3.1",
+    "lint-staged": "8.1.5",
+    "npm-run-all": "4.1.5",
+    "prettier": "1.17.0",
+    "stylelint": "10.0.1",
+    "stylelint-config-recommended": "2.2.0",
+    "stylelint-config-standard": "18.3.0",
+    "typescript": "3.4.4",
+    "webpack": "4.30.0"
+  },
+  "prettier": {
+    "singleQuote": true,
+    "trailingComma": "all",
+    "bracketSpacing": true
+  },
+  "lint-staged": {
+    "*.{ts,tsx,js,jsx,json,css,md,html}": [
+      "yarn format",
+      "git add"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged",
+      "pre-push": "yarn lint",
+      "post-commit": "git update-index -g"
+    }
   }
 }
