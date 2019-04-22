@@ -4,11 +4,11 @@ import {
   getStorybook,
   setAddon,
 } from '@storybook/react';
-import centered from '@storybook/addon-centered/react';
+import centered from '@storybook/addon-centered';
 import createPercyAddon from '@percy-io/percy-storybook';
 
 // automatically import all files ending in *.stories.js
-const req = require.context('../stories', true, /.stories.jsx?$/);
+const req = require.context('../stories', true, /.stories.tsx?$/);
 function loadStories() {
   addDecorator(centered);
   req.keys().forEach(filename => req(filename));

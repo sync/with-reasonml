@@ -18,12 +18,8 @@ function Counter(Props) {
 
 var make = Counter;
 
-var $$default = Counter;
-
 export {
   make ,
-  $$default ,
-  $$default as default,
   
 }
 /* react Not a pure module */

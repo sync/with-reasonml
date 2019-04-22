@@ -2629,7 +2629,7 @@ babel-loader@8.0.2:
     mkdirp "^0.5.1"
     util.promisify "^1.0.0"
 
-babel-loader@8.0.5, babel-loader@^8.0.5:
+babel-loader@8.0.5:
   version "8.0.5"
   resolved "https://registry.yarnpkg.com/babel-loader/-/babel-loader-8.0.5.tgz#225322d7509c2157655840bba52e46b6c2f2fe33"
   integrity sha512-NTnHnVRd2JnRqPC0vW+iOQWU5pchDbYXsG2E6DMXEpMfUcQKclF9gmf3G3ZMhzG7IG9ji4coL0cm+FxeWxDpnw==
@@ -5283,6 +5283,11 @@ gauge@~2.7.3:
     string-width "^1.0.1"
     strip-ansi "^3.0.1"
     wide-align "^1.1.0"
+
+gentype@2.21.1:
+  version "2.21.1"
+  resolved "https://registry.yarnpkg.com/gentype/-/gentype-2.21.1.tgz#ecfb837189dd242da60c94c5897619b197250413"
+  integrity sha512-McljBLM+qwpaPsD/ysRnP13ASJ578h55JzVqN/mQWwlyV/986ertEwqrpC4yp2sJaIs1w7qgrCYnLuOxBqGkuQ==
 
 get-caller-file@^1.0.1:
   version "1.0.3"

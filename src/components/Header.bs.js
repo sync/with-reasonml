@@ -22,13 +22,9 @@ function Header(Props) {
 
 var make = Header;
 
-var $$default = Header;
-
 export {
   css ,
   make ,
-  $$default ,
-  $$default as default,
   
 }
 /* css Not a pure module */

@@ -2,8 +2,8 @@
 
 import * as Curry from "bs-platform/lib/es6/curry.js";
 import * as React from "react";
-import * as Header from "../components/Header.bs.js";
-import * as Counter from "../components/Counter.bs.js";
+import * as Header from "../src/components/Header.bs.js";
+import * as Counter from "../src/components/Counter.bs.js";
 import * as Pervasives from "bs-platform/lib/es6/pervasives.js";
 
 function Index(Props) {

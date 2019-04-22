@@ -24,7 +24,7 @@ module.exports = {
   },
   overrides: [
     {
-      files: ['**/*.ts', '**/*.tsx'],
+      files: ['**/*.ts', '**/*.tsx', '**/*.js', '**/*.jsx'],
       rules: {
         '@typescript-eslint/no-undef': 'off',
         '@typescript-eslint/no-unused-vars': 'off',
@@ -32,6 +32,10 @@ module.exports = {
         '@typescript-eslint/no-restricted-globals': 'off',
         '@typescript-eslint/explicit-member-accessibility': 'off',
         '@typescript-eslint/explicit-function-return-type': 'off',
+        '@typescript-eslint/camelcase': 'off',
+        '@typescript-eslint/no-var-requires': 'off',
+        '@typescript-eslint/class-name-casing': 'off',
+        '@typescript-eslint/no-explicit-any': 'off',
       },
     },
     {

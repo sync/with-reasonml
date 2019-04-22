@@ -6,7 +6,7 @@ node_modules
 lib
 .cache
 *.bs.js
-*.gen.js
+*.gen.tsx
 renovate.json
 .graphql_ppx_cache
 storybook-static

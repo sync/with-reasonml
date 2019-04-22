@@ -16,7 +16,7 @@ const config = {
   },
   ...baseTarget,
   crossOrigin: 'anonymous',
-  webpack: (config, { dir, defaultLoaders, dev, isServer }) => {
+  webpack: config => {
     const rules = config.module.rules;
 
     // don't even ask my why
@@ -46,6 +46,7 @@ const config = {
       '.jsx',
       '.json',
       '.bs.js',
+      '.gen.tsx',
     ];
 
     return config;

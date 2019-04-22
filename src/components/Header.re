@@ -1,6 +1,7 @@
 type css = {. "withMargin": string};
 [@bs.module] external css: css = "./Header.css";
 
+[@genType]
 [@react.component]
 let make = () => {
   <div>
@@ -12,5 +13,3 @@ let make = () => {
     </Next.Link>
   </div>;
 };
-
-let default = make;
