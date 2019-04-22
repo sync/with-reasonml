@@ -43,6 +43,22 @@ Deploy it to the cloud with [now](https://zeit.co/now) ([download](https://zeit.
 now
 ```
 
+## Run tests and friends
+
+We don't want to use snapshots, we use also use `react-testing-library` to avoid having to use enzyme and to enforce best practices.
+
+```sh
+$ yarn lint
+$ yarn typecheck
+$ yarn test
+```
+
+or
+
+```sh
+$ yarn test-watch
+```
+
 ## Storybook
 
 This is where we list all our components (comes with hot reloading)
