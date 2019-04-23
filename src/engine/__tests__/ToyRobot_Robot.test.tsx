@@ -9,6 +9,7 @@ import {
   Robot_turnLeft as turnLeft,
   Robot_turnRight as turnRight,
   Robot_report as report,
+  Robot_nextMove as nextMove,
 } from '../ToyRobot.gen';
 
 describe('Robot', () => {
@@ -93,6 +94,10 @@ describe('Robot', () => {
         expect(robot.north).toEqual(1);
       });
 
+      it('next move is to (0, 1)', () => {
+        expect(nextMove(robot)).toEqual([0, 1]);
+      });
+
       it('turns left to face west', () => {
         robot = turnLeft(robot);
         expect(robot.direction).toEqual('WEST');
@@ -112,6 +117,10 @@ describe('Robot', () => {
       it('moves south', () => {
         robot = move(robot);
         expect(robot.north).toEqual(-1);
+      });
+
+      it('next move is to (0, -1)', () => {
+        expect(nextMove(robot)).toEqual([0, -1]);
       });
 
       it('turns left to face east', () => {
@@ -135,6 +144,10 @@ describe('Robot', () => {
         expect(robot.east).toEqual(1);
       });
 
+      it('next move is to (1, 0)', () => {
+        expect(nextMove(robot)).toEqual([1, 0]);
+      });
+
       it('turns left to face north', () => {
         robot = turnLeft(robot);
         expect(robot.direction).toEqual('NORTH');
@@ -154,6 +167,10 @@ describe('Robot', () => {
       it('moves west', () => {
         robot = move(robot);
         expect(robot.east).toEqual(-1);
+      });
+
+      it('next move is to (-1, 0)', () => {
+        expect(nextMove(robot)).toEqual([-1, 0]);
       });
 
       it('turns left to face south', () => {

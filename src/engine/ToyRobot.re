@@ -55,6 +55,16 @@ module Robot = {
   };
 
   [@gentype]
+  let nextMove = robot => {
+    switch (robot.direction) {
+    | NORTH => [|robot.east, robot.north + 1|]
+    | SOUTH => [|robot.east, robot.north - 1|]
+    | EAST => [|robot.east + 1, robot.north|]
+    | WEST => [|robot.east - 1, robot.north|]
+    };
+  };
+
+  [@gentype]
   let turnLeft = robot => {
     robot.direction = (
       switch (robot.direction) {
@@ -121,7 +131,14 @@ module Simulator = {
 
   [@genType]
   let move = simulator => {
-    simulator.robot->Belt.Option.map(Robot.move) |> ignore;
+    switch (simulator.robot) {
+    | Some(robot) =>
+      let next = Robot.nextMove(robot);
+      if (Table.validLocation(simulator.table, ~east=next[0], ~north=next[1])) {
+        Robot.move(robot) |> ignore;
+      };
+    | None => ()
+    };
     simulator;
   };
 

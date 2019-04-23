@@ -61,4 +61,19 @@ describe('Simulator', () => {
       });
     });
   });
+
+  describe('robot placed at the table boundary', () => {
+    beforeEach(() => {
+      simulator = place(simulator, { east: 0, north: 4, facing: 'NORTH' });
+    });
+
+    it('tells the robot to move', () => {
+      simulator = move(simulator);
+      expect(report(simulator)).toEqual({
+        east: 0,
+        north: 4,
+        direction: 'NORTH',
+      });
+    });
+  });
 });

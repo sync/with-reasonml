@@ -60,17 +60,22 @@ export const Robot_move: (_1:Robot_t) => Robot_t = function (Arg1: any) {
   return {east:result[0], north:result[1], direction:$$toJS311681469[result[2]]}
 };
 
-export const Robot_turnLeft: (_1:Robot_t) => Robot_t = function (Arg1: any) {
+export const Robot_nextMove: (_1:Robot_t) => number[] = function (Arg1: any) {
   const result = ToyRobotBS.Robot[6]([Arg1.east, Arg1.north, $$toRE311681469[Arg1.direction]]);
-  return {east:result[0], north:result[1], direction:$$toJS311681469[result[2]]}
+  return result
 };
 
-export const Robot_turnRight: (_1:Robot_t) => Robot_t = function (Arg1: any) {
+export const Robot_turnLeft: (_1:Robot_t) => Robot_t = function (Arg1: any) {
   const result = ToyRobotBS.Robot[7]([Arg1.east, Arg1.north, $$toRE311681469[Arg1.direction]]);
   return {east:result[0], north:result[1], direction:$$toJS311681469[result[2]]}
 };
 
-export const Robot_report: <T1>(_1:T1) => T1 = ToyRobotBS.Robot[8];
+export const Robot_turnRight: (_1:Robot_t) => Robot_t = function (Arg1: any) {
+  const result = ToyRobotBS.Robot[8]([Arg1.east, Arg1.north, $$toRE311681469[Arg1.direction]]);
+  return {east:result[0], north:result[1], direction:$$toJS311681469[result[2]]}
+};
+
+export const Robot_report: <T1>(_1:T1) => T1 = ToyRobotBS.Robot[9];
 
 export const Table_make: (_1:{ readonly width: number; readonly length: number }) => Table_t = function (Arg1: any) {
   const result = Curry._2(ToyRobotBS.Table[0], Arg1.width, Arg1.length);
