@@ -159,3 +159,54 @@ module Simulator = {
     simulator.robot->Belt.Option.map(Robot.report);
   };
 };
+
+module Command = {
+  [@gentype]
+  type t =
+    | PLACE(int, int, Robot.direction)
+    | MOVE
+    | LEFT
+    | RIGHT
+    | REPORT
+    | INVALID(string);
+
+  let direction_of_string = string => {
+    switch (string) {
+    | "NORTH" => Some(Robot.NORTH)
+    | "SOUTH" => Some(Robot.SOUTH)
+    | "EAST" => Some(Robot.EAST)
+    | "WEST" => Some(Robot.WEST)
+    | _ => None
+    };
+  };
+
+  [@genType]
+  let process = (command: string) => {
+    let moveMatches = Js.String.match([%re "/MOVE/"], command);
+    let leftMatches = Js.String.match([%re "/LEFT/"], command);
+    let rightMatches = Js.String.match([%re "/RIGHT/"], command);
+    let reportMatches = Js.String.match([%re "/REPORT/"], command);
+    let placeMatches =
+      Js.String.match([%re "/PLACE (\d+),(\d+),(\w+)/"], command);
+
+    switch (
+      moveMatches,
+      leftMatches,
+      rightMatches,
+      reportMatches,
+      placeMatches,
+    ) {
+    | (Some(_), _, _, _, _) => MOVE
+    | (_, Some(_), _, _, _) => LEFT
+    | (_, _, Some(_), _, _) => RIGHT
+    | (_, _, _, Some(_), _) => REPORT
+    | (_, _, _, _, Some(matches)) =>
+      switch (direction_of_string(matches[3])) {
+      | Some(facing) =>
+        PLACE(int_of_string(matches[1]), int_of_string(matches[2]), facing)
+      | None => INVALID(command)
+      }
+    | _ => INVALID(command)
+    };
+  };
+};
