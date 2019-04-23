@@ -21,36 +21,62 @@ module Robot = {
   };
 
   [@genType]
-  let moveEast = engine => {
-    engine.east = engine.east + 1;
-    engine;
+  let moveEast = robot => {
+    robot.east = robot.east + 1;
+    robot;
   };
 
   [@genType]
-  let moveWest = engine => {
-    engine.east = engine.east - 1;
-    engine;
+  let moveWest = robot => {
+    robot.east = robot.east - 1;
+    robot;
   };
 
   [@genType]
-  let moveNorth = engine => {
-    engine.north = engine.north + 1;
-    engine;
+  let moveNorth = robot => {
+    robot.north = robot.north + 1;
+    robot;
   };
 
   [@genType]
-  let moveSouth = engine => {
-    engine.north = engine.north - 1;
-    engine;
+  let moveSouth = robot => {
+    robot.north = robot.north - 1;
+    robot;
   };
 
   [@gentype]
-  let move = engine => {
-    switch (engine.direction) {
-    | NORTH => moveNorth(engine)
-    | SOUTH => moveSouth(engine)
-    | EAST => moveEast(engine)
-    | WEST => moveWest(engine)
+  let move = robot => {
+    switch (robot.direction) {
+    | NORTH => moveNorth(robot)
+    | SOUTH => moveSouth(robot)
+    | EAST => moveEast(robot)
+    | WEST => moveWest(robot)
     };
+  };
+
+  [@gentype]
+  let turnLeft = robot => {
+    robot.direction = (
+      switch (robot.direction) {
+      | NORTH => WEST
+      | WEST => SOUTH
+      | SOUTH => EAST
+      | EAST => NORTH
+      }
+    );
+    robot;
+  };
+
+  [@gentype]
+  let turnRight = robot => {
+    robot.direction = (
+      switch (robot.direction) {
+      | NORTH => EAST
+      | WEST => NORTH
+      | SOUTH => WEST
+      | EAST => SOUTH
+      }
+    );
+    robot;
   };
 };

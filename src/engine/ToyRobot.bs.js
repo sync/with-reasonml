@@ -10,39 +10,83 @@ function make(east, north, $staropt$star, param) {
         ];
 }
 
-function moveEast(engine) {
-  engine[/* east */0] = engine[/* east */0] + 1 | 0;
-  return engine;
+function moveEast(robot) {
+  robot[/* east */0] = robot[/* east */0] + 1 | 0;
+  return robot;
 }
 
-function moveWest(engine) {
-  engine[/* east */0] = engine[/* east */0] - 1 | 0;
-  return engine;
+function moveWest(robot) {
+  robot[/* east */0] = robot[/* east */0] - 1 | 0;
+  return robot;
 }
 
-function moveNorth(engine) {
-  engine[/* north */1] = engine[/* north */1] + 1 | 0;
-  return engine;
+function moveNorth(robot) {
+  robot[/* north */1] = robot[/* north */1] + 1 | 0;
+  return robot;
 }
 
-function moveSouth(engine) {
-  engine[/* north */1] = engine[/* north */1] - 1 | 0;
-  return engine;
+function moveSouth(robot) {
+  robot[/* north */1] = robot[/* north */1] - 1 | 0;
+  return robot;
 }
 
-function move(engine) {
-  var match = engine[/* direction */2];
+function move(robot) {
+  var match = robot[/* direction */2];
   switch (match) {
     case 0 : 
-        return moveNorth(engine);
+        return moveNorth(robot);
     case 1 : 
-        return moveSouth(engine);
+        return moveSouth(robot);
     case 2 : 
-        return moveEast(engine);
+        return moveEast(robot);
     case 3 : 
-        return moveWest(engine);
+        return moveWest(robot);
     
   }
+}
+
+function turnLeft(robot) {
+  var match = robot[/* direction */2];
+  var tmp;
+  switch (match) {
+    case 0 : 
+        tmp = /* WEST */3;
+        break;
+    case 1 : 
+        tmp = /* EAST */2;
+        break;
+    case 2 : 
+        tmp = /* NORTH */0;
+        break;
+    case 3 : 
+        tmp = /* SOUTH */1;
+        break;
+    
+  }
+  robot[/* direction */2] = tmp;
+  return robot;
+}
+
+function turnRight(robot) {
+  var match = robot[/* direction */2];
+  var tmp;
+  switch (match) {
+    case 0 : 
+        tmp = /* EAST */2;
+        break;
+    case 1 : 
+        tmp = /* WEST */3;
+        break;
+    case 2 : 
+        tmp = /* SOUTH */1;
+        break;
+    case 3 : 
+        tmp = /* NORTH */0;
+        break;
+    
+  }
+  robot[/* direction */2] = tmp;
+  return robot;
 }
 
 var Robot = /* module */[
@@ -51,7 +95,9 @@ var Robot = /* module */[
   /* moveWest */moveWest,
   /* moveNorth */moveNorth,
   /* moveSouth */moveSouth,
-  /* move */move
+  /* move */move,
+  /* turnLeft */turnLeft,
+  /* turnRight */turnRight
 ];
 
 export {

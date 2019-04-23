@@ -6,6 +6,8 @@ import {
   Robot_moveNorth as moveNorth,
   Robot_moveSouth as moveSouth,
   Robot_move as move,
+  Robot_turnLeft as turnLeft,
+  Robot_turnRight as turnRight,
 } from '../ToyRobot.gen';
 
 describe('Robot', () => {
@@ -88,6 +90,16 @@ describe('Robot', () => {
       robot = move(robot);
       expect(robot.north).toEqual(1);
     });
+
+    it('turns left to face west', () => {
+      robot = turnLeft(robot);
+      expect(robot.direction).toEqual('WEST');
+    });
+
+    it('turns right to face east', () => {
+      robot = turnRight(robot);
+      expect(robot.direction).toEqual('EAST');
+    });
   });
 
   describe('when facing south', () => {
@@ -98,6 +110,16 @@ describe('Robot', () => {
     it('moves south', () => {
       robot = move(robot);
       expect(robot.north).toEqual(-1);
+    });
+
+    it('turns left to face east', () => {
+      robot = turnLeft(robot);
+      expect(robot.direction).toEqual('EAST');
+    });
+
+    it('turns right to face west', () => {
+      robot = turnRight(robot);
+      expect(robot.direction).toEqual('WEST');
     });
   });
 
@@ -110,6 +132,16 @@ describe('Robot', () => {
       robot = move(robot);
       expect(robot.east).toEqual(1);
     });
+
+    it('turns left to face north', () => {
+      robot = turnLeft(robot);
+      expect(robot.direction).toEqual('NORTH');
+    });
+
+    it('turns right to face south', () => {
+      robot = turnRight(robot);
+      expect(robot.direction).toEqual('SOUTH');
+    });
   });
 
   describe('when facing west', () => {
@@ -120,6 +152,16 @@ describe('Robot', () => {
     it('moves west', () => {
       robot = move(robot);
       expect(robot.east).toEqual(-1);
+    });
+
+    it('turns left to face south', () => {
+      robot = turnLeft(robot);
+      expect(robot.direction).toEqual('SOUTH');
+    });
+
+    it('turns right to face north', () => {
+      robot = turnRight(robot);
+      expect(robot.direction).toEqual('NORTH');
     });
   });
 });
