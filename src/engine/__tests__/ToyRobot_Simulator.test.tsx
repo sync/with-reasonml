@@ -32,6 +32,31 @@ describe('Simulator', () => {
       expect(simulator.robot).toBeUndefined();
     });
 
+    it('doest not have the robot placed by default', () => {
+      expect(simulator.robot).toBeUndefined();
+    });
+
+    describe('with an unplaced robot', () => {
+      it('doest not move the robot', () => {
+        simulator = move(simulator);
+        expect(simulator.robot).toBeUndefined();
+      });
+
+      it('doest not turn the robot left', () => {
+        simulator = turnLeft(simulator);
+        expect(simulator.robot).toBeUndefined();
+      });
+
+      it('doest not turn the robot right', () => {
+        simulator = turnRight(simulator);
+        expect(simulator.robot).toBeUndefined();
+      });
+
+      it('doest not have a report', () => {
+        expect(report(simulator)).toBeUndefined();
+      });
+    });
+
     describe('when the robot has been placed', () => {
       beforeEach(() => {
         simulator = place(simulator, { east: 0, north: 0, facing: 'NORTH' });
