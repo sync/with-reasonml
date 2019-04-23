@@ -23,6 +23,9 @@ export type Robot_t = {
 // tslint:disable-next-line:interface-over-type-literal
 export type Table_t = { readonly width: number; readonly length: number };
 
+// tslint:disable-next-line:interface-over-type-literal
+export type Simulator_t = { readonly table: Table_t; robot?: Robot_t };
+
 export const Robot_make: (_1:{
   readonly east: number; 
   readonly north: number; 
@@ -77,4 +80,18 @@ export const Table_make: (_1:{ readonly width: number; readonly length: number }
 export const Table_validLocation: (_1:Table_t, _2:{ readonly east: number; readonly north: number }) => boolean = function (Arg1: any, Arg2: any) {
   const result = Curry._3(ToyRobotBS.Table[1], [Arg1.width, Arg1.length], Arg2.east, Arg2.north);
   return result
+};
+
+export const Simulator_make: (_1:{ readonly table: Table_t }) => Simulator_t = function (Arg1: any) {
+  const result = ToyRobotBS.Simulator[0]([Arg1.table.width, Arg1.table.length]);
+  return {table:{width:result[0][0], length:result[0][1]}, robot:(result[1] == null ? result[1] : {east:result[1][0], north:result[1][1], direction:$$toJS311681469[result[1][2]]})}
+};
+
+export const Simulator_place: (_1:Simulator_t, _2:{
+  readonly east: number; 
+  readonly north: number; 
+  readonly facing: Robot_direction
+}) => Simulator_t = function (Arg1: any, Arg2: any) {
+  const result = Curry._4(ToyRobotBS.Simulator[1], [[Arg1.table.width, Arg1.table.length], (Arg1.robot == null ? undefined : [Arg1.robot.east, Arg1.robot.north, $$toRE311681469[Arg1.robot.direction]])], Arg2.east, Arg2.north, $$toRE311681469[Arg2.facing]);
+  return {table:{width:result[0][0], length:result[0][1]}, robot:(result[1] == null ? result[1] : {east:result[1][0], north:result[1][1], direction:$$toJS311681469[result[1][2]]})}
 };

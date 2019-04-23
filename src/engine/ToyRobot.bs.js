@@ -125,9 +125,30 @@ var Table = /* module */[
   /* validLocation */validLocation
 ];
 
+function make$2(table) {
+  return /* record */[
+          /* table */table,
+          /* robot */undefined
+        ];
+}
+
+function place(simulator, east, north, facing) {
+  if (validLocation(simulator[/* table */0], east, north)) {
+    var newRobot = make(east, north, facing, /* () */0);
+    simulator[/* robot */1] = newRobot;
+  }
+  return simulator;
+}
+
+var Simulator = /* module */[
+  /* make */make$2,
+  /* place */place
+];
+
 export {
   Robot ,
   Table ,
+  Simulator ,
   
 }
 /* No side effect */

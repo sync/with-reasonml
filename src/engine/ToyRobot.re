@@ -99,3 +99,23 @@ module Table = {
     east >= 0 && east < table.width && north >= 0 && north < table.length;
   };
 };
+
+module Simulator = {
+  [@gentype]
+  type t = {
+    table: Table.t,
+    mutable robot: option(Robot.t),
+  };
+
+  [@gentype]
+  let make = (~table): t => {table, robot: None};
+
+  [@gentype]
+  let place = (simulator, ~east, ~north, ~facing) => {
+    if (Table.validLocation(simulator.table, ~east, ~north)) {
+      let newRobot = Robot.make(~east, ~north, ~direction=facing, ());
+      simulator.robot = Some(newRobot);
+    };
+    simulator;
+  };
+};
