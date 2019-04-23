@@ -89,6 +89,10 @@ function turnRight(robot) {
   return robot;
 }
 
+function report(robot) {
+  return robot;
+}
+
 var Robot = /* module */[
   /* make */make,
   /* moveEast */moveEast,
@@ -97,7 +101,8 @@ var Robot = /* module */[
   /* moveSouth */moveSouth,
   /* move */move,
   /* turnLeft */turnLeft,
-  /* turnRight */turnRight
+  /* turnRight */turnRight,
+  /* report */report
 ];
 
 export {

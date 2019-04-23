@@ -79,4 +79,7 @@ module Robot = {
     );
     robot;
   };
+
+  [@gentype]
+  let report = robot => robot;
 };
