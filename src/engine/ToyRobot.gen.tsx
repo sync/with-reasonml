@@ -20,6 +20,9 @@ export type Robot_t = {
   direction: Robot_direction
 };
 
+// tslint:disable-next-line:interface-over-type-literal
+export type Table_t = { readonly width: number; readonly length: number };
+
 export const Robot_make: (_1:{
   readonly east: number; 
   readonly north: number; 
@@ -65,3 +68,13 @@ export const Robot_turnRight: (_1:Robot_t) => Robot_t = function (Arg1: any) {
 };
 
 export const Robot_report: <T1>(_1:T1) => T1 = ToyRobotBS.Robot[8];
+
+export const Table_make: (_1:{ readonly width: number; readonly length: number }) => Table_t = function (Arg1: any) {
+  const result = Curry._2(ToyRobotBS.Table[0], Arg1.width, Arg1.length);
+  return {width:result[0], length:result[1]}
+};
+
+export const Table_validLocation: (_1:Table_t, _2:{ readonly east: number; readonly north: number }) => boolean = function (Arg1: any, Arg2: any) {
+  const result = Curry._3(ToyRobotBS.Table[1], [Arg1.width, Arg1.length], Arg2.east, Arg2.north);
+  return result
+};

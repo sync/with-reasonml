@@ -105,8 +105,29 @@ var Robot = /* module */[
   /* report */report
 ];
 
+function make$1(width, length) {
+  return /* record */[
+          /* width */width,
+          /* length */length
+        ];
+}
+
+function validLocation(table, east, north) {
+  if (east >= 0 && east < table[/* width */0] && north >= 0) {
+    return north < table[/* length */1];
+  } else {
+    return false;
+  }
+}
+
+var Table = /* module */[
+  /* make */make$1,
+  /* validLocation */validLocation
+];
+
 export {
   Robot ,
+  Table ,
   
 }
 /* No side effect */

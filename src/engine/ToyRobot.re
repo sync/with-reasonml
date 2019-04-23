@@ -83,3 +83,19 @@ module Robot = {
   [@gentype]
   let report = robot => robot;
 };
+
+module Table = {
+  [@gentype]
+  type t = {
+    width: int,
+    length: int,
+  };
+
+  [@gentype]
+  let make = (~width, ~length) => {width, length};
+
+  [@gentype]
+  let validLocation = (table, ~east, ~north) => {
+    east >= 0 && east < table.width && north >= 0 && north < table.length;
+  };
+};
