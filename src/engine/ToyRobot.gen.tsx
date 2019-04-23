@@ -95,3 +95,23 @@ export const Simulator_place: (_1:Simulator_t, _2:{
   const result = Curry._4(ToyRobotBS.Simulator[1], [[Arg1.table.width, Arg1.table.length], (Arg1.robot == null ? undefined : [Arg1.robot.east, Arg1.robot.north, $$toRE311681469[Arg1.robot.direction]])], Arg2.east, Arg2.north, $$toRE311681469[Arg2.facing]);
   return {table:{width:result[0][0], length:result[0][1]}, robot:(result[1] == null ? result[1] : {east:result[1][0], north:result[1][1], direction:$$toJS311681469[result[1][2]]})}
 };
+
+export const Simulator_move: (_1:Simulator_t) => Simulator_t = function (Arg1: any) {
+  const result = ToyRobotBS.Simulator[2]([[Arg1.table.width, Arg1.table.length], (Arg1.robot == null ? undefined : [Arg1.robot.east, Arg1.robot.north, $$toRE311681469[Arg1.robot.direction]])]);
+  return {table:{width:result[0][0], length:result[0][1]}, robot:(result[1] == null ? result[1] : {east:result[1][0], north:result[1][1], direction:$$toJS311681469[result[1][2]]})}
+};
+
+export const Simulator_turnLeft: (_1:Simulator_t) => Simulator_t = function (Arg1: any) {
+  const result = ToyRobotBS.Simulator[3]([[Arg1.table.width, Arg1.table.length], (Arg1.robot == null ? undefined : [Arg1.robot.east, Arg1.robot.north, $$toRE311681469[Arg1.robot.direction]])]);
+  return {table:{width:result[0][0], length:result[0][1]}, robot:(result[1] == null ? result[1] : {east:result[1][0], north:result[1][1], direction:$$toJS311681469[result[1][2]]})}
+};
+
+export const Simulator_turnRight: (_1:Simulator_t) => Simulator_t = function (Arg1: any) {
+  const result = ToyRobotBS.Simulator[4]([[Arg1.table.width, Arg1.table.length], (Arg1.robot == null ? undefined : [Arg1.robot.east, Arg1.robot.north, $$toRE311681469[Arg1.robot.direction]])]);
+  return {table:{width:result[0][0], length:result[0][1]}, robot:(result[1] == null ? result[1] : {east:result[1][0], north:result[1][1], direction:$$toJS311681469[result[1][2]]})}
+};
+
+export const Simulator_report: (_1:Simulator_t) => (null | undefined | Robot_t) = function (Arg1: any) {
+  const result = ToyRobotBS.Simulator[5]([[Arg1.table.width, Arg1.table.length], (Arg1.robot == null ? undefined : [Arg1.robot.east, Arg1.robot.north, $$toRE311681469[Arg1.robot.direction]])]);
+  return (result == null ? result : {east:result[0], north:result[1], direction:$$toJS311681469[result[2]]})
+};

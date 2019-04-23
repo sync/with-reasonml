@@ -118,4 +118,27 @@ module Simulator = {
     };
     simulator;
   };
+
+  [@genType]
+  let move = simulator => {
+    simulator.robot->Belt.Option.map(Robot.move) |> ignore;
+    simulator;
+  };
+
+  [@genType]
+  let turnLeft = simulator => {
+    simulator.robot->Belt.Option.map(Robot.turnLeft) |> ignore;
+    simulator;
+  };
+
+  [@genType]
+  let turnRight = simulator => {
+    simulator.robot->Belt.Option.map(Robot.turnRight) |> ignore;
+    simulator;
+  };
+
+  [@genType]
+  let report = simulator => {
+    simulator.robot->Belt.Option.map(Robot.report);
+  };
 };

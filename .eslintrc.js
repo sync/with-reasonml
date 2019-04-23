@@ -37,6 +37,7 @@ module.exports = {
         '@typescript-eslint/class-name-casing': 'off',
         '@typescript-eslint/no-explicit-any': 'off',
         '@typescript-eslint/prefer-interface': 'off',
+        '@typescript-eslint/no-non-null-assertion': 'off',
       },
     },
     {
