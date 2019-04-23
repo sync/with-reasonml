@@ -5,6 +5,7 @@ import {
   Robot_moveWest as moveWest,
   Robot_moveNorth as moveNorth,
   Robot_moveSouth as moveSouth,
+  Robot_move as move,
 } from '../ToyRobot.gen';
 
 describe('Robot', () => {
@@ -76,5 +77,49 @@ describe('Robot', () => {
     });
 
     expect(robot.north).toEqual(-4);
+  });
+
+  describe('when facing north', () => {
+    beforeEach(() => {
+      robot = make({ east: 0, north: 0, direction: 'NORTH' });
+    });
+
+    it('moves north', () => {
+      robot = move(robot);
+      expect(robot.north).toEqual(1);
+    });
+  });
+
+  describe('when facing south', () => {
+    beforeEach(() => {
+      robot = make({ east: 0, north: 0, direction: 'SOUTH' });
+    });
+
+    it('moves south', () => {
+      robot = move(robot);
+      expect(robot.north).toEqual(-1);
+    });
+  });
+
+  describe('when facing east', () => {
+    beforeEach(() => {
+      robot = make({ east: 0, north: 0, direction: 'EAST' });
+    });
+
+    it('moves east', () => {
+      robot = move(robot);
+      expect(robot.east).toEqual(1);
+    });
+  });
+
+  describe('when facing west', () => {
+    beforeEach(() => {
+      robot = make({ east: 0, north: 0, direction: 'WEST' });
+    });
+
+    it('moves west', () => {
+      robot = move(robot);
+      expect(robot.east).toEqual(-1);
+    });
   });
 });
