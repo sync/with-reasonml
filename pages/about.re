@@ -2,7 +2,7 @@
 let make = () => {
   <div>
     <Header />
-    <p> {ReasonReact.string("This is the about page.")} </p>
+    <p> {React.string("This is the about page.")} </p>
     <Counter />
   </div>;
 };

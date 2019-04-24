@@ -6,10 +6,10 @@ type css = {. "withMargin": string};
 let make = () => {
   <div>
     <Next.Link href="/">
-      <a className={css##withMargin}> {ReasonReact.string("Home")} </a>
+      <a className={css##withMargin}> {React.string("Home")} </a>
     </Next.Link>
     <Next.Link href="/about">
-      <a className={css##withMargin}> {ReasonReact.string("About")} </a>
+      <a className={css##withMargin}> {React.string("About")} </a>
     </Next.Link>
   </div>;
 };

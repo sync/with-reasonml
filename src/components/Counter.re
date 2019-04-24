@@ -18,7 +18,7 @@ let make = () => {
   let countMsg = "Count: " ++ string_of_int(state.count);
 
   <div>
-    <p> {ReasonReact.string(countMsg)} </p>
+    <p> {React.string(countMsg)} </p>
     <button onClick={_ => dispatch(Add)}> {React.string("Add")} </button>
   </div>;
 };

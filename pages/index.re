@@ -2,8 +2,8 @@
 let make = (~onServer) => {
   <div>
     <Header />
-    <p> {ReasonReact.string("HOME PAGE is here!")} </p>
-    <p> {ReasonReact.string("onServer: " ++ string_of_bool(onServer))} </p>
+    <p> {React.string("HOME PAGE is here!")} </p>
+    <p> {React.string("onServer: " ++ string_of_bool(onServer))} </p>
     <Counter />
   </div>;
 };
@@ -21,7 +21,7 @@ let default = make;
 
 let inject:
   (
-    Js.t('a) => ReasonReact.reactElement,
+    Js.t('a) => React.element,
     {. "req": Js.Nullable.t(Js.t('a))} => Js.t('a)
   ) =>
   unit = [%bs.raw
