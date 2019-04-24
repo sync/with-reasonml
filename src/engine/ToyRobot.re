@@ -227,3 +227,36 @@ module Command = {
     };
   };
 };
+
+module CLI = {
+  let splitByLines = (text: string) =>
+    Js.String.split("\n", text)
+    ->Belt.Array.reduce([||], (current, result) =>
+        switch (Js.String.trim(result)) {
+        | "" => current
+        | stripped => Array.append(current, [|stripped|])
+        }
+      );
+
+  [@genType]
+  let loadCommands = (text: string) => {
+    text |> splitByLines |> Array.map(Command.process);
+  };
+
+  [@genType]
+  let runCommands = (simulator: Simulator.t, commands: array(Command.t)) => {
+    commands->Belt.Array.reduce(simulator, (current, command) =>
+      switch (command) {
+      | Command.PLACE(east, north, facing) =>
+        Simulator.place(current, ~east, ~north, ~facing)
+      | Command.MOVE => Simulator.move(current)
+      | Command.LEFT => Simulator.turnLeft(current)
+      | Command.RIGHT => Simulator.turnRight(current)
+      | Command.REPORT =>
+        Simulator.report(current) |> ignore;
+        current;
+      | Command.INVALID(_) => current
+      }
+    );
+  };
+};
