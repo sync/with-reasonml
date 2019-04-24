@@ -21,6 +21,7 @@
     "typecheck": "tsc --noEmit",
     "test": "NODE_ENV=test jest",
     "test-watch": "NODE_ENV=test jest -o --watch",
+    "ci": "yarn typecheck && yarn lint && yarn test",
     "storybook": "run-p -c storybook:*",
     "storybook:reason": "yarn dev:reason",
     "storybook:start": "start-storybook -p 6006",
