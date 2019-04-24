@@ -204,7 +204,7 @@ module Command = {
     let rightMatches = Js.String.match([%re "/RIGHT/"], command);
     let reportMatches = Js.String.match([%re "/REPORT/"], command);
     let placeMatches =
-      Js.String.match([%re "/PLACE (\d+),(\d+),(\w+)/"], command);
+      Js.String.match([%re "/PLACE (\\d+),(\\d+),(\\w+)/"], command);
 
     switch (
       moveMatches,
