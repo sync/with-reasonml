@@ -1,6 +1,6 @@
 import { Command_process as process } from '../ToyRobot.gen';
 
-describe('Robot', () => {
+describe('Command', () => {
   describe('process', () => {
     test('MOVE', () => {
       expect(process('MOVE')).toEqual('MOVE');

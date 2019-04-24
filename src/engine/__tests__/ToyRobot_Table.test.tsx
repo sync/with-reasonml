@@ -4,7 +4,7 @@ import {
   Table_validLocation as validLocation,
 } from '../ToyRobot.gen';
 
-describe('Robot', () => {
+describe('Table', () => {
   let table: Table;
 
   describe('validLocation', () => {

@@ -78,11 +78,7 @@ describe('Simulator', () => {
       });
 
       it('tells the robot to report', () => {
-        expect(report(simulator)).toEqual({
-          east: 0,
-          north: 0,
-          direction: 'NORTH',
-        });
+        expect(report(simulator)).toEqual('0,0,NORTH');
       });
     });
   });
@@ -94,11 +90,7 @@ describe('Simulator', () => {
 
     it('tells the robot to move', () => {
       simulator = move(simulator);
-      expect(report(simulator)).toEqual({
-        east: 0,
-        north: 4,
-        direction: 'NORTH',
-      });
+      expect(report(simulator)).toEqual('0,4,NORTH');
     });
   });
 });

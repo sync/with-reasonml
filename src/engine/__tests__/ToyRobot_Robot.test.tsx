@@ -191,7 +191,7 @@ describe('Robot', () => {
     });
 
     it('provides the current location and direction of the robot', () => {
-      expect(report(robot)).toEqual({ east: 5, north: 4, direction: 'EAST' });
+      expect(report(robot)).toEqual('5,4,EAST');
     });
   });
 });

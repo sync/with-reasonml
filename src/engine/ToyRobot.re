@@ -90,8 +90,33 @@ module Robot = {
     robot;
   };
 
+  let directionOfString = string => {
+    switch (string) {
+    | "NORTH" => Some(NORTH)
+    | "SOUTH" => Some(SOUTH)
+    | "EAST" => Some(EAST)
+    | "WEST" => Some(WEST)
+    | _ => None
+    };
+  };
+
+  let stringOfDirection = direction => {
+    switch (direction) {
+    | NORTH => "NORTH"
+    | SOUTH => "SOUTH"
+    | EAST => "EAST"
+    | WEST => "WEST"
+    };
+  };
+
   [@gentype]
-  let report = robot => robot;
+  let report = robot => {
+    let east = robot.east |> string_of_int;
+    let north = robot.north |> string_of_int;
+    let direction = robot.direction |> stringOfDirection;
+
+    {j|$east,$north,$direction|j};
+  };
 };
 
 module Table = {
@@ -160,6 +185,8 @@ module Simulator = {
   };
 };
 
+module Utilities = {};
+
 module Command = {
   [@gentype]
   type t =
@@ -169,16 +196,6 @@ module Command = {
     | RIGHT
     | REPORT
     | INVALID(string);
-
-  let direction_of_string = string => {
-    switch (string) {
-    | "NORTH" => Some(Robot.NORTH)
-    | "SOUTH" => Some(Robot.SOUTH)
-    | "EAST" => Some(Robot.EAST)
-    | "WEST" => Some(Robot.WEST)
-    | _ => None
-    };
-  };
 
   [@genType]
   let process = (command: string) => {
@@ -201,7 +218,7 @@ module Command = {
     | (_, _, Some(_), _, _) => RIGHT
     | (_, _, _, Some(_), _) => REPORT
     | (_, _, _, _, Some(matches)) =>
-      switch (direction_of_string(matches[3])) {
+      switch (Robot.directionOfString(matches[3])) {
       | Some(facing) =>
         PLACE(int_of_string(matches[1]), int_of_string(matches[2]), facing)
       | None => INVALID(command)

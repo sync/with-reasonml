@@ -2,9 +2,14 @@
 
 const $$toJS11837142 = {"0": "MOVE", "1": "LEFT", "2": "RIGHT", "3": "REPORT"};
 
+const $$toRE11837142 = {"MOVE": 0, "LEFT": 1, "RIGHT": 2, "REPORT": 3};
+
 const $$toJS311681469 = {"0": "NORTH", "1": "SOUTH", "2": "EAST", "3": "WEST"};
 
 const $$toRE311681469 = {"NORTH": 0, "SOUTH": 1, "EAST": 2, "WEST": 3};
+
+// tslint:disable-next-line:no-var-requires
+const CreateBucklescriptBlock = require('bs-platform/lib/es6/block.js');
 
 // tslint:disable-next-line:no-var-requires
 const Curry = require('bs-platform/lib/es6/curry.js');
@@ -86,7 +91,10 @@ export const Robot_turnRight: (_1:Robot_t) => Robot_t = function (Arg1: any) {
   return {east:result[0], north:result[1], direction:$$toJS311681469[result[2]]}
 };
 
-export const Robot_report: <T1>(_1:T1) => T1 = ToyRobotBS.Robot[9];
+export const Robot_report: (_1:Robot_t) => string = function (Arg1: any) {
+  const result = ToyRobotBS.Robot[11]([Arg1.east, Arg1.north, $$toRE311681469[Arg1.direction]]);
+  return result
+};
 
 export const Table_make: (_1:{ readonly width: number; readonly length: number }) => Table_t = function (Arg1: any) {
   const result = Curry._2(ToyRobotBS.Table[0], Arg1.width, Arg1.length);
@@ -127,13 +135,13 @@ export const Simulator_turnRight: (_1:Simulator_t) => Simulator_t = function (Ar
   return {table:{width:result[0][0], length:result[0][1]}, robot:(result[1] == null ? result[1] : {east:result[1][0], north:result[1][1], direction:$$toJS311681469[result[1][2]]})}
 };
 
-export const Simulator_report: (_1:Simulator_t) => (null | undefined | Robot_t) = function (Arg1: any) {
+export const Simulator_report: (_1:Simulator_t) => (null | undefined | string) = function (Arg1: any) {
   const result = ToyRobotBS.Simulator[5]([[Arg1.table.width, Arg1.table.length], (Arg1.robot == null ? undefined : [Arg1.robot.east, Arg1.robot.north, $$toRE311681469[Arg1.robot.direction]])]);
-  return (result == null ? result : {east:result[0], north:result[1], direction:$$toJS311681469[result[2]]})
+  return result
 };
 
 export const Command_process: (_1:string) => Command_t = function (Arg1: any) {
-  const result = ToyRobotBS.Command[1](Arg1);
+  const result = ToyRobotBS.Command[0](Arg1);
   return typeof(result) === 'object'
     ? result.tag===0
       ? {tag:"PLACE", value:[result.slice()[0], result.slice()[1], $$toJS311681469[result.slice()[2]]]}
