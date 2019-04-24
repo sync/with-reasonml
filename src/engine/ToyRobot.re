@@ -57,10 +57,10 @@ module Robot = {
   [@gentype]
   let nextMove = robot => {
     switch (robot.direction) {
-    | NORTH => [|robot.east, robot.north + 1|]
-    | SOUTH => [|robot.east, robot.north - 1|]
-    | EAST => [|robot.east + 1, robot.north|]
-    | WEST => [|robot.east - 1, robot.north|]
+    | NORTH => (robot.east, robot.north + 1)
+    | SOUTH => (robot.east, robot.north - 1)
+    | EAST => (robot.east + 1, robot.north)
+    | WEST => (robot.east - 1, robot.north)
     };
   };
 
@@ -133,8 +133,8 @@ module Simulator = {
   let move = simulator => {
     switch (simulator.robot) {
     | Some(robot) =>
-      let next = Robot.nextMove(robot);
-      if (Table.validLocation(simulator.table, ~east=next[0], ~north=next[1])) {
+      let (east, north) = Robot.nextMove(robot);
+      if (Table.validLocation(simulator.table, ~east, ~north)) {
         Robot.move(robot) |> ignore;
       };
     | None => ()

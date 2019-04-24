@@ -71,7 +71,7 @@ export const Robot_move: (_1:Robot_t) => Robot_t = function (Arg1: any) {
   return {east:result[0], north:result[1], direction:$$toJS311681469[result[2]]}
 };
 
-export const Robot_nextMove: (_1:Robot_t) => number[] = function (Arg1: any) {
+export const Robot_nextMove: (_1:Robot_t) => [number, number] = function (Arg1: any) {
   const result = ToyRobotBS.Robot[6]([Arg1.east, Arg1.north, $$toRE311681469[Arg1.direction]]);
   return result
 };

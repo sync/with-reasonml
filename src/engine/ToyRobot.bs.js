@@ -53,22 +53,22 @@ function nextMove(robot) {
   var match = robot[/* direction */2];
   switch (match) {
     case 0 : 
-        return /* array */[
+        return /* tuple */[
                 robot[/* east */0],
                 robot[/* north */1] + 1 | 0
               ];
     case 1 : 
-        return /* array */[
+        return /* tuple */[
                 robot[/* east */0],
                 robot[/* north */1] - 1 | 0
               ];
     case 2 : 
-        return /* array */[
+        return /* tuple */[
                 robot[/* east */0] + 1 | 0,
                 robot[/* north */1]
               ];
     case 3 : 
-        return /* array */[
+        return /* tuple */[
                 robot[/* east */0] - 1 | 0,
                 robot[/* north */1]
               ];
@@ -176,8 +176,8 @@ function move$1(simulator) {
   var match = simulator[/* robot */1];
   if (match !== undefined) {
     var robot = match;
-    var next = nextMove(robot);
-    if (validLocation(simulator[/* table */0], Caml_array.caml_array_get(next, 0), Caml_array.caml_array_get(next, 1))) {
+    var match$1 = nextMove(robot);
+    if (validLocation(simulator[/* table */0], match$1[0], match$1[1])) {
       move(robot);
     }
     
