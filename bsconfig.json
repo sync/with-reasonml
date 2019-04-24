@@ -19,6 +19,10 @@
   "suffix": ".bs.js",
   "bsc-flags": ["-bs-super-errors"],
   "refmt": 3,
+  "warnings": {
+    "number": "+A-48",
+    "error": "+A-3-44-102"
+  },
   "gentypeconfig": {
     "language": "typescript",
     "module": "es6",
