@@ -1,6 +1,7 @@
 {
   "version": 2,
-  "name": "nextjs",
+  "name": "with-reasonml",
+  "public": true,
   "builds": [
     { "src": "/static/*", "use": "@now/static" },
     { "src": "next.config.js", "use": "@now/next" }
