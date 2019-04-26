@@ -36,9 +36,9 @@
     "reason-react": "0.7.0"
   },
   "devDependencies": {
-    "@babel/core": "7.4.3",
-    "@babel/plugin-proposal-class-properties": "7.4.0",
-    "@babel/plugin-proposal-object-rest-spread": "7.4.3",
+    "@babel/core": "7.4.4",
+    "@babel/plugin-proposal-class-properties": "7.4.4",
+    "@babel/plugin-proposal-object-rest-spread": "7.4.4",
     "@percy-io/percy-storybook": "2.1.0",
     "@storybook/addon-actions": "5.0.10",
     "@storybook/addon-centered": "5.0.10",
