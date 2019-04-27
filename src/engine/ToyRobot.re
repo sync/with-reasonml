@@ -92,11 +92,11 @@ module Robot = {
 
   let directionOfString = string => {
     switch (string) {
-    | "NORTH" => Some(NORTH)
-    | "SOUTH" => Some(SOUTH)
-    | "EAST" => Some(EAST)
-    | "WEST" => Some(WEST)
-    | _ => None
+    | "NORTH" => NORTH
+    | "SOUTH" => SOUTH
+    | "EAST" => EAST
+    | "WEST" => WEST
+    | _ => raise(Not_found)
     };
   };
 
@@ -148,8 +148,8 @@ module Simulator = {
   [@gentype]
   let place = (simulator, ~east, ~north, ~facing) => {
     if (Table.validLocation(simulator.table, ~east, ~north)) {
-      let newRobot = Robot.make(~east, ~north, ~direction=facing, ());
-      simulator.robot = Some(newRobot);
+      let newRobot = Robot.make(~east, ~north, ~direction=facing);
+      simulator.robot = Some(newRobot());
     };
     simulator;
   };
@@ -197,33 +197,30 @@ module Command = {
     | REPORT
     | INVALID(string);
 
+  let asPlace = string => {
+    Js.String.match(
+      [%re "/PLACE (\\d+),(\\d+),(EAST|WEST|NORTH|SOUTH)/"],
+      string,
+    )
+    ->Belt.Option.map(matches =>
+        PLACE(
+          int_of_string(matches[1]),
+          int_of_string(matches[2]),
+          Robot.directionOfString(matches[3]),
+        )
+      );
+  };
+
   [@genType]
   let process = (command: string) => {
-    let moveMatches = Js.String.match([%re "/MOVE/"], command);
-    let leftMatches = Js.String.match([%re "/LEFT/"], command);
-    let rightMatches = Js.String.match([%re "/RIGHT/"], command);
-    let reportMatches = Js.String.match([%re "/REPORT/"], command);
-    let placeMatches =
-      Js.String.match([%re "/PLACE (\\d+),(\\d+),(\\w+)/"], command);
-
-    switch (
-      moveMatches,
-      leftMatches,
-      rightMatches,
-      reportMatches,
-      placeMatches,
-    ) {
-    | (Some(_), _, _, _, _) => MOVE
-    | (_, Some(_), _, _, _) => LEFT
-    | (_, _, Some(_), _, _) => RIGHT
-    | (_, _, _, Some(_), _) => REPORT
-    | (_, _, _, _, Some(matches)) =>
-      switch (Robot.directionOfString(matches[3])) {
-      | Some(facing) =>
-        PLACE(int_of_string(matches[1]), int_of_string(matches[2]), facing)
-      | None => INVALID(command)
-      }
+    switch (command, asPlace(command)) {
+    | ("MOVE", _) => MOVE
+    | ("LEFT", _) => LEFT
+    | ("RIGHT", _) => RIGHT
+    | ("REPORT", _) => REPORT
+    | (_, Some(place)) => place
     | _ => INVALID(command)
+    | exception _ => INVALID(command)
     };
   };
 };

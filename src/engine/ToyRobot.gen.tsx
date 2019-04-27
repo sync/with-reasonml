@@ -141,7 +141,7 @@ export const Simulator_report: (_1:Simulator_t) => (null | undefined | string) =
 };
 
 export const Command_process: (_1:string) => Command_t = function (Arg1: any) {
-  const result = ToyRobotBS.Command[0](Arg1);
+  const result = ToyRobotBS.Command[1](Arg1);
   return typeof(result) === 'object'
     ? result.tag===0
       ? {tag:"PLACE", value:[result.slice()[0], result.slice()[1], $$toJS311681469[result.slice()[2]]]}

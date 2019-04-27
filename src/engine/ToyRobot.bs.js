@@ -2,10 +2,13 @@
 
 import * as $$Array from "bs-platform/lib/es6/array.js";
 import * as Block from "bs-platform/lib/es6/block.js";
+import * as Curry from "bs-platform/lib/es6/curry.js";
 import * as Belt_Array from "bs-platform/lib/es6/belt_Array.js";
 import * as Caml_array from "bs-platform/lib/es6/caml_array.js";
 import * as Belt_Option from "bs-platform/lib/es6/belt_Option.js";
 import * as Caml_format from "bs-platform/lib/es6/caml_format.js";
+import * as Caml_option from "bs-platform/lib/es6/caml_option.js";
+import * as Caml_builtin_exceptions from "bs-platform/lib/es6/caml_builtin_exceptions.js";
 
 function make(east, north, $staropt$star, param) {
   var direction = $staropt$star !== undefined ? $staropt$star : /* NORTH */0;
@@ -133,7 +136,7 @@ function directionOfString(string) {
     case "WEST" : 
         return /* WEST */3;
     default:
-      return undefined;
+      throw Caml_builtin_exceptions.not_found;
   }
 }
 
@@ -202,8 +205,11 @@ function make$2(table) {
 
 function place(simulator, east, north, facing) {
   if (validLocation(simulator[/* table */0], east, north)) {
-    var newRobot = make(east, north, facing, /* () */0);
-    simulator[/* robot */1] = newRobot;
+    var partial_arg = facing;
+    var newRobot = function (param) {
+      return make(east, north, partial_arg, param);
+    };
+    simulator[/* robot */1] = Curry._1(newRobot, /* () */0);
   }
   return simulator;
 }
@@ -246,37 +252,53 @@ var Simulator = /* module */[
 
 var Utilities = /* module */[];
 
-function $$process(command) {
-  var moveMatches = command.match((/MOVE/));
-  var leftMatches = command.match((/LEFT/));
-  var rightMatches = command.match((/RIGHT/));
-  var reportMatches = command.match((/REPORT/));
-  var placeMatches = command.match((/PLACE (\d+),(\d+),(\w+)/));
-  if (moveMatches !== null) {
-    return /* MOVE */0;
-  } else if (leftMatches !== null) {
-    return /* LEFT */1;
-  } else if (rightMatches !== null) {
-    return /* RIGHT */2;
-  } else if (reportMatches !== null) {
-    return /* REPORT */3;
-  } else if (placeMatches !== null) {
-    var match = directionOfString(Caml_array.caml_array_get(placeMatches, 3));
-    if (match !== undefined) {
-      return /* PLACE */Block.__(0, [
-                Caml_format.caml_int_of_string(Caml_array.caml_array_get(placeMatches, 1)),
-                Caml_format.caml_int_of_string(Caml_array.caml_array_get(placeMatches, 2)),
-                match
-              ]);
-    } else {
-      return /* INVALID */Block.__(1, [command]);
-    }
-  } else {
-    return /* INVALID */Block.__(1, [command]);
-  }
+function asPlace(string) {
+  return Belt_Option.map(Caml_option.null_to_opt(string.match((/PLACE (\d+),(\d+),(EAST|WEST|NORTH|SOUTH)/))), (function (matches) {
+                return /* PLACE */Block.__(0, [
+                          Caml_format.caml_int_of_string(Caml_array.caml_array_get(matches, 1)),
+                          Caml_format.caml_int_of_string(Caml_array.caml_array_get(matches, 2)),
+                          directionOfString(Caml_array.caml_array_get(matches, 3))
+                        ]);
+              }));
 }
 
-var Command = /* module */[/* process */$$process];
+function $$process(command) {
+  var exit = 0;
+  var val;
+  var val$1;
+  try {
+    val = command;
+    val$1 = asPlace(command);
+    exit = 1;
+  }
+  catch (exn){
+    return /* INVALID */Block.__(1, [command]);
+  }
+  if (exit === 1) {
+    switch (val) {
+      case "LEFT" : 
+          return /* LEFT */1;
+      case "MOVE" : 
+          return /* MOVE */0;
+      case "REPORT" : 
+          return /* REPORT */3;
+      case "RIGHT" : 
+          return /* RIGHT */2;
+      default:
+        if (val$1 !== undefined) {
+          return val$1;
+        } else {
+          return /* INVALID */Block.__(1, [command]);
+        }
+    }
+  }
+  
+}
+
+var Command = /* module */[
+  /* asPlace */asPlace,
+  /* process */$$process
+];
 
 function splitByLines(text) {
   return Belt_Array.reduce(text.split("\n"), /* array */[], (function (current, result) {
