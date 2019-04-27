@@ -7,10 +7,13 @@ var Head = /* module */[];
 
 var $$Error = /* module */[];
 
+var Router = /* module */[];
+
 export {
   Link ,
   Head ,
   $$Error ,
+  Router ,
   
 }
 /* No side effect */

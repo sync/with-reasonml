@@ -30,7 +30,7 @@
   },
   "license": "ISC",
   "dependencies": {
-    "next": "8.1.0",
+    "next": "^8.1.1-canary.15",
     "react": "16.8.6",
     "react-dom": "16.8.6",
     "reason-react": "0.7.0"
@@ -51,7 +51,6 @@
     "@typescript-eslint/eslint-plugin": "1.7.0",
     "@typescript-eslint/parser": "1.7.0",
     "@zeit/next-css": "1.0.1",
-    "@zeit/next-typescript": "1.1.1",
     "autoprefixer": "9.5.1",
     "awesome-typescript-loader": "5.2.1",
     "babel-loader": "8.0.5",

@@ -1,6 +1,5 @@
 const withTM = require('next-transpile-modules');
 const withOffline = require('next-offline');
-const withTypescript = require('@zeit/next-typescript');
 const withCSS = require('@zeit/next-css');
 
 const isDev = process.env.NODE_ENV !== 'production';
@@ -77,4 +76,4 @@ const config = {
   cssModules: true,
 };
 
-module.exports = withOffline(withTypescript(withCSS(withTM(config))));
+module.exports = withOffline(withCSS(withTM(config)));
