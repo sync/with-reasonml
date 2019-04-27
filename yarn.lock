@@ -8525,7 +8525,7 @@ next-transpile-modules@2.3.1:
   resolved "https://registry.yarnpkg.com/next-transpile-modules/-/next-transpile-modules-2.3.1.tgz#8977c070912fbc3e927c662431fc4e91ae335b43"
   integrity sha512-euNOBAk/CXZA6binwL47+QpcxAmK1pzH2zjF7XnRN55f2iuN/ecpUw5p3x4bikFu0yDPtSLS92nv9fcgcCo0vg==
 
-next@^8.1.1-canary.15:
+next@8.1.1-canary.15:
   version "8.1.1-canary.15"
   resolved "https://registry.yarnpkg.com/next/-/next-8.1.1-canary.15.tgz#82d7bf007bcd99335456d8be15539f8a8e301e52"
   integrity sha512-8ZI8o60DXmlboMIjqgGU7pjHitc/aJGl8oXNCXEqmGOqPnLTpY+/f83NIqHVNz1aoYEDgzFGRBIe90HipOCcLg==
@@ -9947,7 +9947,7 @@ rc@^1.2.7:
     minimist "^1.2.0"
     strip-json-comments "~2.0.1"
 
-re-classnames@^4.0.0:
+re-classnames@4.0.0:
   version "4.0.0"
   resolved "https://registry.yarnpkg.com/re-classnames/-/re-classnames-4.0.0.tgz#11c62c5f3f8696c20689fdc6b70cdbea9e3496ef"
   integrity sha512-uYtBCGfSHlNiAKg1nWRnZMWKTaFOHFPmUdygf7j9/bqjh2bTkl5f/8oxSocZriNnCcmdc1JD9YbVSI91lYvONA==
