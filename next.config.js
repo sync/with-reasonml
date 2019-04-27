@@ -72,7 +72,7 @@ const config = {
     ],
   },
   pageExtensions: ['jsx', 'js', 'web.js', 'web.jsx', 'ts', 'tsx', 'bs.js'],
-  transpileModules: ['bs-platform'],
+  transpileModules: ['bs-platform', 're-classnames'],
   cssModules: true,
 };
 

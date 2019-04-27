@@ -9947,6 +9947,11 @@ rc@^1.2.7:
     minimist "^1.2.0"
     strip-json-comments "~2.0.1"
 
+re-classnames@^4.0.0:
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/re-classnames/-/re-classnames-4.0.0.tgz#11c62c5f3f8696c20689fdc6b70cdbea9e3496ef"
+  integrity sha512-uYtBCGfSHlNiAKg1nWRnZMWKTaFOHFPmUdygf7j9/bqjh2bTkl5f/8oxSocZriNnCcmdc1JD9YbVSI91lYvONA==
+
 react-clientside-effect@^1.2.0:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/react-clientside-effect/-/react-clientside-effect-1.2.0.tgz#db823695f75e9616a5e4dd6d908e5ea627fb2516"
