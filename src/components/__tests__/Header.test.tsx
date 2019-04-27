@@ -1,6 +1,6 @@
 import React from 'react';
 import { render } from 'react-testing-library';
-import { make as Header } from '../Header.gen';
+import Header from '../Header.gen';
 
 describe('Header', () => {
   it('renders 2 links', () => {

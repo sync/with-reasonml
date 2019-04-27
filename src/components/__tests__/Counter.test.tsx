@@ -1,6 +1,6 @@
 import React from 'react';
 import { render, fireEvent } from 'react-testing-library';
-import { make as Counter } from '../Counter.gen';
+import Counter from '../Counter.gen';
 
 describe('Counter', () => {
   it('renders a clickable count', () => {

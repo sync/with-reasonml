@@ -1,15 +1,27 @@
-type css = {. "withMargin": string};
+type css = {
+  .
+  "header": string,
+  "active": string,
+};
 [@bs.module] external css: css = "./Header.css";
 
-[@genType]
 [@react.component]
 let make = () => {
-  <div>
-    <Next.Link href="/">
-      <a className={css##withMargin}> {React.string("Home")} </a>
-    </Next.Link>
-    <Next.Link href="/about">
-      <a className={css##withMargin}> {React.string("About")} </a>
-    </Next.Link>
-  </div>;
+  <header
+    className={
+      css##header;
+    }>
+    <h1> {React.string("Robot Challenge")} </h1>
+    <nav>
+      <ActiveLink href="/" activeClassName={css##active}>
+        {React.string("Home")}
+      </ActiveLink>
+      <ActiveLink href="/about" activeClassName={css##active}>
+        {React.string("About")}
+      </ActiveLink>
+    </nav>
+  </header>;
 };
+
+[@genType]
+let default = make;

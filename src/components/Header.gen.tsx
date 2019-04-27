@@ -5,4 +5,6 @@ const HeaderBS = require('./Header.bs');
 
 import {reactElement as ReasonReact_reactElement} from '../../src/shims/ReactShim.shim';
 
-export const make: (_1:{}) => ReasonReact_reactElement = HeaderBS.make;
+export const $$default: (_1:{}) => ReasonReact_reactElement = HeaderBS.default;
+
+export default $$default;

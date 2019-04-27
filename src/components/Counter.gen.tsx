@@ -5,4 +5,6 @@ const CounterBS = require('./Counter.bs');
 
 import {reactElement as ReasonReact_reactElement} from '../../src/shims/ReactShim.shim';
 
-export const make: (_1:{}) => ReasonReact_reactElement = CounterBS.make;
+export const $$default: (_1:{}) => ReasonReact_reactElement = CounterBS.default;
+
+export default $$default;

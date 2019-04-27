@@ -2,13 +2,17 @@
 
 import * as Curry from "bs-platform/lib/es6/curry.js";
 import * as React from "react";
-import * as Header from "../src/components/Header.bs.js";
 import * as Counter from "../src/components/Counter.bs.js";
 import * as Pervasives from "bs-platform/lib/es6/pervasives.js";
+import * as IndexCss from "./index.css";
+
+var css = IndexCss;
 
 function Index(Props) {
   var onServer = Props.onServer;
-  return React.createElement("div", undefined, React.createElement(Header.make, { }), React.createElement("p", undefined, "HOME PAGE is here!"), React.createElement("p", undefined, "onServer: " + Pervasives.string_of_bool(onServer)), React.createElement(Counter.make, { }));
+  return React.createElement("div", {
+              className: css.index
+            }, React.createElement("p", undefined, "HOME PAGE is here!"), React.createElement("p", undefined, "onServer: " + Pervasives.string_of_bool(onServer)), React.createElement(Counter.make, { }));
 }
 
 function getInitialProps(context) {
@@ -27,6 +31,7 @@ var make = Index;
 var $$default = Index;
 
 export {
+  css ,
   make ,
   getInitialProps ,
   $$default ,
@@ -34,4 +39,4 @@ export {
   inject ,
   
 }
-/* inject Not a pure module */
+/* css Not a pure module */

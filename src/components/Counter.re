@@ -3,7 +3,6 @@ type action =
 
 type state = {count: int};
 
-[@genType]
 [@react.component]
 let make = () => {
   let (state, dispatch) =
@@ -22,3 +21,6 @@ let make = () => {
     <button onClick={_ => dispatch(Add)}> {React.string("Add")} </button>
   </div>;
 };
+
+[@genType]
+let default = make;

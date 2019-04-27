@@ -1,7 +1,12 @@
+type css = {. "about": string};
+[@bs.module] external css: css = "./about.css";
+
 [@react.component]
 let make = () => {
-  <div>
-    <Header />
+  <div
+    className={
+      css##about;
+    }>
     <p> {React.string("This is the about page.")} </p>
     <Counter />
   </div>;

@@ -1,7 +1,12 @@
+type css = {. "index": string};
+[@bs.module] external css: css = "./index.css";
+
 [@react.component]
 let make = (~onServer) => {
-  <div>
-    <Header />
+  <div
+    className={
+      css##index;
+    }>
     <p> {React.string("HOME PAGE is here!")} </p>
     <p> {React.string("onServer: " ++ string_of_bool(onServer))} </p>
     <Counter />
