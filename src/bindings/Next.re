@@ -26,8 +26,8 @@ module Error = {
 };
 
 module Router = {
-  [@bs.deriving abstract]
-  type t = {pathname: string};
+  [@gentype]
+  type t = {. "pathname": string};
 
   [@bs.module "next/router"] external useRouter: unit => t = "useRouter";
 

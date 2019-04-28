@@ -2,13 +2,15 @@
 
 import * as Cn from "re-classnames/src/Cn.bs.js";
 import * as React from "react";
+import * as Caml_option from "bs-platform/lib/es6/caml_option.js";
 import * as Router from "next/router";
 
 function ActiveLink(Props) {
   var href = Props.href;
   var activeClassName = Props.activeClassName;
+  var match = Props.router;
+  var router = match !== undefined ? Caml_option.valFromOption(match) : Router.useRouter();
   var children = Props.children;
-  var router = Router.useRouter();
   var handleClick = function ($$event) {
     $$event.preventDefault();
     router.push(href);
