@@ -1,6 +1,7 @@
 export type reactElement = JSX.Element;
-// tslint:disable-next-line:max-classes-per-file
+export type element = reactElement;
 
+// tslint:disable-next-line:max-classes-per-file
 export abstract class component {
   protected opaque: unknown;
 }
