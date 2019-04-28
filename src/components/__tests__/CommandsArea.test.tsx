@@ -31,4 +31,18 @@ describe('CommandsArea', () => {
     });
     expect(setText).toHaveBeenCalledWith('abc');
   });
+
+  it('clears the text', () => {
+    const defaultText = 'default test';
+
+    const { getByText, queryAllByText } = render(
+      <CommandsArea defaultText={defaultText} />,
+    );
+
+    const link = getByText('Clear Text');
+    expect(link).toBeTruthy();
+
+    fireEvent.click(link);
+    expect(queryAllByText(defaultText)).toHaveLength(0);
+  });
 });
