@@ -242,6 +242,8 @@ module CLI = {
 
   [@genType]
   let runCommands = (simulator: Simulator.t, commands: array(Command.t)) => {
+    let report: ref(option(string)) = ref(None);
+
     commands->Belt.Array.reduce(simulator, (current, command) =>
       switch (command) {
       | Command.PLACE(east, north, facing) =>
@@ -250,10 +252,13 @@ module CLI = {
       | Command.LEFT => Simulator.turnLeft(current)
       | Command.RIGHT => Simulator.turnRight(current)
       | Command.REPORT =>
-        Simulator.report(current) |> ignore;
+        report := Simulator.report(current);
         current;
       | Command.INVALID(_) => current
       }
-    );
+    )
+    |> ignore;
+
+    report^;
   };
 };

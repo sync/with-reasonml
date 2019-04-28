@@ -316,26 +316,28 @@ function loadCommands(text) {
 }
 
 function runCommands(simulator, commands) {
-  return Belt_Array.reduce(commands, simulator, (function (current, command) {
-                if (typeof command === "number") {
-                  switch (command) {
-                    case 0 : 
-                        return move$1(current);
-                    case 1 : 
-                        return turnLeft$1(current);
-                    case 2 : 
-                        return turnRight$1(current);
-                    case 3 : 
-                        report$1(current);
-                        return current;
-                    
-                  }
-                } else if (command.tag) {
+  var report$2 = /* record */[/* contents */undefined];
+  Belt_Array.reduce(commands, simulator, (function (current, command) {
+          if (typeof command === "number") {
+            switch (command) {
+              case 0 : 
+                  return move$1(current);
+              case 1 : 
+                  return turnLeft$1(current);
+              case 2 : 
+                  return turnRight$1(current);
+              case 3 : 
+                  report$2[0] = report$1(current);
                   return current;
-                } else {
-                  return place(current, command[0], command[1], command[2]);
-                }
-              }));
+              
+            }
+          } else if (command.tag) {
+            return current;
+          } else {
+            return place(current, command[0], command[1], command[2]);
+          }
+        }));
+  return report$2[0];
 }
 
 var CLI = /* module */[

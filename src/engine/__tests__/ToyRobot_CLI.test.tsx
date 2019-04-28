@@ -4,7 +4,6 @@ import {
   Simulator_make as make,
   Simulator_t as Simulator,
   Table_make as makeTable,
-  Simulator_report as report,
   Simulator_place as place,
   Command_t as Command,
 } from '../ToyRobot.gen';
@@ -47,38 +46,34 @@ describe('CLI', () => {
           tag: 'PLACE',
           value: [1, 2, 'EAST'],
         },
+        'REPORT',
       ];
 
-      simulator = runCommands(simulator, commands);
-      expect(report(simulator)).toEqual('1,2,EAST');
+      expect(runCommands(simulator, commands)).toEqual('1,2,EAST');
     });
 
     test('move command', () => {
-      const commands: Command[] = ['MOVE'];
+      const commands: Command[] = ['MOVE', 'REPORT'];
 
-      simulator = runCommands(simulator, commands);
-      expect(report(simulator)).toEqual('0,1,NORTH');
+      expect(runCommands(simulator, commands)).toEqual('0,1,NORTH');
     });
 
     test('left command', () => {
-      const commands: Command[] = ['LEFT'];
+      const commands: Command[] = ['LEFT', 'REPORT'];
 
-      simulator = runCommands(simulator, commands);
-      expect(report(simulator)).toEqual('0,0,WEST');
+      expect(runCommands(simulator, commands)).toEqual('0,0,WEST');
     });
 
     test('right command', () => {
-      const commands: Command[] = ['RIGHT'];
+      const commands: Command[] = ['RIGHT', 'REPORT'];
 
-      simulator = runCommands(simulator, commands);
-      expect(report(simulator)).toEqual('0,0,EAST');
+      expect(runCommands(simulator, commands)).toEqual('0,0,EAST');
     });
 
     test('report command', () => {
       const commands: Command[] = ['REPORT'];
 
-      simulator = runCommands(simulator, commands);
-      expect(report(simulator)).toEqual('0,0,NORTH');
+      expect(runCommands(simulator, commands)).toEqual('0,0,NORTH');
     });
 
     test('invalid command', () => {
@@ -87,10 +82,16 @@ describe('CLI', () => {
           tag: 'INVALID',
           value: 'PLACE 1,2,SOME',
         },
+        'REPORT',
       ];
 
-      simulator = runCommands(simulator, commands);
-      expect(report(simulator)).toEqual('0,0,NORTH');
+      expect(runCommands(simulator, commands)).toEqual('0,0,NORTH');
+    });
+
+    test('without report', () => {
+      const commands: Command[] = ['LEFT'];
+
+      expect(runCommands(simulator, commands)).toBeUndefined();
     });
   });
 });

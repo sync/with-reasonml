@@ -158,11 +158,11 @@ export const CLI_loadCommands: (_1:string) => Command_t[] = function (Arg1: any)
     : $$toJS11837142[ArrayItem]})
 };
 
-export const CLI_runCommands: (_1:Simulator_t, _2:Command_t[]) => Simulator_t = function (Arg1: any, Arg2: any) {
+export const CLI_runCommands: (_1:Simulator_t, _2:Command_t[]) => (null | undefined | string) = function (Arg1: any, Arg2: any) {
   const result = Curry._2(ToyRobotBS.CLI[2], [[Arg1.table.width, Arg1.table.length], (Arg1.robot == null ? undefined : [Arg1.robot.east, Arg1.robot.north, $$toRE311681469[Arg1.robot.direction]])], Arg2.map(function _element(ArrayItem: any) { return typeof(ArrayItem) === 'object'
     ? ArrayItem.tag==="PLACE"
       ? CreateBucklescriptBlock.__(0, [ArrayItem.value[0], ArrayItem.value[1], $$toRE311681469[ArrayItem.value[2]]])
       : CreateBucklescriptBlock.__(1, [ArrayItem.value])
     : $$toRE11837142[ArrayItem]}));
-  return {table:{width:result[0][0], length:result[0][1]}, robot:(result[1] == null ? result[1] : {east:result[1][0], north:result[1][1], direction:$$toJS311681469[result[1][2]]})}
+  return result
 };
