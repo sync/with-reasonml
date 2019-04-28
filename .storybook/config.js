@@ -4,7 +4,7 @@ import {
   getStorybook,
   setAddon,
 } from '@storybook/react';
-import centered from '@storybook/addon-centered';
+import centered from '@storybook/addon-centered/react';
 import createPercyAddon from '@percy-io/percy-storybook';
 import AllTheProviders from '../src/utils/AllTheProviders';
 
