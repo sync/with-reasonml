@@ -2,29 +2,40 @@
 
 import * as Curry from "bs-platform/lib/es6/curry.js";
 import * as React from "react";
-import * as Counter from "../src/components/Counter.bs.js";
-import * as Pervasives from "bs-platform/lib/es6/pervasives.js";
+import * as ToyRobot from "../src/engine/ToyRobot.bs.js";
 import * as IndexCss from "./index.css";
+import * as CommandsArea from "../src/components/CommandsArea.bs.js";
 
 var css = IndexCss;
 
 function Index(Props) {
-  var onServer = Props.onServer;
+  var table = ToyRobot.Table[/* make */0](5, 5);
+  var simulator = ToyRobot.Simulator[/* make */0](table);
+  var match = React.useState((function () {
+          return "";
+        }));
+  var text = match[0];
+  var match$1 = React.useState((function () {
+          return "";
+        }));
+  var setResult = match$1[1];
+  React.useEffect((function () {
+          var commands = ToyRobot.CLI[/* loadCommands */1](text);
+          var match = ToyRobot.CLI[/* runCommands */2](simulator, commands);
+          var currentResult = match !== undefined ? match : "";
+          Curry._1(setResult, (function (param) {
+                  return currentResult;
+                }));
+          return undefined;
+        }), /* array */[text]);
   return React.createElement("div", {
               className: css.index
-            }, React.createElement("p", undefined, "HOME PAGE is here!"), React.createElement("p", undefined, "onServer: " + Pervasives.string_of_bool(onServer)), React.createElement(Counter.make, { }));
+            }, React.createElement(CommandsArea.make, {
+                  text: text,
+                  setText: match[1],
+                  result: match$1[0]
+                }));
 }
-
-function getInitialProps(context) {
-  var match = context.req;
-  return {
-          onServer: !(match == null)
-        };
-}
-
-var inject = ( (cls, fn) => cls.getInitialProps = fn );
-
-Curry._2(inject, Index, getInitialProps);
 
 var make = Index;
 
@@ -33,10 +44,8 @@ var $$default = Index;
 export {
   css ,
   make ,
-  getInitialProps ,
   $$default ,
   $$default as default,
-  inject ,
   
 }
 /* css Not a pure module */
