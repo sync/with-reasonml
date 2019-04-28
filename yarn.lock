@@ -1541,7 +1541,7 @@
     prop-types "^15.6.2"
     qs "^6.5.2"
 
-"@storybook/addon-viewport@^5.0.10":
+"@storybook/addon-viewport@5.0.10":
   version "5.0.10"
   resolved "https://registry.yarnpkg.com/@storybook/addon-viewport/-/addon-viewport-5.0.10.tgz#02f8c354cb71ed9d3eb3d713c7d5d7c9bea45c18"
   integrity sha512-+opsbm6RZeeFW0QzGKsGWWAgCrzrem/z2rjfcQjM7X9TDeEzRZm4WFdfv0i3ka3MN44aVnkrLn/h/ipqD9lIjQ==
