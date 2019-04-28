@@ -2,7 +2,8 @@ workflow "Build, Test, and Publish" {
   on = "push"
   resolves = [
     "Install",
-    "Test"
+    "Test",
+    "Snapshot UI"
   ]
 }
 
@@ -15,4 +16,11 @@ action "Test" {
   uses = "./workflows/action-puppeteer/"
   needs = ["Install"]
   args = "ci"
+}
+
+action "Snapshot UI" {
+  uses = "./workflows/action-puppeteer/"
+  needs = ["Test"]
+  args = "snapshot-ui"
+  secrets = ["PERCY_TOKEN"]
 }
