@@ -1,8 +1,14 @@
 {
   "name": "with-reasonml",
+  "private": true,
   "version": "1.0.0",
   "engines": {
     "node": "8.x.x"
+  },
+  "workspaces": {
+    "packages": [
+      "packages/*"
+    ]
   },
   "scripts": {
     "clean": "bsb -clean-world",
@@ -26,7 +32,8 @@
     "storybook:reason": "yarn dev:reason",
     "storybook:start": "start-storybook -p 6006",
     "build-storybook": "yarn build:reason && build-storybook",
-    "snapshot-ui": "build-storybook && percy-storybook --widths=320,1280"
+    "snapshot-ui": "build-storybook && percy-storybook --widths=320,1280",
+    "e2e": "DISABLE_SERVERLESS=true yarn build && yarn --cwd packages/e2e jest"
   },
   "license": "ISC",
   "dependencies": {
