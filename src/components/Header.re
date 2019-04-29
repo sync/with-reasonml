@@ -15,9 +15,6 @@ let make = (~className=?) => {
       <ActiveLink href="/" activeClassName={css##active}>
         {React.string("Home")}
       </ActiveLink>
-      <ActiveLink href="/about" activeClassName={css##active}>
-        {React.string("About")}
-      </ActiveLink>
     </nav>
   </header>;
 };

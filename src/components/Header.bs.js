@@ -22,10 +22,6 @@ function Header(Props) {
                       href: "/",
                       activeClassName: css.active,
                       children: "Home"
-                    }), React.createElement(ActiveLink.make, {
-                      href: "/about",
-                      activeClassName: css.active,
-                      children: "About"
                     })));
 }
 
