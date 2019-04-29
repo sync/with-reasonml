@@ -3,6 +3,9 @@ import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import Header from '../src/components/Header.gen';
 import CommmandsArea from '../src/components/CommandsArea.gen';
+import Toolbar from '../src/components/Toolbar.gen';
+
+import './base.css';
 
 storiesOf('Header', module).add('Index', () => {
   return <Header />;
@@ -20,4 +23,8 @@ storiesOf('CommmandsArea', module).add('Default', () => {
   };
 
   return <Wrapper />;
+});
+
+storiesOf('Toolbar', module).add('Default', () => {
+  return <Toolbar result="(waiting for REPORT)" />;
 });
