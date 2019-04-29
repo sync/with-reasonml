@@ -1,21 +1,17 @@
-.container {
-  display: flex;
-  flex-direction: column;
-}
-
 .textArea {
-  display: flex;
   resize: none;
   outline: none;
+  border: none;
   padding: 10px 20px;
   margin: 0;
-  border: 1px solid rgb(216, 220, 227);
-  font-size: 1rem;
-  min-width: 300px;
-  min-height: 300px;
+  font-size: 1.6rem;
+  width: 100%;
+  min-height: 50vh;
 }
 
-.button {
-  padding: 10px;
-  margin: 10px;
+@supports (padding: max(1px)) {
+  .textArea {
+    padding-left: max(10px, env(safe-area-inset-left));
+    padding-right: max(10px, env(safe-area-inset-right));
+  }
 }
