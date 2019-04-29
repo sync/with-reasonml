@@ -1,29 +1,14 @@
 import * as React from 'react';
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
-import RouterProvider from '../src/utils/RouterProvider';
 import Header from '../src/components/Header.gen';
-import Counter from '../src/components/Counter.gen';
 import CommmandsArea from '../src/components/CommandsArea.gen';
+import Toolbar from '../src/components/Toolbar.gen';
 
-storiesOf('Header', module)
-  .add('Index', () => {
-    return <Header />;
-  })
-  .add('About', () => {
-    return (
-      <RouterProvider router={{ pathname: '/about' }}>
-        <Header />
-      </RouterProvider>
-    );
-  })
-  .addParameters({ viewport: { defaultViewport: 'iphone5' } })
-  .add('iPhone 5', () => {
-    return <Header />;
-  });
+import './base.css';
 
-storiesOf('Counter', module).add('Default', () => {
-  return <Counter />;
+storiesOf('Header', module).add('Index', () => {
+  return <Header />;
 });
 
 storiesOf('CommmandsArea', module).add('Default', () => {
@@ -38,4 +23,8 @@ storiesOf('CommmandsArea', module).add('Default', () => {
   };
 
   return <Wrapper />;
+});
+
+storiesOf('Toolbar', module).add('Default', () => {
+  return <Toolbar result="(waiting for REPORT)" />;
 });

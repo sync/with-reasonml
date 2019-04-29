@@ -1,0 +1,17 @@
+.toolbar {
+  display: flex;
+  flex: 1;
+  background-color: rgb(216, 220, 227);
+  height: var(--toolbarHeight);
+  border-top: 1px solid darkgrey;
+  border-bottom: 1px solid darkgrey;
+  align-items: center;
+  padding: 0 10px;
+}
+
+@supports (padding: max(1px)) {
+  .toolbar {
+    padding-left: max(10px, env(safe-area-inset-left));
+    padding-right: max(10px, env(safe-area-inset-right));
+  }
+}

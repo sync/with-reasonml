@@ -27,6 +27,29 @@ export default class MyDocument extends Document {
               display: flex;
               flex-direction: column;
             }
+
+            :root {
+              --navbar: #f7b731;
+              --navbarTextColor: #fff;
+              --navbarHeight: 56px;
+              --toolbarHeight: 44px;
+            }
+
+            * {
+              box-sizing: border-box !important;
+            }
+            
+            html {
+              font-size: 10px;
+            }
+            
+            body {
+              font-size: 1.6rem;
+              margin: 0;
+              font-family: system-ui, -apple-system, BlinkMacSystemFont, segoeUI, Roboto,
+                Ubuntu, 'Helvetica Neue', sans-serif;
+              -webkit-tap-highlight-color: transparent;
+            }
           `,
         }}
       />,
@@ -43,10 +66,6 @@ export default class MyDocument extends Document {
           <meta
             name="apple-mobile-web-app-status-bar-style"
             content="default"
-          />
-          <meta
-            name="viewport"
-            content="width=device-width, initial-scale=1, shrink-to-fit=no"
           />
           <meta name="name" content="with-reasonml" />
           <meta name="description" content="reasonml pwa next.js" />

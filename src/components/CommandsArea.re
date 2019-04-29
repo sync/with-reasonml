@@ -1,46 +1,26 @@
-type css = {
-  .
-  "container": string,
-  "textArea": string,
-  "button": string,
-};
+type css = {. "textArea": string};
 [@bs.module] external css: css = "./CommandsArea.css";
 
 [@react.component]
 let make =
     (
+      ~className=?,
       ~defaultText="",
       ~textUseState as (text, setText)=React.useState(() => defaultText),
       ~text=text,
       ~setText=setText,
-      ~result="",
     ) => {
+  let className = Cn.make([css##textArea, className->Cn.unpack]);
+
   let onTextChange = e => ReactEvent.Form.target(e)##value |> setText;
 
-  let onClearClick = _ => setText(_ => "");
-
-  <div
-    className={
-      css##container;
-    }>
-    <textarea
-      className={css##textArea}
-      placeholder="Enter commands..."
-      value=text
-      onChange=onTextChange
-      ariaLabel="Enter commands"
-    />
-    <div>
-      {ReasonReact.string(result)}
-      <button
-        className={css##button}
-        title="Clear Text"
-        onClick=onClearClick
-        disabled={String.length(text) === 0}>
-        {React.string("Clear Text")}
-      </button>
-    </div>
-  </div>;
+  <textarea
+    className
+    placeholder="Enter commands..."
+    value=text
+    onChange=onTextChange
+    ariaLabel="Enter commands"
+  />;
 };
 
 [@genType]

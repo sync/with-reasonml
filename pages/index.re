@@ -1,6 +1,3 @@
-type css = {. "index": string};
-[@bs.module] external css: css = "./index.css";
-
 [@react.component]
 let make = () => {
   let table = ToyRobot.Table.make(~width=5, ~length=5);
@@ -16,7 +13,7 @@ let make = () => {
       let currentResult =
         switch (ToyRobot.CLI.runCommands(simulator, commands)) {
         | Some(report) => report
-        | None => ""
+        | None => "(waiting for REPORT)"
         };
       setResult(_ => currentResult);
 
@@ -25,10 +22,7 @@ let make = () => {
     [|text|],
   );
 
-  <div
-    className={
-      css##index;
-    }> <CommandsArea text setText result /> </div>;
+  <div> <CommandsArea text setText /> <Toolbar result /> </div>;
 };
 
 let default = make;

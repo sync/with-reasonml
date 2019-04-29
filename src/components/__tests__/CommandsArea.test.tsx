@@ -3,11 +3,10 @@ import { render, fireEvent } from '../../utils/testUtils';
 import CommandsArea from '../CommandsArea.gen';
 
 describe('CommandsArea', () => {
-  it('renders a text area and a clear button', () => {
-    const { getByPlaceholderText, getByText } = render(<CommandsArea />);
+  it('renders a text area', () => {
+    const { getByPlaceholderText } = render(<CommandsArea />);
 
     expect(getByPlaceholderText('Enter commands...')).toBeTruthy();
-    expect(getByText('Clear Text')).toBeTruthy();
   });
 
   it('renders a text area with provided default value', () => {
@@ -30,19 +29,5 @@ describe('CommandsArea', () => {
       target: { value: 'abc' },
     });
     expect(setText).toHaveBeenCalledWith('abc');
-  });
-
-  it('clears the text', () => {
-    const defaultText = 'default test';
-
-    const { getByText, queryAllByText } = render(
-      <CommandsArea defaultText={defaultText} />,
-    );
-
-    const link = getByText('Clear Text');
-    expect(link).toBeTruthy();
-
-    fireEvent.click(link);
-    expect(queryAllByText(defaultText)).toHaveLength(0);
   });
 });

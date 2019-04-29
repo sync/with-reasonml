@@ -6,18 +6,14 @@ type css = {
 [@bs.module] external css: css = "./Header.css";
 
 [@react.component]
-let make = () => {
-  <header
-    className={
-      css##header;
-    }>
-    <h1> {React.string("Robot Challenge")} </h1>
+let make = (~className=?) => {
+  let className = Cn.make([css##header, className->Cn.unpack]);
+
+  <header className>
+    <h1> {React.string({j|🤖 Challenge|j})} </h1>
     <nav>
       <ActiveLink href="/" activeClassName={css##active}>
         {React.string("Home")}
-      </ActiveLink>
-      <ActiveLink href="/about" activeClassName={css##active}>
-        {React.string("About")}
       </ActiveLink>
     </nav>
   </header>;

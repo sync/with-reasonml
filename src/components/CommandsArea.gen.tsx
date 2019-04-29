@@ -6,8 +6,8 @@ const CommandsAreaBS = require('./CommandsArea.bs');
 import {reactElement as ReasonReact_reactElement} from '../../src/shims/ReactShim.shim';
 
 export const $$default: (_1:{
+  readonly className?: string; 
   readonly defaultText?: string; 
-  readonly result?: string; 
   readonly setText?: ((_1:((_1:string) => string)) => void); 
   readonly text?: string; 
   readonly textUseState?: [string, ((_1:((_1:string) => string)) => void)]
