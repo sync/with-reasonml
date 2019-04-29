@@ -2,7 +2,7 @@
   "name": "WithReasonML",
   "short_name": "with-reasonml",
   "background_color": "#FFFFFF",
-  "theme_color": "#FFFFFF",
+  "theme_color": "#673AB7",
   "description": "reasonml pwa next.js",
   "display": "standalone",
   "start_url": "/",
