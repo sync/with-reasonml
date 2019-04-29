@@ -29,7 +29,7 @@ export default class MyDocument extends Document {
             }
 
             :root {
-              --navbar: #f7b731;
+              --navbar: #673AB7;
               --navbarTextColor: #fff;
               --navbarHeight: 56px;
               --toolbarHeight: 44px;
