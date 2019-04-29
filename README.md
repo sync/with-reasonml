@@ -137,3 +137,7 @@ Here is a couple of the features worth mentioning:
 - wanted to demonstrate how to mix reasonml, react and typescript using gentype. For example you can see the `Header` component is being used from typscript. Also all the tests are running using typescript.
 - using yarn workspaces for e2e testing
 - github ations for CI
+
+## Troubleshooting
+
+If you have any issue with running this sample, open an issue or often just running `yarn clean && yarn build:reason` will help make things work once more.
