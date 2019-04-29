@@ -22,16 +22,16 @@ export type Robot_direction = "NORTH" | "SOUTH" | "EAST" | "WEST";
 
 // tslint:disable-next-line:interface-over-type-literal
 export type Robot_t = {
-  east: number; 
-  north: number; 
-  direction: Robot_direction
+  readonly east: number; 
+  readonly north: number; 
+  readonly direction: Robot_direction
 };
 
 // tslint:disable-next-line:interface-over-type-literal
 export type Table_t = { readonly width: number; readonly length: number };
 
 // tslint:disable-next-line:interface-over-type-literal
-export type Simulator_t = { readonly table: Table_t; robot?: Robot_t };
+export type Simulator_t = { readonly table: Table_t; readonly robot?: Robot_t };
 
 // tslint:disable-next-line:interface-over-type-literal
 export type Command_t = 

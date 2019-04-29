@@ -2,7 +2,6 @@
 
 import * as $$Array from "bs-platform/lib/es6/array.js";
 import * as Block from "bs-platform/lib/es6/block.js";
-import * as Curry from "bs-platform/lib/es6/curry.js";
 import * as Belt_Array from "bs-platform/lib/es6/belt_Array.js";
 import * as Caml_array from "bs-platform/lib/es6/caml_array.js";
 import * as Belt_Option from "bs-platform/lib/es6/belt_Option.js";
@@ -20,23 +19,35 @@ function make(east, north, $staropt$star, param) {
 }
 
 function moveEast(robot) {
-  robot[/* east */0] = robot[/* east */0] + 1 | 0;
-  return robot;
+  return /* record */[
+          /* east */robot[/* east */0] + 1 | 0,
+          /* north */robot[/* north */1],
+          /* direction */robot[/* direction */2]
+        ];
 }
 
 function moveWest(robot) {
-  robot[/* east */0] = robot[/* east */0] - 1 | 0;
-  return robot;
+  return /* record */[
+          /* east */robot[/* east */0] - 1 | 0,
+          /* north */robot[/* north */1],
+          /* direction */robot[/* direction */2]
+        ];
 }
 
 function moveNorth(robot) {
-  robot[/* north */1] = robot[/* north */1] + 1 | 0;
-  return robot;
+  return /* record */[
+          /* east */robot[/* east */0],
+          /* north */robot[/* north */1] + 1 | 0,
+          /* direction */robot[/* direction */2]
+        ];
 }
 
 function moveSouth(robot) {
-  robot[/* north */1] = robot[/* north */1] - 1 | 0;
-  return robot;
+  return /* record */[
+          /* east */robot[/* east */0],
+          /* north */robot[/* north */1] - 1 | 0,
+          /* direction */robot[/* direction */2]
+        ];
 }
 
 function move(robot) {
@@ -83,46 +94,52 @@ function nextMove(robot) {
 
 function turnLeft(robot) {
   var match = robot[/* direction */2];
-  var tmp;
+  var newDirection;
   switch (match) {
     case 0 : 
-        tmp = /* WEST */3;
+        newDirection = /* WEST */3;
         break;
     case 1 : 
-        tmp = /* EAST */2;
+        newDirection = /* EAST */2;
         break;
     case 2 : 
-        tmp = /* NORTH */0;
+        newDirection = /* NORTH */0;
         break;
     case 3 : 
-        tmp = /* SOUTH */1;
+        newDirection = /* SOUTH */1;
         break;
     
   }
-  robot[/* direction */2] = tmp;
-  return robot;
+  return /* record */[
+          /* east */robot[/* east */0],
+          /* north */robot[/* north */1],
+          /* direction */newDirection
+        ];
 }
 
 function turnRight(robot) {
   var match = robot[/* direction */2];
-  var tmp;
+  var newDirection;
   switch (match) {
     case 0 : 
-        tmp = /* EAST */2;
+        newDirection = /* EAST */2;
         break;
     case 1 : 
-        tmp = /* WEST */3;
+        newDirection = /* WEST */3;
         break;
     case 2 : 
-        tmp = /* SOUTH */1;
+        newDirection = /* SOUTH */1;
         break;
     case 3 : 
-        tmp = /* NORTH */0;
+        newDirection = /* NORTH */0;
         break;
     
   }
-  robot[/* direction */2] = tmp;
-  return robot;
+  return /* record */[
+          /* east */robot[/* east */0],
+          /* north */robot[/* north */1],
+          /* direction */newDirection
+        ];
 }
 
 function directionOfString(string) {
@@ -205,36 +222,45 @@ function make$2(table) {
 
 function place(simulator, east, north, facing) {
   if (validLocation(simulator[/* table */0], east, north)) {
-    var partial_arg = facing;
-    var newRobot = function (param) {
-      return make(east, north, partial_arg, param);
-    };
-    simulator[/* robot */1] = Curry._1(newRobot, /* () */0);
+    var newRobot = make(east, north, facing, /* () */0);
+    return /* record */[
+            /* table */simulator[/* table */0],
+            /* robot */newRobot
+          ];
+  } else {
+    return simulator;
   }
-  return simulator;
 }
 
 function move$1(simulator) {
-  var match = simulator[/* robot */1];
-  if (match !== undefined) {
-    var robot = match;
-    var match$1 = nextMove(robot);
-    if (validLocation(simulator[/* table */0], match$1[0], match$1[1])) {
-      move(robot);
-    }
-    
-  }
-  return simulator;
+  var newRobot = Belt_Option.map(simulator[/* robot */1], (function (robot) {
+          var match = nextMove(robot);
+          if (validLocation(simulator[/* table */0], match[0], match[1])) {
+            return move(robot);
+          } else {
+            return robot;
+          }
+        }));
+  return /* record */[
+          /* table */simulator[/* table */0],
+          /* robot */newRobot
+        ];
 }
 
 function turnLeft$1(simulator) {
-  Belt_Option.map(simulator[/* robot */1], turnLeft);
-  return simulator;
+  var newRobot = Belt_Option.map(simulator[/* robot */1], turnLeft);
+  return /* record */[
+          /* table */simulator[/* table */0],
+          /* robot */newRobot
+        ];
 }
 
 function turnRight$1(simulator) {
-  Belt_Option.map(simulator[/* robot */1], turnRight);
-  return simulator;
+  var newRobot = Belt_Option.map(simulator[/* robot */1], turnRight);
+  return /* record */[
+          /* table */simulator[/* table */0],
+          /* robot */newRobot
+        ];
 }
 
 function report$1(simulator) {

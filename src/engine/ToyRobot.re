@@ -8,9 +8,9 @@ module Robot = {
 
   [@gentype]
   type t = {
-    mutable east: int,
-    mutable north: int,
-    mutable direction,
+    east: int,
+    north: int,
+    direction,
   };
 
   [@gentype]
@@ -22,26 +22,22 @@ module Robot = {
 
   [@genType]
   let moveEast = robot => {
-    robot.east = robot.east + 1;
-    robot;
+    {...robot, east: robot.east + 1};
   };
 
   [@genType]
   let moveWest = robot => {
-    robot.east = robot.east - 1;
-    robot;
+    {...robot, east: robot.east - 1};
   };
 
   [@genType]
   let moveNorth = robot => {
-    robot.north = robot.north + 1;
-    robot;
+    {...robot, north: robot.north + 1};
   };
 
   [@genType]
   let moveSouth = robot => {
-    robot.north = robot.north - 1;
-    robot;
+    {...robot, north: robot.north - 1};
   };
 
   [@gentype]
@@ -66,28 +62,26 @@ module Robot = {
 
   [@gentype]
   let turnLeft = robot => {
-    robot.direction = (
+    let newDirection =
       switch (robot.direction) {
       | NORTH => WEST
       | WEST => SOUTH
       | SOUTH => EAST
       | EAST => NORTH
-      }
-    );
-    robot;
+      };
+    {...robot, direction: newDirection};
   };
 
   [@gentype]
   let turnRight = robot => {
-    robot.direction = (
+    let newDirection =
       switch (robot.direction) {
       | NORTH => EAST
       | WEST => NORTH
       | SOUTH => WEST
       | EAST => SOUTH
-      }
-    );
-    robot;
+      };
+    {...robot, direction: newDirection};
   };
 
   let directionOfString = string => {
@@ -139,44 +133,46 @@ module Simulator = {
   [@gentype]
   type t = {
     table: Table.t,
-    mutable robot: option(Robot.t),
+    robot: option(Robot.t),
   };
 
   [@gentype]
   let make = (~table): t => {table, robot: None};
 
   [@gentype]
-  let place = (simulator, ~east, ~north, ~facing) => {
+  let place = (simulator, ~east, ~north, ~facing) =>
     if (Table.validLocation(simulator.table, ~east, ~north)) {
-      let newRobot = Robot.make(~east, ~north, ~direction=facing);
-      simulator.robot = Some(newRobot());
+      let newRobot = Robot.make(~east, ~north, ~direction=facing, ());
+      {...simulator, robot: Some(newRobot)};
+    } else {
+      simulator;
     };
-    simulator;
-  };
 
   [@genType]
   let move = simulator => {
-    switch (simulator.robot) {
-    | Some(robot) =>
-      let (east, north) = Robot.nextMove(robot);
-      if (Table.validLocation(simulator.table, ~east, ~north)) {
-        Robot.move(robot) |> ignore;
-      };
-    | None => ()
-    };
-    simulator;
+    let newRobot =
+      simulator.robot
+      ->Belt.Option.map(robot => {
+          let (east, north) = Robot.nextMove(robot);
+          if (Table.validLocation(simulator.table, ~east, ~north)) {
+            Robot.move(robot);
+          } else {
+            robot;
+          };
+        });
+    {...simulator, robot: newRobot};
   };
 
   [@genType]
   let turnLeft = simulator => {
-    simulator.robot->Belt.Option.map(Robot.turnLeft) |> ignore;
-    simulator;
+    let newRobot = simulator.robot->Belt.Option.map(Robot.turnLeft);
+    {...simulator, robot: newRobot};
   };
 
   [@genType]
   let turnRight = simulator => {
-    simulator.robot->Belt.Option.map(Robot.turnRight) |> ignore;
-    simulator;
+    let newRobot = simulator.robot->Belt.Option.map(Robot.turnRight);
+    {...simulator, robot: newRobot};
   };
 
   [@genType]
