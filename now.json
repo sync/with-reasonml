@@ -1,6 +1,7 @@
 {
   "version": 2,
   "name": "with-reasonml",
+  "alias": "with-reasonml.now.sh",
   "public": true,
   "regions": ["all"],
   "builds": [

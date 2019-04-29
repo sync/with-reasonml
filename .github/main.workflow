@@ -4,7 +4,8 @@ workflow "Build, Test, and Publish" {
     "Install",
     "Test",
     "Snapshot UI",
-    "End to End"
+    "End to End",
+    "Deploy"
   ]
 }
 
@@ -30,4 +31,11 @@ action "End to End" {
   uses = "./workflows/action-puppeteer/"
   needs = ["Test"]
   args = "e2e"
+}
+
+action "Deploy" {
+  uses = "./workflows/action-puppeteer/"
+  needs = ["Test", "Snapshot UI", "End to End"]
+  args = "deploy"
+  secrets = ["NOW_TOKEN"]
 }

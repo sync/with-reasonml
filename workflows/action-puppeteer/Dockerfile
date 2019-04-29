@@ -24,6 +24,7 @@ RUN apt-get update && apt-get install -y wget --no-install-recommends \
 
 RUN npm install -g yarn
 RUN npm install -g --unsafe-perm esy
+RUN npm install -g --unsafe-perm now@canary
 
 # It's a good idea to use dumb-init to help prevent zombie chrome processes.
 ADD https://github.com/Yelp/dumb-init/releases/download/v1.2.0/dumb-init_1.2.0_amd64 /usr/local/bin/dumb-init

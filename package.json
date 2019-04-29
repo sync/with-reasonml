@@ -33,7 +33,10 @@
     "storybook:start": "start-storybook -p 6006",
     "build-storybook": "yarn build:reason && build-storybook",
     "snapshot-ui": "build-storybook && percy-storybook --widths=320,1280",
-    "e2e": "DISABLE_SERVERLESS=true yarn build && yarn --cwd packages/e2e jest"
+    "e2e": "DISABLE_SERVERLESS=true yarn build && yarn --cwd packages/e2e jest",
+    "deploy": "scripts/deploy-ci.sh",
+    "deploy:production": "now --token $NOW_TOKEN --target production",
+    "deploy:staging": "now --token $NOW_TOKEN --target staging"
   },
   "license": "ISC",
   "dependencies": {
