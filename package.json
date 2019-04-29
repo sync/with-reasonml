@@ -33,7 +33,10 @@
     "storybook:start": "start-storybook -p 6006",
     "build-storybook": "yarn build:reason && build-storybook",
     "snapshot-ui": "build-storybook && percy-storybook --widths=320,1280",
-    "e2e": "DISABLE_SERVERLESS=true yarn build && yarn --cwd packages/e2e jest"
+    "e2e": "DISABLE_SERVERLESS=true yarn build && yarn --cwd packages/e2e jest",
+    "deploy": "scripts/deploy-ci.sh",
+    "deploy:production": "now --token $NOW_TOKEN --target production",
+    "deploy:staging": "now --token $NOW_TOKEN --target staging"
   },
   "license": "ISC",
   "dependencies": {
@@ -63,7 +66,7 @@
     "autoprefixer": "9.5.1",
     "awesome-typescript-loader": "5.2.1",
     "babel-loader": "8.0.5",
-    "bs-platform": "5.0.3",
+    "bs-platform": "5.0.4",
     "eslint": "5.16.0",
     "eslint-config-prettier": "4.2.0",
     "eslint-plugin-jest": "22.5.1",

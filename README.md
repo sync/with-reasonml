@@ -132,7 +132,7 @@ The Toy Robot Test has been around in Melbourne, Australia since 2007, so it's q
 Here is a couple of the features worth mentioning:
 
 - toy robot is completely immutatable thanks to reasonml
-- it's got CI, Screenshot Comparison, Webpack bundle size check, e2e tests, and auto now.sh deploy
+- it's got CI, Screenshot Comparison, e2e tests, and auto now.sh deploy
 - it's e2e test suite uses the provided samples input and output.
 - wanted to demonstrate how to mix reasonml, react and typescript using gentype. For example you can see the `Header` component is being used from typscript. Also all the tests are running using typescript.
 - using yarn workspaces for e2e testing
