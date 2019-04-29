@@ -16,6 +16,10 @@ module.exports = {
   },
   transformIgnorePatterns: ['/node_modules/(?!(bs-platform|re-classnames)/)'],
   testRegex: '/__tests__/.*\\.(js|jsx|ts|tsx)$',
-  testPathIgnorePatterns: ['<rootDir>/dist/'],
+  testPathIgnorePatterns: [
+    '<rootDir>/dist/',
+    '<rootDir>/packages/e2e/',
+    '<rootDir>/packages/*/dist',
+  ],
   clearMocks: true,
 };

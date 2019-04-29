@@ -1,0 +1,29 @@
+{
+  "name": "@dblechoc/e2e",
+  "private": true,
+  "version": "0.0.0",
+  "engines": {
+    "node": "8.x.x"
+  },
+  "scripts": {
+    "start": "yarn --cwd ../../ start"
+  },
+  "devDependencies": {
+    "jest": "24.7.1",
+    "jest-puppeteer": "4.1.1",
+    "puppeteer": "1.14.0"
+  },
+  "jest": {
+    "preset": "jest-puppeteer",
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js",
+      "jsx"
+    ],
+    "transform": {
+      "^.+\\.(js|jsx|ts|tsx)$": "babel-jest"
+    },
+    "testRegex": "/__tests__/.*\\.(ts|tsx|js)$"
+  }
+}
