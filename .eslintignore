@@ -7,6 +7,5 @@ lib
 .cache
 *.bs.js
 *.gen.tsx
-renovate.json
 .graphql_ppx_cache
 storybook-static
