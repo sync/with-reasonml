@@ -57,7 +57,7 @@
     "@storybook/addon-viewport": "5.0.11",
     "@storybook/addons": "5.0.11",
     "@storybook/react": "5.0.11",
-    "@types/jest": "24.0.12",
+    "@types/jest": "24.0.13",
     "@types/next": "8.0.5",
     "@types/react": "16.8.17",
     "@typescript-eslint/eslint-plugin": "1.9.0",
