@@ -75,7 +75,7 @@
     "husky": "2.2.0",
     "identity-obj-proxy": "3.0.0",
     "jest": "24.8.0",
-    "jest-canvas-mock": "2.0.0",
+    "jest-canvas-mock": "2.1.0",
     "jest-dom": "3.2.2",
     "lint-staged": "8.1.6",
     "next-offline": "3.4.0",
