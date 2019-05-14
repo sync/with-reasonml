@@ -65,27 +65,27 @@ function move(robot) {
   }
 }
 
-function nextMove(robot) {
+function nextMove(robot, numberOfSpaces) {
   var match = robot[/* direction */2];
   switch (match) {
     case 0 : 
         return /* tuple */[
                 robot[/* east */0],
-                robot[/* north */1] + 1 | 0
+                robot[/* north */1] + numberOfSpaces | 0
               ];
     case 1 : 
         return /* tuple */[
                 robot[/* east */0],
-                robot[/* north */1] - 1 | 0
+                robot[/* north */1] - numberOfSpaces | 0
               ];
     case 2 : 
         return /* tuple */[
-                robot[/* east */0] + 1 | 0,
+                robot[/* east */0] + numberOfSpaces | 0,
                 robot[/* north */1]
               ];
     case 3 : 
         return /* tuple */[
-                robot[/* east */0] - 1 | 0,
+                robot[/* east */0] - numberOfSpaces | 0,
                 robot[/* north */1]
               ];
     
@@ -232,11 +232,15 @@ function place(simulator, east, north, facing) {
   }
 }
 
-function move$1(simulator) {
+function move$1(simulator, numberOfSpaces) {
   var newRobot = Belt_Option.map(simulator[/* robot */1], (function (robot) {
-          var match = nextMove(robot);
+          var match = nextMove(robot, numberOfSpaces);
           if (validLocation(simulator[/* table */0], match[0], match[1])) {
-            return move(robot);
+            return Belt_Array.reduce(Belt_Array.makeBy(numberOfSpaces, (function (i) {
+                              return i;
+                            })), robot, (function (current, param) {
+                          return move(current);
+                        }));
           } else {
             return robot;
           }
@@ -298,23 +302,23 @@ function $$process(command) {
     exit = 1;
   }
   catch (exn){
-    return /* INVALID */Block.__(1, [command]);
+    return /* INVALID */Block.__(2, [command]);
   }
   if (exit === 1) {
     switch (val) {
       case "LEFT" : 
-          return /* LEFT */1;
+          return /* LEFT */0;
       case "MOVE" : 
-          return /* MOVE */0;
+          return /* MOVE */Block.__(1, [1]);
       case "REPORT" : 
-          return /* REPORT */3;
+          return /* REPORT */2;
       case "RIGHT" : 
-          return /* RIGHT */2;
+          return /* RIGHT */1;
       default:
         if (val$1 !== undefined) {
           return val$1;
         } else {
-          return /* INVALID */Block.__(1, [command]);
+          return /* INVALID */Block.__(2, [command]);
         }
     }
   }
@@ -347,20 +351,24 @@ function runCommands(simulator, commands) {
           if (typeof command === "number") {
             switch (command) {
               case 0 : 
-                  return move$1(current);
-              case 1 : 
                   return turnLeft$1(current);
-              case 2 : 
+              case 1 : 
                   return turnRight$1(current);
-              case 3 : 
+              case 2 : 
                   report$2[0] = report$1(current);
                   return current;
               
             }
-          } else if (command.tag) {
-            return current;
           } else {
-            return place(current, command[0], command[1], command[2]);
+            switch (command.tag | 0) {
+              case 0 : 
+                  return place(current, command[0], command[1], command[2]);
+              case 1 : 
+                  return move$1(current, command[0]);
+              case 2 : 
+                  return current;
+              
+            }
           }
         }));
   return report$2[0];

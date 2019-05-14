@@ -23,7 +23,10 @@ describe('CLI', () => {
           tag: 'PLACE',
           value: [1, 2, 'EAST'],
         },
-        'MOVE',
+        {
+          tag: 'MOVE',
+          value: 1,
+        },
         'LEFT',
         'RIGHT',
         'REPORT',
@@ -53,7 +56,13 @@ describe('CLI', () => {
     });
 
     test('move command', () => {
-      const commands: Command[] = ['MOVE', 'REPORT'];
+      const commands: Command[] = [
+        {
+          tag: 'MOVE',
+          value: 1,
+        },
+        'REPORT',
+      ];
 
       expect(runCommands(simulator, commands)).toEqual('0,1,NORTH');
     });

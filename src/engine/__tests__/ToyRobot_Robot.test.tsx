@@ -95,7 +95,11 @@ describe('Robot', () => {
       });
 
       it('next move is to (0, 1)', () => {
-        expect(nextMove(robot)).toEqual([0, 1]);
+        expect(nextMove(robot, 1)).toEqual([0, 1]);
+      });
+
+      it('next 3 moves are to (0, 3)', () => {
+        expect(nextMove(robot, 3)).toEqual([0, 3]);
       });
 
       it('turns left to face west', () => {
@@ -120,7 +124,11 @@ describe('Robot', () => {
       });
 
       it('next move is to (0, -1)', () => {
-        expect(nextMove(robot)).toEqual([0, -1]);
+        expect(nextMove(robot, 1)).toEqual([0, -1]);
+      });
+
+      it('next 3 moves are to (0, -3)', () => {
+        expect(nextMove(robot, 3)).toEqual([0, -3]);
       });
 
       it('turns left to face east', () => {
@@ -145,7 +153,11 @@ describe('Robot', () => {
       });
 
       it('next move is to (1, 0)', () => {
-        expect(nextMove(robot)).toEqual([1, 0]);
+        expect(nextMove(robot, 1)).toEqual([1, 0]);
+      });
+
+      it('next 3 moves are to (3, 0)', () => {
+        expect(nextMove(robot, 3)).toEqual([3, 0]);
       });
 
       it('turns left to face north', () => {
@@ -170,7 +182,11 @@ describe('Robot', () => {
       });
 
       it('next move is to (-1, 0)', () => {
-        expect(nextMove(robot)).toEqual([-1, 0]);
+        expect(nextMove(robot, 1)).toEqual([-1, 0]);
+      });
+
+      it('next 3 moves are to (-3, 0)', () => {
+        expect(nextMove(robot, 3)).toEqual([-3, 0]);
       });
 
       it('turns left to face south', () => {

@@ -51,12 +51,12 @@ module Robot = {
   };
 
   [@gentype]
-  let nextMove = robot => {
+  let nextMove = (robot, numberOfSpaces) => {
     switch (robot.direction) {
-    | NORTH => (robot.east, robot.north + 1)
-    | SOUTH => (robot.east, robot.north - 1)
-    | EAST => (robot.east + 1, robot.north)
-    | WEST => (robot.east - 1, robot.north)
+    | NORTH => (robot.east, robot.north + numberOfSpaces)
+    | SOUTH => (robot.east, robot.north - numberOfSpaces)
+    | EAST => (robot.east + numberOfSpaces, robot.north)
+    | WEST => (robot.east - numberOfSpaces, robot.north)
     };
   };
 
@@ -149,13 +149,14 @@ module Simulator = {
     };
 
   [@genType]
-  let move = simulator => {
+  let move = (simulator, numberOfSpaces) => {
     let newRobot =
       simulator.robot
       ->Belt.Option.map(robot => {
-          let (east, north) = Robot.nextMove(robot);
+          let (east, north) = Robot.nextMove(robot, numberOfSpaces);
           if (Table.validLocation(simulator.table, ~east, ~north)) {
-            Robot.move(robot);
+            Belt.Array.makeBy(numberOfSpaces, i => i)
+            ->Belt.Array.reduce(robot, (current, _) => Robot.move(current));
           } else {
             robot;
           };
@@ -187,7 +188,7 @@ module Command = {
   [@gentype]
   type t =
     | PLACE(int, int, Robot.direction)
-    | MOVE
+    | MOVE(int)
     | LEFT
     | RIGHT
     | REPORT
@@ -210,7 +211,7 @@ module Command = {
   [@genType]
   let process = (command: string) => {
     switch (command, asPlace(command)) {
-    | ("MOVE", _) => MOVE
+    | ("MOVE", _) => MOVE(1)
     | ("LEFT", _) => LEFT
     | ("RIGHT", _) => RIGHT
     | ("REPORT", _) => REPORT
@@ -244,7 +245,8 @@ module CLI = {
       switch (command) {
       | Command.PLACE(east, north, facing) =>
         Simulator.place(current, ~east, ~north, ~facing)
-      | Command.MOVE => Simulator.move(current)
+      | Command.MOVE(numberOfSpaces) =>
+        Simulator.move(current, numberOfSpaces)
       | Command.LEFT => Simulator.turnLeft(current)
       | Command.RIGHT => Simulator.turnRight(current)
       | Command.REPORT =>

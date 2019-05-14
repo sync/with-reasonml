@@ -38,7 +38,7 @@ describe('Simulator', () => {
 
     describe('with an unplaced robot', () => {
       it('doest not move the robot', () => {
-        simulator = move(simulator);
+        simulator = move(simulator, 1);
         expect(simulator.robot).toBeUndefined();
       });
 
@@ -63,8 +63,18 @@ describe('Simulator', () => {
       });
 
       it('tells the robot to move', () => {
-        simulator = move(simulator);
+        simulator = move(simulator, 1);
         expect(simulator.robot!.north).toEqual(1);
+      });
+
+      it('tells the robot to move 3 spaces', () => {
+        simulator = move(simulator, 3);
+        expect(simulator.robot!.north).toEqual(3);
+      });
+
+      it('tells the robot to move outside of the table boundary', () => {
+        simulator = move(simulator, 6);
+        expect(simulator.robot!.north).toEqual(0);
       });
 
       it('tells the robot to turn left', () => {
@@ -89,7 +99,7 @@ describe('Simulator', () => {
     });
 
     it('tells the robot to move', () => {
-      simulator = move(simulator);
+      simulator = move(simulator, 1);
       expect(report(simulator)).toEqual('0,4,NORTH');
     });
   });

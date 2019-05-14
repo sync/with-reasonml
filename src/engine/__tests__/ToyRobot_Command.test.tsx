@@ -3,7 +3,7 @@ import { Command_process as process } from '../ToyRobot.gen';
 describe('Command', () => {
   describe('process', () => {
     test('MOVE', () => {
-      expect(process('MOVE')).toEqual('MOVE');
+      expect(process('MOVE')).toEqual({ tag: 'MOVE', value: 1 });
     });
 
     test('LEFT', () => {
