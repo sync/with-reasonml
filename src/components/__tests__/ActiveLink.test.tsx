@@ -31,6 +31,20 @@ describe('ActiveLink', () => {
     expect(container.firstChild).not.toHaveClass(activeClassName);
   });
 
+  it('handle having a null router', () => {
+    const linkText = 'some text here';
+    const activeClassName = 'test-active';
+
+    const { getByText, container } = render(
+      <ActiveLink href="/" activeClassName={activeClassName} router={null}>
+        <span>{linkText}</span>
+      </ActiveLink>,
+    );
+
+    expect(getByText(linkText)).toBeTruthy();
+    expect(container.firstChild).toHaveClass(activeClassName);
+  });
+
   it('can click on a link', () => {
     const linkText = 'some text here';
     const href = '/';

@@ -29,7 +29,8 @@ module Router = {
   [@gentype]
   type t = {. "pathname": string};
 
-  [@bs.module "next/router"] external useRouter: unit => t = "useRouter";
+  [@bs.module "next/router"] [@bs.return nullable]
+  external useRouter: unit => option(t) = "useRouter";
 
   [@bs.send] external push: (t, ~url: string) => Js.Promise.t(bool) = "push";
 };

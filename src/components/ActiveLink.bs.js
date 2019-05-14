@@ -2,6 +2,7 @@
 
 import * as Cn from "re-classnames/src/Cn.bs.js";
 import * as React from "react";
+import * as Belt_Option from "bs-platform/lib/es6/belt_Option.js";
 import * as Caml_option from "bs-platform/lib/es6/caml_option.js";
 import * as Router from "next/router";
 
@@ -9,15 +10,19 @@ function ActiveLink(Props) {
   var href = Props.href;
   var activeClassName = Props.activeClassName;
   var match = Props.router;
-  var router = match !== undefined ? Caml_option.valFromOption(match) : Router.useRouter();
+  var router = match !== undefined ? Caml_option.valFromOption(match) : Caml_option.nullable_to_opt(Router.useRouter());
   var children = Props.children;
   var handleClick = function ($$event) {
     $$event.preventDefault();
-    router.push(href);
+    Belt_Option.map(router, (function (router) {
+            return router.push(href);
+          }));
     return /* () */0;
   };
   var className = Cn.make(/* :: */[
-        Cn.ifTrue(activeClassName, router.pathname === href),
+        Cn.ifTrue(activeClassName, Belt_Option.getWithDefault(Belt_Option.map(router, (function (router) {
+                        return router.pathname;
+                      })), "/") === href),
         /* [] */0
       ]);
   return React.createElement("a", {

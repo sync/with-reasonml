@@ -13,7 +13,10 @@ export const $$default: (_1:{
   readonly activeClassName: string; 
   readonly children: ReasonReact_reactElement; 
   readonly href: string; 
-  readonly router?: Next_Router_t
-}) => ReasonReact_reactElement = ActiveLinkBS.default;
+  readonly router?: (null | undefined | Next_Router_t)
+}) => ReasonReact_reactElement = function ActiveLink(Arg1: any) {
+  const result = ActiveLinkBS.default({activeClassName:Arg1.activeClassName, children:Arg1.children, href:Arg1.href, router:(Arg1.router == null ? undefined : (Arg1.router == null ? undefined : Arg1.router))});
+  return result
+};
 
 export default $$default;
