@@ -193,26 +193,26 @@ var Robot = /* module */[
   /* report */report
 ];
 
-function make$1(width, length) {
+function make$1(width, length, $staropt$star, param) {
+  var obstacles = $staropt$star !== undefined ? $staropt$star : /* array */[
+      /* tuple */[
+        0,
+        2
+      ],
+      /* tuple */[
+        3,
+        4
+      ]
+    ];
   return /* record */[
           /* width */width,
-          /* length */length
+          /* length */length,
+          /* obstacles */obstacles
         ];
 }
 
-var obstacles = /* array */[
-  /* tuple */[
-    0,
-    2
-  ],
-  /* tuple */[
-    3,
-    4
-  ]
-];
-
 function validLocation(table, east, north) {
-  var foundObstacle = Belt_Array.getBy(obstacles, (function (x) {
+  var foundObstacle = Belt_Array.getBy(table[/* obstacles */2], (function (x) {
           if (east === x[0]) {
             return north === x[1];
           } else {
@@ -228,7 +228,6 @@ function validLocation(table, east, north) {
 
 var Table = /* module */[
   /* make */make$1,
-  /* obstacles */obstacles,
   /* validLocation */validLocation
 ];
 

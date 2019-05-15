@@ -118,20 +118,24 @@ module Table = {
   type t = {
     width: int,
     length: int,
+    obstacles: array((int, int)),
   };
 
   [@gentype]
-  let make = (~width, ~length) => {width, length};
-
-  let obstacles = [|(0, 2), (3, 4)|];
+  let make = (~width, ~length, ~obstacles=[|(0, 2), (3, 4)|], ()) => {
+    width,
+    length,
+    obstacles,
+  };
 
   [@gentype]
   let validLocation = (table, ~east, ~north) => {
     let foundObstacle =
-      obstacles->Belt.Array.getBy(x => {
-        let (e, n) = x;
-        east === e && north === n;
-      });
+      table.obstacles
+      ->Belt.Array.getBy(x => {
+          let (e, n) = x;
+          east === e && north === n;
+        });
 
     switch (foundObstacle) {
     | Some(_) => false

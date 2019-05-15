@@ -7,7 +7,7 @@ import * as ToyRobot from "../src/engine/ToyRobot.bs.js";
 import * as CommandsArea from "../src/components/CommandsArea.bs.js";
 
 function Index(Props) {
-  var table = ToyRobot.Table[/* make */0](5, 5);
+  var table = ToyRobot.Table[/* make */0](5, 5, undefined, /* () */0);
   var simulator = ToyRobot.Simulator[/* make */0](table);
   var match = React.useState((function () {
           return "";

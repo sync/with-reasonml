@@ -1,6 +1,6 @@
 [@react.component]
 let make = () => {
-  let table = ToyRobot.Table.make(~width=5, ~length=5);
+  let table = ToyRobot.Table.make(~width=5, ~length=5, ());
   let simulator = ToyRobot.Simulator.make(~table);
 
   let (text, setText) = React.useState(() => "");
