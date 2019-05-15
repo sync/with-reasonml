@@ -200,16 +200,35 @@ function make$1(width, length) {
         ];
 }
 
+var obstacles = /* array */[
+  /* tuple */[
+    0,
+    2
+  ],
+  /* tuple */[
+    3,
+    4
+  ]
+];
+
 function validLocation(table, east, north) {
-  if (east >= 0 && east < table[/* width */0] && north >= 0) {
-    return north < table[/* length */1];
-  } else {
+  var foundObstacle = Belt_Array.getBy(obstacles, (function (x) {
+          if (east === x[0]) {
+            return north === x[1];
+          } else {
+            return false;
+          }
+        }));
+  if (foundObstacle !== undefined || !(east >= 0 && east < table[/* width */0] && north >= 0)) {
     return false;
+  } else {
+    return north < table[/* length */1];
   }
 }
 
 var Table = /* module */[
   /* make */make$1,
+  /* obstacles */obstacles,
   /* validLocation */validLocation
 ];
 

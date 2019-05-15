@@ -123,9 +123,21 @@ module Table = {
   [@gentype]
   let make = (~width, ~length) => {width, length};
 
+  let obstacles = [|(0, 2), (3, 4)|];
+
   [@gentype]
   let validLocation = (table, ~east, ~north) => {
-    east >= 0 && east < table.width && north >= 0 && north < table.length;
+    let foundObstacle =
+      obstacles->Belt.Array.getBy(x => {
+        let (e, n) = x;
+        east === e && north === n;
+      });
+
+    switch (foundObstacle) {
+    | Some(_) => false
+    | _ =>
+      east >= 0 && east < table.width && north >= 0 && north < table.length
+    };
   };
 };
 

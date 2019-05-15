@@ -16,6 +16,14 @@ describe('Table', () => {
       expect(validLocation(table, { east: 0, north: 0 })).toBeTruthy();
     });
 
+    test('location (0, 2)', () => {
+      expect(validLocation(table, { east: 0, north: 2 })).toBeFalsy();
+    });
+
+    test('location (3, 4)', () => {
+      expect(validLocation(table, { east: 0, north: 2 })).toBeFalsy();
+    });
+
     test('location (4, 4)', () => {
       expect(validLocation(table, { east: 4, north: 4 })).toBeTruthy();
     });

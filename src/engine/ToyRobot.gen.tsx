@@ -104,7 +104,7 @@ export const Table_make: (_1:{ readonly width: number; readonly length: number }
 };
 
 export const Table_validLocation: (_1:Table_t, _2:{ readonly east: number; readonly north: number }) => boolean = function (Arg1: any, Arg2: any) {
-  const result = Curry._3(ToyRobotBS.Table[1], [Arg1.width, Arg1.length], Arg2.east, Arg2.north);
+  const result = Curry._3(ToyRobotBS.Table[2], [Arg1.width, Arg1.length], Arg2.east, Arg2.north);
   return result
 };
 
