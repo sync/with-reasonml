@@ -66,4 +66,23 @@ describe('Basic integration', () => {
     },
     timeout,
   );
+
+  it(
+    'runs the fourth example input',
+    async () => {
+      await expect(global.page).toMatch('Output:');
+
+      const commandsText = `
+        PLACE 0,0,NORTH
+        MOVE
+        MOVE
+        REPORT
+      `;
+
+      await global.page.type('#__next > div > textarea', commandsText);
+
+      await expect(global.page).toMatch('Output: 0,1,NORTH');
+    },
+    timeout,
+  );
 });
