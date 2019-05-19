@@ -8551,10 +8551,10 @@ next-offline@4.0.0:
     webpack "^4.19.1"
     workbox-webpack-plugin "^4.3.1"
 
-next-server@8.1.1-canary.33:
-  version "8.1.1-canary.33"
-  resolved "https://registry.yarnpkg.com/next-server/-/next-server-8.1.1-canary.33.tgz#ce9ca12f4762444ef84f1fb244aa34facf9ac1aa"
-  integrity sha512-T9/tNrHTlMNB+0xpx0FMQt7kwoPYnFOJ3ZwoKwCN6HuqfZWRjROGBAWxJyAiNCeM/scO9WUksL4ACp9+OO5C2w==
+next-server@8.1.1-canary.34:
+  version "8.1.1-canary.34"
+  resolved "https://registry.yarnpkg.com/next-server/-/next-server-8.1.1-canary.34.tgz#02bf024dcde52508824840a9fc36f411325bd441"
+  integrity sha512-WR42dfDC6mhEvbRK+naiUs53XGWFSCpiRTTh1c8bwWFeDwtBvRXnmEADlbvB8ySfMuIPolPnxrDJY+xQxoZ1zQ==
   dependencies:
     amp-toolbox-optimizer "0.5.3"
     etag "1.8.1"
@@ -8577,10 +8577,10 @@ next-transpile-modules@2.3.1:
   resolved "https://registry.yarnpkg.com/next-transpile-modules/-/next-transpile-modules-2.3.1.tgz#8977c070912fbc3e927c662431fc4e91ae335b43"
   integrity sha512-euNOBAk/CXZA6binwL47+QpcxAmK1pzH2zjF7XnRN55f2iuN/ecpUw5p3x4bikFu0yDPtSLS92nv9fcgcCo0vg==
 
-next@8.1.1-canary.33:
-  version "8.1.1-canary.33"
-  resolved "https://registry.yarnpkg.com/next/-/next-8.1.1-canary.33.tgz#efb1dad76f5a06d0f5ffc8a6f1e71a4c7c1231b2"
-  integrity sha512-wpKRqUSuU5UjSMB4hlZe48pmBlO0YOi350VGtQUGuXlu9qD1ighpVWtXE7r3R0S8hmUeePZ2t4AygBFiEjnrLA==
+next@8.1.1-canary.34:
+  version "8.1.1-canary.34"
+  resolved "https://registry.yarnpkg.com/next/-/next-8.1.1-canary.34.tgz#d6c676364a82a0523d8df64477daca1af81e71e7"
+  integrity sha512-83XDztyeDNyGI1JvXmJrXByk+Zha90yjDmBMas8HvOROU5xYdKDGjkvlc5ZAFgcP5KufEHdI5TycDmcYf0ZKjQ==
   dependencies:
     "@babel/core" "7.1.2"
     "@babel/plugin-proposal-class-properties" "7.1.0"
@@ -8608,7 +8608,7 @@ next@8.1.1-canary.33:
     launch-editor "2.2.1"
     loader-utils "1.1.0"
     mkdirp "0.5.1"
-    next-server "8.1.1-canary.33"
+    next-server "8.1.1-canary.34"
     prop-types "15.6.2"
     prop-types-exact "1.2.0"
     react-error-overlay "5.1.4"
