@@ -2648,30 +2648,30 @@ ajv@^6.1.0, ajv@^6.5.5, ajv@^6.9.1:
     json-schema-traverse "^0.4.1"
     uri-js "^4.2.2"
 
-amp-toolbox-core@^0.1.6:
-  version "0.1.6"
-  resolved "https://registry.yarnpkg.com/amp-toolbox-core/-/amp-toolbox-core-0.1.6.tgz#4dda6c1658e1f26f011ca0f41cd4832af8476af7"
-  integrity sha512-diJOA8/+bnh/8OLjGjb/E+FCT7H0iKzelqZfOeujyCRxbNE2t5J13gWuGva106yS2QEiXttLHwy+nrAkBoAgiw==
+amp-toolbox-core@^1.2.0-alpha.1:
+  version "1.2.0-alpha.1"
+  resolved "https://registry.yarnpkg.com/amp-toolbox-core/-/amp-toolbox-core-1.2.0-alpha.1.tgz#a327b55c14332a8c26e8d3e7dd576ef3c1cba2dc"
+  integrity sha512-b9hJSMwHO2N5o2rtgwxggx/vVtY3P+hygBicGnxREmQHVW+Li5AmUim7eaKYUxTZiYz8pn4ZcO5CiC9cQunBUg==
   dependencies:
-    node-fetch "2.3.0"
+    node-fetch "2.6.0"
 
-amp-toolbox-optimizer@0.5.3:
-  version "0.5.3"
-  resolved "https://registry.yarnpkg.com/amp-toolbox-optimizer/-/amp-toolbox-optimizer-0.5.3.tgz#b7ab4c7651a6144c3271c1c7c0719082acbf1048"
-  integrity sha512-kw1dpWepegGJ8bxJd+qg+PfNj8oIG1erThuSWsGuLzgfHt1jQMZO+01N7BE4KjT2N1dLbqRFhJv3GjgaUMG+Lw==
+amp-toolbox-optimizer@1.2.0-alpha.1:
+  version "1.2.0-alpha.1"
+  resolved "https://registry.yarnpkg.com/amp-toolbox-optimizer/-/amp-toolbox-optimizer-1.2.0-alpha.1.tgz#20a1c2a28bfe2e46179f43084db727634eb0e68a"
+  integrity sha512-H8divkzDAsI9p5cAJF8TCMD75AnWnTfSPgT7N8SctUzxeCh4jquDS03kl8mjCwbRSvnMrogh0/twQjoSjjIjpg==
   dependencies:
-    amp-toolbox-core "^0.1.6"
-    amp-toolbox-runtime-version "^0.2.7"
+    amp-toolbox-core "^1.2.0-alpha.1"
+    amp-toolbox-runtime-version "^1.2.0-alpha.1"
     css "2.2.4"
     parse5 "5.1.0"
     parse5-htmlparser2-tree-adapter "5.1.0"
 
-amp-toolbox-runtime-version@^0.2.7:
-  version "0.2.7"
-  resolved "https://registry.yarnpkg.com/amp-toolbox-runtime-version/-/amp-toolbox-runtime-version-0.2.7.tgz#09cbe73a8929cfbae702348bbf7537b180783e9e"
-  integrity sha512-5hUIKtFOrhb5gM1fDlqJ2YDKqSDS8kCWtykt7a4Dvrjr9CPD7L/OK+cKk+u1QLvUKO24ADOE9j2PS28B/TMaiQ==
+amp-toolbox-runtime-version@^1.2.0-alpha.1:
+  version "1.2.0-alpha.1"
+  resolved "https://registry.yarnpkg.com/amp-toolbox-runtime-version/-/amp-toolbox-runtime-version-1.2.0-alpha.1.tgz#8908762cfe72a1c233aa7c2eeab00f4656b32a8c"
+  integrity sha512-PFvsGgnpiSrObkGJyd5PFQjIdgPsVgnueruXOvsjz24BndMNy6xt9JZcx8iiKKjLHIQe/NXITiLtZhK80FQ6Xw==
   dependencies:
-    amp-toolbox-core "^0.1.6"
+    amp-toolbox-core "^1.2.0-alpha.1"
 
 amphtml-validator@1.0.23:
   version "1.0.23"
@@ -8746,19 +8746,18 @@ next-offline@4.0.1:
     webpack "^4.19.1"
     workbox-webpack-plugin "^4.3.1"
 
-next-server@8.1.1-canary.40:
-  version "8.1.1-canary.40"
-  resolved "https://registry.yarnpkg.com/next-server/-/next-server-8.1.1-canary.40.tgz#75ba5716c7c48597190921a16cce45448e6fbd8f"
-  integrity sha512-PV8fzc+EdcC7c14BQ0zxRBSs+ZwJBL5/qG36EsSkIyw54EqC+XQBI7Ao5Pmo2y/cIfRreqATv9RbvF7ErPljVg==
+next-server@8.1.1-canary.41:
+  version "8.1.1-canary.41"
+  resolved "https://registry.yarnpkg.com/next-server/-/next-server-8.1.1-canary.41.tgz#5a120ed21a8626632c9e948ae5e09f52290678b8"
+  integrity sha512-f8Jkz8lHhMxjM50OAAhmHJZtGYhRiToQRBBCnPi69o9JZermhjwmBFgSKix2L6fPogWfv9iPMlnUeTkbq0Kd+g==
   dependencies:
-    amp-toolbox-optimizer "0.5.3"
+    amp-toolbox-optimizer "1.2.0-alpha.1"
     etag "1.8.1"
     find-up "4.0.0"
     fresh "0.5.2"
     path-to-regexp "2.1.0"
     prop-types "15.7.2"
     react-is "16.8.6"
-    react-ssr-prepass "1.0.5"
     send "0.16.1"
     url "0.11.0"
 
@@ -8772,10 +8771,10 @@ next-transpile-modules@2.3.1:
   resolved "https://registry.yarnpkg.com/next-transpile-modules/-/next-transpile-modules-2.3.1.tgz#8977c070912fbc3e927c662431fc4e91ae335b43"
   integrity sha512-euNOBAk/CXZA6binwL47+QpcxAmK1pzH2zjF7XnRN55f2iuN/ecpUw5p3x4bikFu0yDPtSLS92nv9fcgcCo0vg==
 
-next@8.1.1-canary.40:
-  version "8.1.1-canary.40"
-  resolved "https://registry.yarnpkg.com/next/-/next-8.1.1-canary.40.tgz#65c7d8231cd65fa04b3a3fcf146da68d8fbbeafd"
-  integrity sha512-61lPRFvyTLuvyRkKA/JajY0Ku17b/m2icgQqVQe78G/GaqqUKJ8UL8+kwpsaEH+640HGtHaqs1fL2DbSSBrErA==
+next@8.1.1-canary.41:
+  version "8.1.1-canary.41"
+  resolved "https://registry.yarnpkg.com/next/-/next-8.1.1-canary.41.tgz#be673812cb8948f916737e478bdbb607e3212f09"
+  integrity sha512-h0I558vnTbburZRCdZMeukkTd/1dO3llBIX02Taxb9mWdZuwkIChdndyIxkcJirVI57Djk8ZSyGUOqbfuNufIQ==
   dependencies:
     "@babel/core" "7.4.5"
     "@babel/plugin-proposal-class-properties" "7.4.4"
@@ -8803,7 +8802,7 @@ next@8.1.1-canary.40:
     launch-editor "2.2.1"
     loader-utils "1.2.3"
     mkdirp "0.5.1"
-    next-server "8.1.1-canary.40"
+    next-server "8.1.1-canary.41"
     prop-types "15.7.2"
     prop-types-exact "1.2.0"
     react-error-overlay "5.1.6"
@@ -8844,10 +8843,10 @@ node-dir@^0.1.10:
   dependencies:
     minimatch "^3.0.2"
 
-node-fetch@2.3.0, node-fetch@^2.2.0:
-  version "2.3.0"
-  resolved "https://registry.yarnpkg.com/node-fetch/-/node-fetch-2.3.0.tgz#1a1d940bbfb916a1d3e0219f037e89e71f8c5fa5"
-  integrity sha512-MOd8pV3fxENbryESLgVIeaGKrdl+uaYhCSSVkjeOb/31/njTpcis5aWfdqgNlHIrKOLRbMnfPINPOML2CIFeXA==
+node-fetch@2.6.0:
+  version "2.6.0"
+  resolved "https://registry.yarnpkg.com/node-fetch/-/node-fetch-2.6.0.tgz#e633456386d4aa55863f676a7ab0daa8fdecb0fd"
+  integrity sha512-8dG4H5ujfvFiqDmVu9fQ5bOHUC15JMjMY/Zumv26oOvvVJjM67KF8koCWIabKQ1GJIa9r2mMZscBq/TbdOcmNA==
 
 node-fetch@^1.0.1:
   version "1.7.3"
@@ -8856,6 +8855,11 @@ node-fetch@^1.0.1:
   dependencies:
     encoding "^0.1.11"
     is-stream "^1.0.1"
+
+node-fetch@^2.2.0:
+  version "2.3.0"
+  resolved "https://registry.yarnpkg.com/node-fetch/-/node-fetch-2.3.0.tgz#1a1d940bbfb916a1d3e0219f037e89e71f8c5fa5"
+  integrity sha512-MOd8pV3fxENbryESLgVIeaGKrdl+uaYhCSSVkjeOb/31/njTpcis5aWfdqgNlHIrKOLRbMnfPINPOML2CIFeXA==
 
 node-int64@^0.4.0:
   version "0.4.0"
@@ -9083,11 +9087,6 @@ object-copy@^0.1.0:
     copy-descriptor "^0.1.0"
     define-property "^0.2.5"
     kind-of "^3.0.3"
-
-object-is@^1.0.1:
-  version "1.0.1"
-  resolved "https://registry.yarnpkg.com/object-is/-/object-is-1.0.1.tgz#0aa60ec9989a0b3ed795cf4d06f62cf1ad6539b6"
-  integrity sha1-CqYOyZiaCz7Xlc9NBvYs8a1lObY=
 
 object-keys@^1.0.11, object-keys@^1.0.12:
   version "1.1.1"
@@ -10410,13 +10409,6 @@ react-resize-detector@^3.2.1:
     lodash-es "^4.17.11"
     prop-types "^15.6.2"
     resize-observer-polyfill "^1.5.1"
-
-react-ssr-prepass@1.0.5:
-  version "1.0.5"
-  resolved "https://registry.yarnpkg.com/react-ssr-prepass/-/react-ssr-prepass-1.0.5.tgz#63ce763b2deb81949b20ccb2c64503ca53c562ba"
-  integrity sha512-A8QXXIHBpzr5/bnG3rwFgJWU6gLo7/dcW1bBIluoBI2hMyC+uuMRO+rXEtUpX6AVDhWfdFVi2I7kvWUDIRgDtA==
-  dependencies:
-    object-is "^1.0.1"
 
 react-syntax-highlighter@^8.0.1:
   version "8.1.0"
