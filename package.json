@@ -63,7 +63,7 @@
     "@typescript-eslint/eslint-plugin": "1.9.0",
     "@typescript-eslint/parser": "1.9.0",
     "@zeit/next-css": "1.0.1",
-    "autoprefixer": "9.5.1",
+    "autoprefixer": "9.6.0",
     "awesome-typescript-loader": "5.2.1",
     "babel-loader": "8.0.6",
     "bs-platform": "5.0.4",
