@@ -76,7 +76,7 @@
     "identity-obj-proxy": "3.0.0",
     "jest": "24.8.0",
     "jest-canvas-mock": "2.1.0",
-    "jest-dom": "3.4.0",
+    "jest-dom": "3.5.0",
     "lint-staged": "8.2.0",
     "next-offline": "4.0.2",
     "next-transpile-modules": "2.3.1",
