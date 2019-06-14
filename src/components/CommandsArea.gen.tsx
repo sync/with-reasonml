@@ -5,14 +5,12 @@
 // tslint:disable-next-line:no-var-requires
 const CommandsAreaBS = require('./CommandsArea.bs');
 
-import {reactElement as ReasonReact_reactElement} from '../../src/shims/ReactShim.shim';
-
 export const $$default: (_1:{
   readonly className?: string; 
   readonly defaultText?: string; 
   readonly setText?: ((_1:((_1:string) => string)) => void); 
   readonly text?: string; 
   readonly textUseState?: [string, ((_1:((_1:string) => string)) => void)]
-}) => ReasonReact_reactElement = CommandsAreaBS.default;
+}) => JSX.Element = CommandsAreaBS.default;
 
 export default $$default;

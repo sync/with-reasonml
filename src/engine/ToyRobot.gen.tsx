@@ -2,13 +2,13 @@
 /* eslint-disable import/first */
 
 
-const $$toJS223300147 = {"0": "LEFT", "1": "RIGHT", "2": "REPORT"};
+const $$toJS223300147: { [key: string]: any } = {"0": "LEFT", "1": "RIGHT", "2": "REPORT"};
 
-const $$toRE223300147 = {"LEFT": 0, "RIGHT": 1, "REPORT": 2};
+const $$toRE223300147: { [key: string]: any } = {"LEFT": 0, "RIGHT": 1, "REPORT": 2};
 
-const $$toJS311681469 = {"0": "NORTH", "1": "SOUTH", "2": "EAST", "3": "WEST"};
+const $$toJS311681469: { [key: string]: any } = {"0": "NORTH", "1": "SOUTH", "2": "EAST", "3": "WEST"};
 
-const $$toRE311681469 = {"NORTH": 0, "SOUTH": 1, "EAST": 2, "WEST": 3};
+const $$toRE311681469: { [key: string]: any } = {"NORTH": 0, "SOUTH": 1, "EAST": 2, "WEST": 3};
 
 // tslint:disable-next-line:no-var-requires
 const CreateBucklescriptBlock = require('bs-platform/lib/es6/block.js');

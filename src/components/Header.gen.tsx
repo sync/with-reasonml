@@ -5,8 +5,6 @@
 // tslint:disable-next-line:no-var-requires
 const HeaderBS = require('./Header.bs');
 
-import {reactElement as ReasonReact_reactElement} from '../../src/shims/ReactShim.shim';
-
-export const $$default: (_1:{ readonly className?: string }) => ReasonReact_reactElement = HeaderBS.default;
+export const $$default: (_1:{ readonly className?: string }) => JSX.Element = HeaderBS.default;
 
 export default $$default;
