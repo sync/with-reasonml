@@ -55,7 +55,7 @@ Go install this plugin from the vscode market: [here](https://marketplace.visual
 
 ## Run tests and friends
 
-We don't want to use snapshots, we use also use [@testing-library/react](https://github.com/testing-library/@testing-library/react) to avoid having to use enzyme and to enforce best test practices.
+We don't want to use snapshots, we use also use [react-testing-library](https://github.com/testing-library/react-testing-library) to avoid having to use enzyme and to enforce best test practices.
 
 ```sh
 $ yarn format
