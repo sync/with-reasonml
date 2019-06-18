@@ -40,7 +40,7 @@
   },
   "license": "ISC",
   "dependencies": {
-    "next": "8.1.1-canary.52",
+    "next": "8.1.1-canary.53",
     "re-classnames": "4.0.0",
     "react": "16.8.6",
     "react-dom": "16.8.6",
