@@ -3560,10 +3560,10 @@ browserslist@^4.6.1:
     electron-to-chromium "^1.3.137"
     node-releases "^1.1.21"
 
-bs-platform@5.0.4:
-  version "5.0.4"
-  resolved "https://registry.yarnpkg.com/bs-platform/-/bs-platform-5.0.4.tgz#d406ef43c12d1b19d8546884d8b5b4e0fb709372"
-  integrity sha512-rXM+ztN8wYXQ4ojfFGylvPOf8GRLOvM94QJsMMV9VpsLChKCjesWMNybTZvpoyNsESu2nC5q+C9soG+BPhuUFQ==
+bs-platform@5.0.5:
+  version "5.0.5"
+  resolved "https://registry.yarnpkg.com/bs-platform/-/bs-platform-5.0.5.tgz#f4e1e9f8f36c1636c41589598fec9d225c756238"
+  integrity sha512-ee/s57uIZBVQyBxbQflGY+9Tbism/x2+oedes/9CSSYVWoeJss7+Q5EGLcMGkmt1puHqagYocg+KrALY3BiTkA==
 
 bser@^2.0.0:
   version "2.0.0"
