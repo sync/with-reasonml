@@ -5117,13 +5117,6 @@ eslint-config-prettier@6.0.0:
   dependencies:
     get-stdin "^6.0.0"
 
-eslint-config-prettier@^4.3.0:
-  version "4.3.0"
-  resolved "https://registry.yarnpkg.com/eslint-config-prettier/-/eslint-config-prettier-4.3.0.tgz#c55c1fcac8ce4518aeb77906984e134d9eb5a4f0"
-  integrity sha512-sZwhSTHVVz78+kYD3t5pCWSYEdVSBR0PXnwjDRsUs8ytIrK8PLXw+6FKp8r3Z7rx4ZszdetWlXYKOHoUrrwPlA==
-  dependencies:
-    get-stdin "^6.0.0"
-
 eslint-plugin-jest@22.7.1:
   version "22.7.1"
   resolved "https://registry.yarnpkg.com/eslint-plugin-jest/-/eslint-plugin-jest-22.7.1.tgz#5dcdf8f7a285f98040378220d6beca581f0ab2a1"
@@ -8679,10 +8672,10 @@ next-offline@4.0.2:
     webpack "^4.19.1"
     workbox-webpack-plugin "^4.3.1"
 
-next-server@8.1.1-canary.63:
-  version "8.1.1-canary.63"
-  resolved "https://registry.yarnpkg.com/next-server/-/next-server-8.1.1-canary.63.tgz#5cf255247c80679fb2fd62391ad31693681d5b51"
-  integrity sha512-4/eylkUKl6OH/LueBRipgaaBqgmiulWISg7a/znmWEtRJLsSKG/P2U4AOSaKwDf+Ze37vyXuEwVbKhzau1OhEA==
+next-server@8.1.1-canary.64:
+  version "8.1.1-canary.64"
+  resolved "https://registry.yarnpkg.com/next-server/-/next-server-8.1.1-canary.64.tgz#6eacf9c3a005dddb1699ad69a888c4d790b6c531"
+  integrity sha512-c7WOahXj/9AFOuF0OitCfnXuVOI9G+BpzxSnMJ5Kl1rCR7ScKWhTifw++A60P7O9qgZpMC8olQuC8R/8KTU7Dw==
   dependencies:
     amp-toolbox-optimizer "1.2.0-alpha.1"
     content-type "1.0.4"
@@ -8695,6 +8688,7 @@ next-server@8.1.1-canary.63:
     raw-body "2.4.0"
     react-is "16.8.6"
     send "0.16.1"
+    styled-jsx "3.2.1"
     url "0.11.0"
 
 next-tick@^1.0.0:
@@ -8707,10 +8701,10 @@ next-transpile-modules@2.3.1:
   resolved "https://registry.yarnpkg.com/next-transpile-modules/-/next-transpile-modules-2.3.1.tgz#8977c070912fbc3e927c662431fc4e91ae335b43"
   integrity sha512-euNOBAk/CXZA6binwL47+QpcxAmK1pzH2zjF7XnRN55f2iuN/ecpUw5p3x4bikFu0yDPtSLS92nv9fcgcCo0vg==
 
-next@8.1.1-canary.63:
-  version "8.1.1-canary.63"
-  resolved "https://registry.yarnpkg.com/next/-/next-8.1.1-canary.63.tgz#3729f848918d0229be4c75a5cc7c8a487cfe8fa2"
-  integrity sha512-DxeNMry9gBQYAmASHDpDrrm6a8bIwj2CgyNOYfA4fUu0gs8ysCFugS7aalZss27Zw3FhkBmaExXr27XuT/Vtow==
+next@8.1.1-canary.64:
+  version "8.1.1-canary.64"
+  resolved "https://registry.yarnpkg.com/next/-/next-8.1.1-canary.64.tgz#66226afcbe7d7a3a3acef35ac21f3442326bedee"
+  integrity sha512-D1eaHJcREMLl+Zi9gnYGxMPS9+NsiHFffJZll3jxW6/mQPZaDkZSLYQ7a7hvvpYO6a8w5Z3PPgGm+jUA8R6esw==
   dependencies:
     "@babel/core" "7.4.5"
     "@babel/plugin-proposal-class-properties" "7.4.4"
@@ -8738,7 +8732,7 @@ next@8.1.1-canary.63:
     launch-editor "2.2.1"
     loader-utils "1.2.3"
     mkdirp "0.5.1"
-    next-server "8.1.1-canary.63"
+    next-server "8.1.1-canary.64"
     prop-types "15.7.2"
     prop-types-exact "1.2.0"
     react-error-overlay "5.1.6"
@@ -8752,7 +8746,7 @@ next@8.1.1-canary.63:
     tty-aware-progress "1.0.4"
     unfetch "4.1.0"
     url "0.11.0"
-    watchpack "2.0.0-beta.4"
+    watchpack "2.0.0-beta.5"
     webpack "4.32.2"
     webpack-dev-middleware "3.7.0"
     webpack-hot-middleware "2.25.0"
@@ -12676,12 +12670,11 @@ warning@^4.0.2:
   dependencies:
     loose-envify "^1.0.0"
 
-watchpack@2.0.0-beta.4:
-  version "2.0.0-beta.4"
-  resolved "https://registry.yarnpkg.com/watchpack/-/watchpack-2.0.0-beta.4.tgz#54570138581a6da2247c64fd0947561c0a60cf3b"
-  integrity sha512-DTXqmNQE11jdqQ/Y9bhmq+mOZk0+dmvXC5UjSRpiDahhtFnsrZPV4iom6SPyEOszDExGIMtfYGYsqmVkkFhfxA==
+watchpack@2.0.0-beta.5:
+  version "2.0.0-beta.5"
+  resolved "https://registry.yarnpkg.com/watchpack/-/watchpack-2.0.0-beta.5.tgz#c005db39570d81d9d34334870abc0f548901b880"
+  integrity sha512-HGqh9e9QZFhow8JYX+1+E+kIYK0uTTsk6rCOkI0ff0f9kMO0wX783yW8saQC9WDx7qHpVGPXsRnld9nY7iwzQA==
   dependencies:
-    eslint-config-prettier "^4.3.0"
     glob-to-regexp "^0.4.1"
     graceful-fs "^4.1.2"
     neo-async "^2.5.0"
