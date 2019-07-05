@@ -7,12 +7,12 @@ const ActiveLinkBS = require('./ActiveLink.bs');
 
 import {Router_t as Next_Router_t} from '../../src/bindings/Next.gen';
 
-export const $$default: (_1:{
+export const $$default: React.FC<{
   readonly activeClassName: string; 
   readonly children: JSX.Element; 
   readonly href: string; 
   readonly router?: (null | undefined | Next_Router_t)
-}) => JSX.Element = function ActiveLink(Arg1: any) {
+}> = function ActiveLink(Arg1: any) {
   const result = ActiveLinkBS.default({activeClassName:Arg1.activeClassName, children:Arg1.children, href:Arg1.href, router:(Arg1.router == null ? undefined : (Arg1.router == null ? undefined : Arg1.router))});
   return result
 };

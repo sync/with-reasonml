@@ -3,7 +3,7 @@
   "private": true,
   "version": "1.0.0",
   "engines": {
-    "node": "8.x.x"
+    "node": "10.x"
   },
   "workspaces": {
     "packages": [
@@ -47,9 +47,8 @@
     "reason-react": "0.7.0"
   },
   "devDependencies": {
-    "@babel/core": "7.4.5",
-    "@babel/plugin-proposal-class-properties": "7.4.4",
-    "@babel/plugin-proposal-object-rest-spread": "7.4.4",
+    "@babel/core": "7.5.0",
+    "@babel/plugin-proposal-class-properties": "7.5.0",
     "@percy-io/percy-storybook": "2.1.0",
     "@storybook/addon-actions": "5.1.9",
     "@storybook/addon-centered": "5.1.9",
