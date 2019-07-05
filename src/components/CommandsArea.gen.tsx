@@ -5,12 +5,12 @@
 // tslint:disable-next-line:no-var-requires
 const CommandsAreaBS = require('./CommandsArea.bs');
 
-export const $$default: (_1:{
+export const $$default: React.FC<{
   readonly className?: string; 
   readonly defaultText?: string; 
-  readonly setText?: ((_1:((_1:string) => string)) => void); 
+  readonly setText?: (_1:((_1:string) => string)) => void; 
   readonly text?: string; 
-  readonly textUseState?: [string, ((_1:((_1:string) => string)) => void)]
-}) => JSX.Element = CommandsAreaBS.default;
+  readonly textUseState?: [string, (_1:((_1:string) => string)) => void]
+}> = CommandsAreaBS.default;
 
 export default $$default;

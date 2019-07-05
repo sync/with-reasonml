@@ -5,6 +5,6 @@
 // tslint:disable-next-line:no-var-requires
 const ToolbarBS = require('./Toolbar.bs');
 
-export const $$default: (_1:{ readonly className?: string; readonly result?: string }) => JSX.Element = ToolbarBS.default;
+export const $$default: React.FC<{ readonly className?: string; readonly result?: string }> = ToolbarBS.default;
 
 export default $$default;
