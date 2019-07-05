@@ -56,7 +56,7 @@ const config = {
     runtimeCaching: [
       {
         urlPattern: /^https?.*/,
-        handler: 'networkFirst',
+        handler: 'NetworkFirst',
         options: {
           cacheName: 'https-calls',
           networkTimeoutSeconds: 15,
