@@ -1,7 +1,7 @@
 module.exports = {
   setupFiles: ['jest-canvas-mock', '<rootDir>/jest/setup.js'],
   setupFilesAfterEnv: [
-    'jest-dom/extend-expect',
+    '@testing-library/jest-dom/extend-expect',
     '@testing-library/react/cleanup-after-each',
   ],
   moduleFileExtensions: ['web.js', 'js', 'jsx', 'json', 'ts', 'tsx', 'bs.js'],
