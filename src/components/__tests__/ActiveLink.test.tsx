@@ -1,4 +1,5 @@
 import React from 'react';
+import { parse } from 'querystring';
 import { render, fireEvent } from '../../utils/testUtils';
 import ActiveLink from '../ActiveLink.gen';
 
@@ -48,7 +49,12 @@ describe('ActiveLink', () => {
   it('can click on a link', () => {
     const linkText = 'some text here';
     const href = '/';
-    const router: any = { pathname: href };
+    const router: any = {
+      route: href,
+      pathname: href,
+      query: parse(''),
+      asPath: href,
+    };
     router.push = jest.fn();
 
     const { getByText } = render(
