@@ -38,7 +38,7 @@ describe('CLI', () => {
     let simulator: Simulator;
 
     beforeEach(() => {
-      let table = makeTable({ width: 5, length: 5 });
+      const table = makeTable({ width: 5, length: 5 });
       simulator = make({ table });
       simulator = place(simulator, { east: 0, north: 0, facing: 'NORTH' });
     });
