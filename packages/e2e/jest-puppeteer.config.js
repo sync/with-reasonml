@@ -1,4 +1,3 @@
-// @ts-ignore
 module.exports = {
   preset: 'jest-puppeteer',
   testPathIgnorePatterns: ['<rootDir>/src/'],
