@@ -4,5 +4,6 @@ declare namespace NodeJS {
   }
   interface Global {
     page: any;
+    fetch: any;
   }
 }
