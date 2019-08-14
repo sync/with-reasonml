@@ -13,7 +13,7 @@ storiesOf('Header', module).add('Index', () => {
 
 storiesOf('CommmandsArea', module).add('Default', () => {
   const Wrapper: React.SFC<{}> = () => {
-    let [text, setText] = React.useState('');
+    const [text, setText] = React.useState('');
 
     React.useEffect(() => {
       action('text-changed')(text);
