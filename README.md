@@ -96,36 +96,7 @@ After doing this, you'll have a showcase page running at [http://localhost:6006]
 
 ## CI
 
-We are using [Github Actions](https://developer.github.com/actions/). You can also run those actions locally using [Act](https://github.com/nektos/act). You'll have to have docker on your machine. Test are using a local docker image `workflows/action-puppeteer/Dockerfile`.
-
-```sh
-$ brew install nektos/tap/act
-```
-
-## Commands
-
-```
-# List the actions
-act -l
-
-# Run the default (`push`) event:
-act
-
-# Run a specific event:
-act pull-request
-
-# Run a specific action:
-act -a test
-
-# Run in dry-run mode:
-act -n
-
-# Run in reuse mode to save state:
-act -r
-
-# Enable verbose-logging (can be used with any of the above commands)
-act -v
-```
+We are using [Github Actions](https://help.github.com/en/articles/about-github-actions).
 
 ## Useful Now.sh commands
 
