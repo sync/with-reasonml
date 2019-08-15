@@ -18,7 +18,7 @@ Ultra high performance progressive web application built with React + Reason (wi
   - offline
   - install prompts on supported platforms
 - Server side rendering
-- Next.js (canary)
+- Next.js 9 (canary)
 - Webpack 4.x
 - Babel 7.x
 - Now.sh 2.x
