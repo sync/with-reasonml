@@ -7,7 +7,7 @@ const ActiveLinkBS = require('./ActiveLink.bs');
 
 import {Router_t as Next_Router_t} from '../../src/bindings/Next.gen';
 
-export const $$default: React.FC<{
+export const $$default: React.ComponentType<{
   readonly activeClassName: string; 
   readonly children: JSX.Element; 
   readonly href: string; 

@@ -5,6 +5,6 @@
 // tslint:disable-next-line:no-var-requires
 const HeaderBS = require('./Header.bs');
 
-export const $$default: React.FC<{ readonly className?: string }> = HeaderBS.default;
+export const $$default: React.ComponentType<{ readonly className?: string }> = HeaderBS.default;
 
 export default $$default;
