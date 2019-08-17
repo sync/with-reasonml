@@ -5,7 +5,7 @@
 // tslint:disable-next-line:no-var-requires
 const CommandsAreaBS = require('./CommandsArea.bs');
 
-export const $$default: React.FC<{
+export const $$default: React.ComponentType<{
   readonly className?: string; 
   readonly defaultText?: string; 
   readonly setText?: (_1:((_1:string) => string)) => void; 
