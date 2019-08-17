@@ -2,7 +2,7 @@ name: Main workflow
 on: [push]
 jobs:
   build:
-    name: Install, Test, Snapshot, e2e and Publish
+    name: Install, Test, Snapshot, e2e and Deploy
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@master
