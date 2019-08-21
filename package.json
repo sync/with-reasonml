@@ -40,7 +40,7 @@
   },
   "license": "ISC",
   "dependencies": {
-    "next": "9.0.3",
+    "next": "9.0.4",
     "re-classnames": "4.0.0",
     "react": "16.9.0",
     "react-dom": "16.9.0",
