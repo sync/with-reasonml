@@ -84,7 +84,7 @@
     "stylelint": "10.1.0",
     "stylelint-config-recommended": "2.2.0",
     "stylelint-config-standard": "18.3.0",
-    "typescript": "3.5.3",
+    "typescript": "3.6.2",
     "webpack": "4.39.3"
   },
   "prettier": {
