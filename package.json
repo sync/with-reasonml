@@ -67,7 +67,7 @@
     "awesome-typescript-loader": "5.2.1",
     "babel-loader": "8.0.6",
     "bs-platform": "5.1.0",
-    "eslint": "6.3.0",
+    "eslint": "6.4.0",
     "eslint-config-prettier": "6.3.0",
     "eslint-plugin-jest": "22.17.0",
     "eslint-plugin-react": "7.14.3",
