@@ -1,6 +1,8 @@
 import React from 'react';
 import { parse } from 'querystring';
-import { RouterContext } from 'next-server/dist/lib/router-context';
+import { NextRouter } from 'next/router';
+
+const RouterContext = React.createContext<NextRouter>(null as any);
 
 const defaultRouter: any = {
   route: '/',
