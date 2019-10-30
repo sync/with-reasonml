@@ -70,7 +70,7 @@
     "eslint": "6.6.0",
     "eslint-config-prettier": "6.3.0",
     "eslint-plugin-jest": "23.0.2",
-    "eslint-plugin-react": "7.14.3",
+    "eslint-plugin-react": "7.16.0",
     "gentype": "2.40.1",
     "husky": "3.0.5",
     "identity-obj-proxy": "3.0.0",
