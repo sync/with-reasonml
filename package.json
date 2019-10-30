@@ -71,7 +71,7 @@
     "eslint-config-prettier": "6.5.0",
     "eslint-plugin-jest": "23.0.2",
     "eslint-plugin-react": "7.16.0",
-    "gentype": "2.40.1",
+    "gentype": "2.41.0",
     "husky": "3.0.5",
     "identity-obj-proxy": "3.0.0",
     "jest": "24.9.0",
