@@ -66,7 +66,7 @@
     "autoprefixer": "9.7.3",
     "awesome-typescript-loader": "5.2.1",
     "babel-loader": "8.0.6",
-    "bs-platform": "5.2.1",
+    "bs-platform": "7.0.1",
     "eslint": "6.8.0",
     "eslint-config-prettier": "6.7.0",
     "eslint-plugin-jest": "23.1.1",
