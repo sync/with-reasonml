@@ -72,7 +72,7 @@
     "eslint-plugin-jest": "23.3.0",
     "eslint-plugin-react": "7.17.0",
     "gentype": "2.41.0",
-    "husky": "4.0.0",
+    "husky": "4.0.1",
     "identity-obj-proxy": "3.0.0",
     "jest": "24.9.0",
     "jest-canvas-mock": "2.2.0",
