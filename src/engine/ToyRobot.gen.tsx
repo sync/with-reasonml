@@ -49,67 +49,67 @@ export const Robot_make: (_1:{
   readonly north: number; 
   readonly direction?: Robot_direction
 }, _2:void) => Robot_t = function (Arg1: any, Arg2: any) {
-  const result = Curry._4(ToyRobotBS.Robot[0], Arg1.east, Arg1.north, (Arg1.direction == null ? undefined : $$toRE311681469[Arg1.direction]), Arg2);
+  const result = Curry._4(ToyRobotBS.Robot.make, Arg1.east, Arg1.north, (Arg1.direction == null ? undefined : $$toRE311681469[Arg1.direction]), Arg2);
   return {east:result[0], north:result[1], direction:$$toJS311681469[result[2]]}
 };
 
 export const Robot_moveEast: (_1:Robot_t) => Robot_t = function (Arg1: any) {
-  const result = ToyRobotBS.Robot[1]([Arg1.east, Arg1.north, $$toRE311681469[Arg1.direction]]);
+  const result = ToyRobotBS.Robot.moveEast([Arg1.east, Arg1.north, $$toRE311681469[Arg1.direction]]);
   return {east:result[0], north:result[1], direction:$$toJS311681469[result[2]]}
 };
 
 export const Robot_moveWest: (_1:Robot_t) => Robot_t = function (Arg1: any) {
-  const result = ToyRobotBS.Robot[2]([Arg1.east, Arg1.north, $$toRE311681469[Arg1.direction]]);
+  const result = ToyRobotBS.Robot.moveWest([Arg1.east, Arg1.north, $$toRE311681469[Arg1.direction]]);
   return {east:result[0], north:result[1], direction:$$toJS311681469[result[2]]}
 };
 
 export const Robot_moveNorth: (_1:Robot_t) => Robot_t = function (Arg1: any) {
-  const result = ToyRobotBS.Robot[3]([Arg1.east, Arg1.north, $$toRE311681469[Arg1.direction]]);
+  const result = ToyRobotBS.Robot.moveNorth([Arg1.east, Arg1.north, $$toRE311681469[Arg1.direction]]);
   return {east:result[0], north:result[1], direction:$$toJS311681469[result[2]]}
 };
 
 export const Robot_moveSouth: (_1:Robot_t) => Robot_t = function (Arg1: any) {
-  const result = ToyRobotBS.Robot[4]([Arg1.east, Arg1.north, $$toRE311681469[Arg1.direction]]);
+  const result = ToyRobotBS.Robot.moveSouth([Arg1.east, Arg1.north, $$toRE311681469[Arg1.direction]]);
   return {east:result[0], north:result[1], direction:$$toJS311681469[result[2]]}
 };
 
 export const Robot_move: (_1:Robot_t) => Robot_t = function (Arg1: any) {
-  const result = ToyRobotBS.Robot[5]([Arg1.east, Arg1.north, $$toRE311681469[Arg1.direction]]);
+  const result = ToyRobotBS.Robot.move([Arg1.east, Arg1.north, $$toRE311681469[Arg1.direction]]);
   return {east:result[0], north:result[1], direction:$$toJS311681469[result[2]]}
 };
 
 export const Robot_nextMove: (_1:Robot_t, _2:number) => [number, number] = function (Arg1: any, Arg2: any) {
-  const result = Curry._2(ToyRobotBS.Robot[6], [Arg1.east, Arg1.north, $$toRE311681469[Arg1.direction]], Arg2);
+  const result = Curry._2(ToyRobotBS.Robot.nextMove, [Arg1.east, Arg1.north, $$toRE311681469[Arg1.direction]], Arg2);
   return result
 };
 
 export const Robot_turnLeft: (_1:Robot_t) => Robot_t = function (Arg1: any) {
-  const result = ToyRobotBS.Robot[7]([Arg1.east, Arg1.north, $$toRE311681469[Arg1.direction]]);
+  const result = ToyRobotBS.Robot.turnLeft([Arg1.east, Arg1.north, $$toRE311681469[Arg1.direction]]);
   return {east:result[0], north:result[1], direction:$$toJS311681469[result[2]]}
 };
 
 export const Robot_turnRight: (_1:Robot_t) => Robot_t = function (Arg1: any) {
-  const result = ToyRobotBS.Robot[8]([Arg1.east, Arg1.north, $$toRE311681469[Arg1.direction]]);
+  const result = ToyRobotBS.Robot.turnRight([Arg1.east, Arg1.north, $$toRE311681469[Arg1.direction]]);
   return {east:result[0], north:result[1], direction:$$toJS311681469[result[2]]}
 };
 
 export const Robot_report: (_1:Robot_t) => string = function (Arg1: any) {
-  const result = ToyRobotBS.Robot[11]([Arg1.east, Arg1.north, $$toRE311681469[Arg1.direction]]);
+  const result = ToyRobotBS.Robot.report([Arg1.east, Arg1.north, $$toRE311681469[Arg1.direction]]);
   return result
 };
 
 export const Table_make: (_1:{ readonly width: number; readonly length: number }) => Table_t = function (Arg1: any) {
-  const result = Curry._2(ToyRobotBS.Table[0], Arg1.width, Arg1.length);
+  const result = Curry._2(ToyRobotBS.Table.make, Arg1.width, Arg1.length);
   return {width:result[0], length:result[1]}
 };
 
 export const Table_validLocation: (_1:Table_t, _2:{ readonly east: number; readonly north: number }) => boolean = function (Arg1: any, Arg2: any) {
-  const result = Curry._3(ToyRobotBS.Table[1], [Arg1.width, Arg1.length], Arg2.east, Arg2.north);
+  const result = Curry._3(ToyRobotBS.Table.validLocation, [Arg1.width, Arg1.length], Arg2.east, Arg2.north);
   return result
 };
 
 export const Simulator_make: (_1:{ readonly table: Table_t }) => Simulator_t = function (Arg1: any) {
-  const result = ToyRobotBS.Simulator[0]([Arg1.table.width, Arg1.table.length]);
+  const result = ToyRobotBS.Simulator.make([Arg1.table.width, Arg1.table.length]);
   return {table:{width:result[0][0], length:result[0][1]}, robot:(result[1] == null ? result[1] : {east:result[1][0], north:result[1][1], direction:$$toJS311681469[result[1][2]]})}
 };
 
@@ -118,32 +118,32 @@ export const Simulator_place: (_1:Simulator_t, _2:{
   readonly north: number; 
   readonly facing: Robot_direction
 }) => Simulator_t = function (Arg1: any, Arg2: any) {
-  const result = Curry._4(ToyRobotBS.Simulator[1], [[Arg1.table.width, Arg1.table.length], (Arg1.robot == null ? undefined : [Arg1.robot.east, Arg1.robot.north, $$toRE311681469[Arg1.robot.direction]])], Arg2.east, Arg2.north, $$toRE311681469[Arg2.facing]);
+  const result = Curry._4(ToyRobotBS.Simulator.place, [[Arg1.table.width, Arg1.table.length], (Arg1.robot == null ? undefined : [Arg1.robot.east, Arg1.robot.north, $$toRE311681469[Arg1.robot.direction]])], Arg2.east, Arg2.north, $$toRE311681469[Arg2.facing]);
   return {table:{width:result[0][0], length:result[0][1]}, robot:(result[1] == null ? result[1] : {east:result[1][0], north:result[1][1], direction:$$toJS311681469[result[1][2]]})}
 };
 
 export const Simulator_move: (_1:Simulator_t, _2:number) => Simulator_t = function (Arg1: any, Arg2: any) {
-  const result = Curry._2(ToyRobotBS.Simulator[2], [[Arg1.table.width, Arg1.table.length], (Arg1.robot == null ? undefined : [Arg1.robot.east, Arg1.robot.north, $$toRE311681469[Arg1.robot.direction]])], Arg2);
+  const result = Curry._2(ToyRobotBS.Simulator.move, [[Arg1.table.width, Arg1.table.length], (Arg1.robot == null ? undefined : [Arg1.robot.east, Arg1.robot.north, $$toRE311681469[Arg1.robot.direction]])], Arg2);
   return {table:{width:result[0][0], length:result[0][1]}, robot:(result[1] == null ? result[1] : {east:result[1][0], north:result[1][1], direction:$$toJS311681469[result[1][2]]})}
 };
 
 export const Simulator_turnLeft: (_1:Simulator_t) => Simulator_t = function (Arg1: any) {
-  const result = ToyRobotBS.Simulator[3]([[Arg1.table.width, Arg1.table.length], (Arg1.robot == null ? undefined : [Arg1.robot.east, Arg1.robot.north, $$toRE311681469[Arg1.robot.direction]])]);
+  const result = ToyRobotBS.Simulator.turnLeft([[Arg1.table.width, Arg1.table.length], (Arg1.robot == null ? undefined : [Arg1.robot.east, Arg1.robot.north, $$toRE311681469[Arg1.robot.direction]])]);
   return {table:{width:result[0][0], length:result[0][1]}, robot:(result[1] == null ? result[1] : {east:result[1][0], north:result[1][1], direction:$$toJS311681469[result[1][2]]})}
 };
 
 export const Simulator_turnRight: (_1:Simulator_t) => Simulator_t = function (Arg1: any) {
-  const result = ToyRobotBS.Simulator[4]([[Arg1.table.width, Arg1.table.length], (Arg1.robot == null ? undefined : [Arg1.robot.east, Arg1.robot.north, $$toRE311681469[Arg1.robot.direction]])]);
+  const result = ToyRobotBS.Simulator.turnRight([[Arg1.table.width, Arg1.table.length], (Arg1.robot == null ? undefined : [Arg1.robot.east, Arg1.robot.north, $$toRE311681469[Arg1.robot.direction]])]);
   return {table:{width:result[0][0], length:result[0][1]}, robot:(result[1] == null ? result[1] : {east:result[1][0], north:result[1][1], direction:$$toJS311681469[result[1][2]]})}
 };
 
 export const Simulator_report: (_1:Simulator_t) => (null | undefined | string) = function (Arg1: any) {
-  const result = ToyRobotBS.Simulator[5]([[Arg1.table.width, Arg1.table.length], (Arg1.robot == null ? undefined : [Arg1.robot.east, Arg1.robot.north, $$toRE311681469[Arg1.robot.direction]])]);
+  const result = ToyRobotBS.Simulator.report([[Arg1.table.width, Arg1.table.length], (Arg1.robot == null ? undefined : [Arg1.robot.east, Arg1.robot.north, $$toRE311681469[Arg1.robot.direction]])]);
   return result
 };
 
-export const Command_process: (_1:string) => Command_t = function (Arg1: any) {
-  const result = ToyRobotBS.Command[1](Arg1);
+export const Command_run: (_1:string) => Command_t = function (Arg1: any) {
+  const result = ToyRobotBS.Command.run(Arg1);
   return typeof(result) === 'object'
     ? result.tag===0
       ? {tag:"PLACE", value:[result.slice()[0], result.slice()[1], $$toJS311681469[result.slice()[2]]]}
@@ -154,7 +154,7 @@ export const Command_process: (_1:string) => Command_t = function (Arg1: any) {
 };
 
 export const CLI_loadCommands: (_1:string) => Command_t[] = function (Arg1: any) {
-  const result = ToyRobotBS.CLI[1](Arg1);
+  const result = ToyRobotBS.CLI.loadCommands(Arg1);
   return result.map(function _element(ArrayItem: any) { return typeof(ArrayItem) === 'object'
     ? ArrayItem.tag===0
       ? {tag:"PLACE", value:[ArrayItem.slice()[0], ArrayItem.slice()[1], $$toJS311681469[ArrayItem.slice()[2]]]}
@@ -165,7 +165,7 @@ export const CLI_loadCommands: (_1:string) => Command_t[] = function (Arg1: any)
 };
 
 export const CLI_runCommands: (_1:Simulator_t, _2:Command_t[]) => (null | undefined | string) = function (Arg1: any, Arg2: any) {
-  const result = Curry._2(ToyRobotBS.CLI[2], [[Arg1.table.width, Arg1.table.length], (Arg1.robot == null ? undefined : [Arg1.robot.east, Arg1.robot.north, $$toRE311681469[Arg1.robot.direction]])], Arg2.map(function _element(ArrayItem: any) { return typeof(ArrayItem) === 'object'
+  const result = Curry._2(ToyRobotBS.CLI.runCommands, [[Arg1.table.width, Arg1.table.length], (Arg1.robot == null ? undefined : [Arg1.robot.east, Arg1.robot.north, $$toRE311681469[Arg1.robot.direction]])], Arg2.map(function _element(ArrayItem: any) { return typeof(ArrayItem) === 'object'
     ? ArrayItem.tag==="PLACE"
       ? CreateBucklescriptBlock.__(0, [ArrayItem.value[0], ArrayItem.value[1], $$toRE311681469[ArrayItem.value[2]]])
       : ArrayItem.tag==="MOVE"
@@ -174,3 +174,41 @@ export const CLI_runCommands: (_1:Simulator_t, _2:Command_t[]) => (null | undefi
     : $$toRE223300147[ArrayItem]}));
   return result
 };
+
+export const Table: { validLocation: (_1:Table_t, _2:{ readonly east: number; readonly north: number }) => boolean; make: (_1:{ readonly width: number; readonly length: number }) => Table_t } = ToyRobotBS.Table
+
+export const Robot: {
+  turnLeft: (_1:Robot_t) => Robot_t; 
+  moveEast: (_1:Robot_t) => Robot_t; 
+  turnRight: (_1:Robot_t) => Robot_t; 
+  moveWest: (_1:Robot_t) => Robot_t; 
+  report: (_1:Robot_t) => string; 
+  move: (_1:Robot_t) => Robot_t; 
+  nextMove: (_1:Robot_t, _2:number) => [number, number]; 
+  make: (_1:{
+    readonly east: number; 
+    readonly north: number; 
+    readonly direction?: Robot_direction
+  }, _2:void) => Robot_t; 
+  moveNorth: (_1:Robot_t) => Robot_t; 
+  moveSouth: (_1:Robot_t) => Robot_t
+} = ToyRobotBS.Robot
+
+export const Simulator: {
+  turnLeft: (_1:Simulator_t) => Simulator_t; 
+  place: (_1:Simulator_t, _2:{
+    readonly east: number; 
+    readonly north: number; 
+    readonly facing: Robot_direction
+  }) => Simulator_t; 
+  turnRight: (_1:Simulator_t) => Simulator_t; 
+  report: (_1:Simulator_t) => (null | undefined | string); 
+  move: (_1:Simulator_t, _2:number) => Simulator_t; 
+  make: (_1:{
+    readonly table: Table_t
+  }) => Simulator_t
+} = ToyRobotBS.Simulator
+
+export const Command: { run: (_1:string) => Command_t } = ToyRobotBS.Command
+
+export const CLI: { runCommands: (_1:Simulator_t, _2:Command_t[]) => (null | undefined | string); loadCommands: (_1:string) => Command_t[] } = ToyRobotBS.CLI

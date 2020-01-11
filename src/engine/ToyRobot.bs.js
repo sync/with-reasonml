@@ -53,13 +53,13 @@ function moveSouth(robot) {
 function move(robot) {
   var match = robot[/* direction */2];
   switch (match) {
-    case 0 : 
+    case /* NORTH */0 :
         return moveNorth(robot);
-    case 1 : 
+    case /* SOUTH */1 :
         return moveSouth(robot);
-    case 2 : 
+    case /* EAST */2 :
         return moveEast(robot);
-    case 3 : 
+    case /* WEST */3 :
         return moveWest(robot);
     
   }
@@ -68,22 +68,22 @@ function move(robot) {
 function nextMove(robot, numberOfSpaces) {
   var match = robot[/* direction */2];
   switch (match) {
-    case 0 : 
+    case /* NORTH */0 :
         return /* tuple */[
                 robot[/* east */0],
                 robot[/* north */1] + numberOfSpaces | 0
               ];
-    case 1 : 
+    case /* SOUTH */1 :
         return /* tuple */[
                 robot[/* east */0],
                 robot[/* north */1] - numberOfSpaces | 0
               ];
-    case 2 : 
+    case /* EAST */2 :
         return /* tuple */[
                 robot[/* east */0] + numberOfSpaces | 0,
                 robot[/* north */1]
               ];
-    case 3 : 
+    case /* WEST */3 :
         return /* tuple */[
                 robot[/* east */0] - numberOfSpaces | 0,
                 robot[/* north */1]
@@ -96,16 +96,16 @@ function turnLeft(robot) {
   var match = robot[/* direction */2];
   var newDirection;
   switch (match) {
-    case 0 : 
+    case /* NORTH */0 :
         newDirection = /* WEST */3;
         break;
-    case 1 : 
+    case /* SOUTH */1 :
         newDirection = /* EAST */2;
         break;
-    case 2 : 
+    case /* EAST */2 :
         newDirection = /* NORTH */0;
         break;
-    case 3 : 
+    case /* WEST */3 :
         newDirection = /* SOUTH */1;
         break;
     
@@ -121,16 +121,16 @@ function turnRight(robot) {
   var match = robot[/* direction */2];
   var newDirection;
   switch (match) {
-    case 0 : 
+    case /* NORTH */0 :
         newDirection = /* EAST */2;
         break;
-    case 1 : 
+    case /* SOUTH */1 :
         newDirection = /* WEST */3;
         break;
-    case 2 : 
+    case /* EAST */2 :
         newDirection = /* SOUTH */1;
         break;
-    case 3 : 
+    case /* WEST */3 :
         newDirection = /* NORTH */0;
         break;
     
@@ -144,13 +144,13 @@ function turnRight(robot) {
 
 function directionOfString(string) {
   switch (string) {
-    case "EAST" : 
+    case "EAST" :
         return /* EAST */2;
-    case "NORTH" : 
+    case "NORTH" :
         return /* NORTH */0;
-    case "SOUTH" : 
+    case "SOUTH" :
         return /* SOUTH */1;
-    case "WEST" : 
+    case "WEST" :
         return /* WEST */3;
     default:
       throw Caml_builtin_exceptions.not_found;
@@ -159,13 +159,13 @@ function directionOfString(string) {
 
 function stringOfDirection(direction) {
   switch (direction) {
-    case 0 : 
+    case /* NORTH */0 :
         return "NORTH";
-    case 1 : 
+    case /* SOUTH */1 :
         return "SOUTH";
-    case 2 : 
+    case /* EAST */2 :
         return "EAST";
-    case 3 : 
+    case /* WEST */3 :
         return "WEST";
     
   }
@@ -178,20 +178,20 @@ function report(robot) {
   return "" + (String(east) + ("," + (String(north) + ("," + (String(direction) + "")))));
 }
 
-var Robot = /* module */[
-  /* make */make,
-  /* moveEast */moveEast,
-  /* moveWest */moveWest,
-  /* moveNorth */moveNorth,
-  /* moveSouth */moveSouth,
-  /* move */move,
-  /* nextMove */nextMove,
-  /* turnLeft */turnLeft,
-  /* turnRight */turnRight,
-  /* directionOfString */directionOfString,
-  /* stringOfDirection */stringOfDirection,
-  /* report */report
-];
+var Robot = {
+  make: make,
+  moveEast: moveEast,
+  moveWest: moveWest,
+  moveNorth: moveNorth,
+  moveSouth: moveSouth,
+  move: move,
+  nextMove: nextMove,
+  turnLeft: turnLeft,
+  turnRight: turnRight,
+  directionOfString: directionOfString,
+  stringOfDirection: stringOfDirection,
+  report: report
+};
 
 function make$1(width, length) {
   return /* record */[
@@ -208,10 +208,10 @@ function validLocation(table, east, north) {
   }
 }
 
-var Table = /* module */[
-  /* make */make$1,
-  /* validLocation */validLocation
-];
+var Table = {
+  make: make$1,
+  validLocation: validLocation
+};
 
 function make$2(table) {
   return /* record */[
@@ -271,16 +271,16 @@ function report$1(simulator) {
   return Belt_Option.map(simulator[/* robot */1], report);
 }
 
-var Simulator = /* module */[
-  /* make */make$2,
-  /* place */place,
-  /* move */move$1,
-  /* turnLeft */turnLeft$1,
-  /* turnRight */turnRight$1,
-  /* report */report$1
-];
+var Simulator = {
+  make: make$2,
+  place: place,
+  move: move$1,
+  turnLeft: turnLeft$1,
+  turnRight: turnRight$1,
+  report: report$1
+};
 
-var Utilities = /* module */[];
+var Utilities = { };
 
 function asPlace(string) {
   return Belt_Option.map(Caml_option.null_to_opt(string.match((/PLACE (\d+),(\d+),(EAST|WEST|NORTH|SOUTH)/))), (function (matches) {
@@ -292,43 +292,38 @@ function asPlace(string) {
               }));
 }
 
-function $$process(command) {
-  var exit = 0;
+function run(command) {
   var val;
   var val$1;
   try {
     val = command;
     val$1 = asPlace(command);
-    exit = 1;
   }
   catch (exn){
     return /* INVALID */Block.__(2, [command]);
   }
-  if (exit === 1) {
-    switch (val) {
-      case "LEFT" : 
-          return /* LEFT */0;
-      case "MOVE" : 
-          return /* MOVE */Block.__(1, [1]);
-      case "REPORT" : 
-          return /* REPORT */2;
-      case "RIGHT" : 
-          return /* RIGHT */1;
-      default:
-        if (val$1 !== undefined) {
-          return val$1;
-        } else {
-          return /* INVALID */Block.__(2, [command]);
-        }
-    }
+  switch (val) {
+    case "LEFT" :
+        return /* LEFT */0;
+    case "MOVE" :
+        return /* MOVE */Block.__(1, [1]);
+    case "REPORT" :
+        return /* REPORT */2;
+    case "RIGHT" :
+        return /* RIGHT */1;
+    default:
+      if (val$1 !== undefined) {
+        return val$1;
+      } else {
+        return /* INVALID */Block.__(2, [command]);
+      }
   }
-  
 }
 
-var Command = /* module */[
-  /* asPlace */asPlace,
-  /* process */$$process
-];
+var Command = {
+  asPlace: asPlace,
+  run: run
+};
 
 function splitByLines(text) {
   return Belt_Array.reduce(text.split("\n"), /* array */[], (function (current, result) {
@@ -342,7 +337,7 @@ function splitByLines(text) {
 }
 
 function loadCommands(text) {
-  return $$Array.map($$process, splitByLines(text));
+  return $$Array.map(run, splitByLines(text));
 }
 
 function runCommands(simulator, commands) {
@@ -350,22 +345,22 @@ function runCommands(simulator, commands) {
   Belt_Array.reduce(commands, simulator, (function (current, command) {
           if (typeof command === "number") {
             switch (command) {
-              case 0 : 
+              case /* LEFT */0 :
                   return turnLeft$1(current);
-              case 1 : 
+              case /* RIGHT */1 :
                   return turnRight$1(current);
-              case 2 : 
+              case /* REPORT */2 :
                   report$2[0] = Belt_Option.map(current[/* robot */1], report);
                   return current;
               
             }
           } else {
             switch (command.tag | 0) {
-              case 0 : 
+              case /* PLACE */0 :
                   return place(current, command[0], command[1], command[2]);
-              case 1 : 
+              case /* MOVE */1 :
                   return move$1(current, command[0]);
-              case 2 : 
+              case /* INVALID */2 :
                   return current;
               
             }
@@ -374,11 +369,11 @@ function runCommands(simulator, commands) {
   return report$2[0];
 }
 
-var CLI = /* module */[
-  /* splitByLines */splitByLines,
-  /* loadCommands */loadCommands,
-  /* runCommands */runCommands
-];
+var CLI = {
+  splitByLines: splitByLines,
+  loadCommands: loadCommands,
+  runCommands: runCommands
+};
 
 export {
   Robot ,

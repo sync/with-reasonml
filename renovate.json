@@ -1,4 +1,5 @@
 {
   "extends": ["config:base"],
+  "ignoreDeps": ["gentype", "bs-platform"],
   "automerge": true
 }

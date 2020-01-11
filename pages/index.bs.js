@@ -7,8 +7,8 @@ import * as ToyRobot from "../src/engine/ToyRobot.bs.js";
 import * as CommandsArea from "../src/components/CommandsArea.bs.js";
 
 function Index(Props) {
-  var table = ToyRobot.Table[/* make */0](5, 5);
-  var simulator = ToyRobot.Simulator[/* make */0](table);
+  var table = ToyRobot.Table.make(5, 5);
+  var simulator = ToyRobot.Simulator.make(table);
   var match = React.useState((function () {
           return "";
         }));
@@ -18,8 +18,8 @@ function Index(Props) {
         }));
   var setResult = match$1[1];
   React.useEffect((function () {
-          var commands = ToyRobot.CLI[/* loadCommands */1](text);
-          var match = ToyRobot.CLI[/* runCommands */2](simulator, commands);
+          var commands = ToyRobot.CLI.loadCommands(text);
+          var match = ToyRobot.CLI.runCommands(simulator, commands);
           var currentResult = match !== undefined ? match : "(waiting for REPORT)";
           Curry._1(setResult, (function (param) {
                   return currentResult;
