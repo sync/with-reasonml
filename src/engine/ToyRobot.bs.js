@@ -11,47 +11,47 @@ import * as Caml_builtin_exceptions from "bs-platform/lib/es6/caml_builtin_excep
 
 function make(east, north, $staropt$star, param) {
   var direction = $staropt$star !== undefined ? $staropt$star : /* NORTH */0;
-  return /* record */[
-          /* east */east,
-          /* north */north,
-          /* direction */direction
-        ];
+  return {
+          east: east,
+          north: north,
+          direction: direction
+        };
 }
 
 function moveEast(robot) {
-  return /* record */[
-          /* east */robot[/* east */0] + 1 | 0,
-          /* north */robot[/* north */1],
-          /* direction */robot[/* direction */2]
-        ];
+  return {
+          east: robot.east + 1 | 0,
+          north: robot.north,
+          direction: robot.direction
+        };
 }
 
 function moveWest(robot) {
-  return /* record */[
-          /* east */robot[/* east */0] - 1 | 0,
-          /* north */robot[/* north */1],
-          /* direction */robot[/* direction */2]
-        ];
+  return {
+          east: robot.east - 1 | 0,
+          north: robot.north,
+          direction: robot.direction
+        };
 }
 
 function moveNorth(robot) {
-  return /* record */[
-          /* east */robot[/* east */0],
-          /* north */robot[/* north */1] + 1 | 0,
-          /* direction */robot[/* direction */2]
-        ];
+  return {
+          east: robot.east,
+          north: robot.north + 1 | 0,
+          direction: robot.direction
+        };
 }
 
 function moveSouth(robot) {
-  return /* record */[
-          /* east */robot[/* east */0],
-          /* north */robot[/* north */1] - 1 | 0,
-          /* direction */robot[/* direction */2]
-        ];
+  return {
+          east: robot.east,
+          north: robot.north - 1 | 0,
+          direction: robot.direction
+        };
 }
 
 function move(robot) {
-  var match = robot[/* direction */2];
+  var match = robot.direction;
   switch (match) {
     case /* NORTH */0 :
         return moveNorth(robot);
@@ -66,34 +66,34 @@ function move(robot) {
 }
 
 function nextMove(robot, numberOfSpaces) {
-  var match = robot[/* direction */2];
+  var match = robot.direction;
   switch (match) {
     case /* NORTH */0 :
         return /* tuple */[
-                robot[/* east */0],
-                robot[/* north */1] + numberOfSpaces | 0
+                robot.east,
+                robot.north + numberOfSpaces | 0
               ];
     case /* SOUTH */1 :
         return /* tuple */[
-                robot[/* east */0],
-                robot[/* north */1] - numberOfSpaces | 0
+                robot.east,
+                robot.north - numberOfSpaces | 0
               ];
     case /* EAST */2 :
         return /* tuple */[
-                robot[/* east */0] + numberOfSpaces | 0,
-                robot[/* north */1]
+                robot.east + numberOfSpaces | 0,
+                robot.north
               ];
     case /* WEST */3 :
         return /* tuple */[
-                robot[/* east */0] - numberOfSpaces | 0,
-                robot[/* north */1]
+                robot.east - numberOfSpaces | 0,
+                robot.north
               ];
     
   }
 }
 
 function turnLeft(robot) {
-  var match = robot[/* direction */2];
+  var match = robot.direction;
   var newDirection;
   switch (match) {
     case /* NORTH */0 :
@@ -110,15 +110,15 @@ function turnLeft(robot) {
         break;
     
   }
-  return /* record */[
-          /* east */robot[/* east */0],
-          /* north */robot[/* north */1],
-          /* direction */newDirection
-        ];
+  return {
+          east: robot.east,
+          north: robot.north,
+          direction: newDirection
+        };
 }
 
 function turnRight(robot) {
-  var match = robot[/* direction */2];
+  var match = robot.direction;
   var newDirection;
   switch (match) {
     case /* NORTH */0 :
@@ -135,11 +135,11 @@ function turnRight(robot) {
         break;
     
   }
-  return /* record */[
-          /* east */robot[/* east */0],
-          /* north */robot[/* north */1],
-          /* direction */newDirection
-        ];
+  return {
+          east: robot.east,
+          north: robot.north,
+          direction: newDirection
+        };
 }
 
 function directionOfString(string) {
@@ -172,9 +172,9 @@ function stringOfDirection(direction) {
 }
 
 function report(robot) {
-  var east = String(robot[/* east */0]);
-  var north = String(robot[/* north */1]);
-  var direction = stringOfDirection(robot[/* direction */2]);
+  var east = String(robot.east);
+  var north = String(robot.north);
+  var direction = stringOfDirection(robot.direction);
   return "" + (String(east) + ("," + (String(north) + ("," + (String(direction) + "")))));
 }
 
@@ -194,15 +194,15 @@ var Robot = {
 };
 
 function make$1(width, length) {
-  return /* record */[
-          /* width */width,
-          /* length */length
-        ];
+  return {
+          width: width,
+          length: length
+        };
 }
 
 function validLocation(table, east, north) {
-  if (east >= 0 && east < table[/* width */0] && north >= 0) {
-    return north < table[/* length */1];
+  if (east >= 0 && east < table.width && north >= 0) {
+    return north < table.length;
   } else {
     return false;
   }
@@ -214,28 +214,28 @@ var Table = {
 };
 
 function make$2(table) {
-  return /* record */[
-          /* table */table,
-          /* robot */undefined
-        ];
+  return {
+          table: table,
+          robot: undefined
+        };
 }
 
 function place(simulator, east, north, facing) {
-  if (validLocation(simulator[/* table */0], east, north)) {
+  if (validLocation(simulator.table, east, north)) {
     var newRobot = make(east, north, facing, /* () */0);
-    return /* record */[
-            /* table */simulator[/* table */0],
-            /* robot */newRobot
-          ];
+    return {
+            table: simulator.table,
+            robot: newRobot
+          };
   } else {
     return simulator;
   }
 }
 
 function move$1(simulator, numberOfSpaces) {
-  var newRobot = Belt_Option.map(simulator[/* robot */1], (function (robot) {
+  var newRobot = Belt_Option.map(simulator.robot, (function (robot) {
           var match = nextMove(robot, numberOfSpaces);
-          if (validLocation(simulator[/* table */0], match[0], match[1])) {
+          if (validLocation(simulator.table, match[0], match[1])) {
             return Belt_Array.reduce(Belt_Array.makeBy(numberOfSpaces, (function (i) {
                               return i;
                             })), robot, (function (current, param) {
@@ -245,30 +245,30 @@ function move$1(simulator, numberOfSpaces) {
             return robot;
           }
         }));
-  return /* record */[
-          /* table */simulator[/* table */0],
-          /* robot */newRobot
-        ];
+  return {
+          table: simulator.table,
+          robot: newRobot
+        };
 }
 
 function turnLeft$1(simulator) {
-  var newRobot = Belt_Option.map(simulator[/* robot */1], turnLeft);
-  return /* record */[
-          /* table */simulator[/* table */0],
-          /* robot */newRobot
-        ];
+  var newRobot = Belt_Option.map(simulator.robot, turnLeft);
+  return {
+          table: simulator.table,
+          robot: newRobot
+        };
 }
 
 function turnRight$1(simulator) {
-  var newRobot = Belt_Option.map(simulator[/* robot */1], turnRight);
-  return /* record */[
-          /* table */simulator[/* table */0],
-          /* robot */newRobot
-        ];
+  var newRobot = Belt_Option.map(simulator.robot, turnRight);
+  return {
+          table: simulator.table,
+          robot: newRobot
+        };
 }
 
 function report$1(simulator) {
-  return Belt_Option.map(simulator[/* robot */1], report);
+  return Belt_Option.map(simulator.robot, report);
 }
 
 var Simulator = {
@@ -341,7 +341,9 @@ function loadCommands(text) {
 }
 
 function runCommands(simulator, commands) {
-  var report$2 = /* record */[/* contents */undefined];
+  var report$2 = {
+    contents: undefined
+  };
   Belt_Array.reduce(commands, simulator, (function (current, command) {
           if (typeof command === "number") {
             switch (command) {
@@ -350,7 +352,7 @@ function runCommands(simulator, commands) {
               case /* RIGHT */1 :
                   return turnRight$1(current);
               case /* REPORT */2 :
-                  report$2[0] = Belt_Option.map(current[/* robot */1], report);
+                  report$2.contents = Belt_Option.map(current.robot, report);
                   return current;
               
             }
@@ -366,7 +368,7 @@ function runCommands(simulator, commands) {
             }
           }
         }));
-  return report$2[0];
+  return report$2.contents;
 }
 
 var CLI = {
