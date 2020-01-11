@@ -209,7 +209,7 @@ module Command = {
   };
 
   [@genType]
-  let process = (command: string) => {
+  let run = (command: string) => {
     switch (command, asPlace(command)) {
     | ("MOVE", _) => MOVE(1)
     | ("LEFT", _) => LEFT
@@ -234,7 +234,7 @@ module CLI = {
 
   [@genType]
   let loadCommands = (text: string) => {
-    text |> splitByLines |> Array.map(Command.process);
+    text |> splitByLines |> Array.map(Command.run);
   };
 
   [@genType]

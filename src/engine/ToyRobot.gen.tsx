@@ -142,8 +142,8 @@ export const Simulator_report: (_1:Simulator_t) => (null | undefined | string) =
   return result
 };
 
-export const Command_process: (_1:string) => Command_t = function (Arg1: any) {
-  const result = ToyRobotBS.Command.process(Arg1);
+export const Command_run: (_1:string) => Command_t = function (Arg1: any) {
+  const result = ToyRobotBS.Command.run(Arg1);
   return typeof(result) === 'object'
     ? result.tag===0
       ? {tag:"PLACE", value:[result.slice()[0], result.slice()[1], $$toJS311681469[result.slice()[2]]]}
@@ -209,6 +209,6 @@ export const Simulator: {
   }) => Simulator_t
 } = ToyRobotBS.Simulator
 
-export const Command: { process: (_1:string) => Command_t } = ToyRobotBS.Command
+export const Command: { run: (_1:string) => Command_t } = ToyRobotBS.Command
 
 export const CLI: { runCommands: (_1:Simulator_t, _2:Command_t[]) => (null | undefined | string); loadCommands: (_1:string) => Command_t[] } = ToyRobotBS.CLI

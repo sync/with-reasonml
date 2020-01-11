@@ -292,7 +292,7 @@ function asPlace(string) {
               }));
 }
 
-function $$process(command) {
+function run(command) {
   var val;
   var val$1;
   try {
@@ -322,7 +322,7 @@ function $$process(command) {
 
 var Command = {
   asPlace: asPlace,
-  $$process: $$process
+  run: run
 };
 
 function splitByLines(text) {
@@ -337,7 +337,7 @@ function splitByLines(text) {
 }
 
 function loadCommands(text) {
-  return $$Array.map($$process, splitByLines(text));
+  return $$Array.map(run, splitByLines(text));
 }
 
 function runCommands(simulator, commands) {
