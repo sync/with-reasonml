@@ -32,7 +32,7 @@ Ultra high performance progressive web application built with React + Reason (wi
 
 ## Setting the project up locally
 
-First of all make sure you are using node `10.15.3` (any node 10.x would also do) and latest yarn, you can always have a look at the `engines` section of the `package.json`. Why node 8.10. We are using Now.sh to make the app available online and underneath it's using AWS lambda and you have to use Node 8.
+First of all make sure you are using node `12.13.1` (any node 12.x would also do) and latest yarn, you can always have a look at the `engines` section of the `package.json`. Why node 8.10. We are using Now.sh to make the app available online and underneath it's using AWS lambda and you have to use Node 8.
 
 ```sh
 $ yarn (install)
