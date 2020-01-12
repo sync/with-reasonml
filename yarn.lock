@@ -5401,12 +5401,13 @@ eslint-plugin-eslint-plugin@^2.1.0:
   resolved "https://registry.yarnpkg.com/eslint-plugin-eslint-plugin/-/eslint-plugin-eslint-plugin-2.2.0.tgz#6cac90a8085f658e892b155dda130deac54cfa51"
   integrity sha512-X5+NT9a2GuwWyb3sHJdEEe6aD/30Fhi3/9XCmYHe/OSnWKUhmKOxFTfFM1AXZfJXjAoX7811bnoLI3fZr5AX5Q==
 
-eslint-plugin-jest@23.4.0:
-  version "23.4.0"
-  resolved "https://registry.yarnpkg.com/eslint-plugin-jest/-/eslint-plugin-jest-23.4.0.tgz#5209a659cf415a5154d64f957e0508ee83de224b"
-  integrity sha512-BKZmxpvya0/slJdUr5MJdWvIUNtDySzbAxigr3xMVmyiSUvQLhnLde+8dDM56sFPDSU1pQG9ZqNglMq0jLYVqw==
+eslint-plugin-jest@23.5.0:
+  version "23.5.0"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-jest/-/eslint-plugin-jest-23.5.0.tgz#d9e9ab7a6ccc37b586257933bb6c30df69cd570c"
+  integrity sha512-laSi1cj1K+l/3+56PDCtl8SfUNp1ARTG7Q/aF5Z1lvo83t/1GmCEXXtMM79Gq85o1c/KXRMb/CbzdaVYzEf3qw==
   dependencies:
     "@typescript-eslint/experimental-utils" "^2.5.0"
+    micromatch "^4.0.2"
 
 eslint-plugin-react@7.17.0:
   version "7.17.0"
