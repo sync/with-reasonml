@@ -56,7 +56,7 @@
     "@storybook/addon-viewport": "5.3.10",
     "@storybook/addons": "5.3.10",
     "@storybook/react": "5.3.10",
-    "@testing-library/jest-dom": "5.1.0",
+    "@testing-library/jest-dom": "5.1.1",
     "@testing-library/react": "9.4.0",
     "@types/jest": "25.1.1",
     "@types/react": "16.9.19",
