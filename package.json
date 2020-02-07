@@ -69,7 +69,7 @@
     "bs-platform": "7.0.1",
     "eslint": "6.8.0",
     "eslint-config-prettier": "6.10.0",
-    "eslint-plugin-jest": "23.6.0",
+    "eslint-plugin-jest": "23.7.0",
     "eslint-plugin-react": "7.18.3",
     "gentype": "3.11.0",
     "husky": "4.2.1",
