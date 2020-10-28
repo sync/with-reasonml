@@ -68,7 +68,7 @@
     "babel-loader": "8.0.6",
     "bs-platform": "7.0.1",
     "eslint": "6.8.0",
-    "eslint-config-prettier": "6.10.0",
+    "eslint-config-prettier": "6.15.0",
     "eslint-plugin-jest": "23.7.0",
     "eslint-plugin-react": "7.18.3",
     "gentype": "3.12.0",
