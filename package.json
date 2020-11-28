@@ -47,8 +47,8 @@
     "reason-react": "0.7.0"
   },
   "devDependencies": {
-    "@babel/core": "7.8.4",
-    "@babel/plugin-proposal-class-properties": "7.8.3",
+    "@babel/core": "7.12.9",
+    "@babel/plugin-proposal-class-properties": "7.12.1",
     "@percy-io/percy-storybook": "2.1.0",
     "@storybook/addon-actions": "5.3.13",
     "@storybook/addon-centered": "5.3.13",
@@ -65,7 +65,7 @@
     "@zeit/next-css": "1.0.1",
     "autoprefixer": "9.7.4",
     "awesome-typescript-loader": "5.2.1",
-    "babel-loader": "8.0.6",
+    "babel-loader": "8.2.2",
     "bs-platform": "7.0.1",
     "eslint": "6.8.0",
     "eslint-config-prettier": "6.10.0",
